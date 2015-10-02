@@ -21,9 +21,44 @@ entity main is
            Led    : out    STD_LOGIC_VECTOR (7 downto 0));
 end main;
 
-architecture Behavioral of main is
+ARCHITECTURE Behavioral of main is
 
-begin
+  -- =============================
+  -- Signals
+  -- =============================
+  type		mode is (mode1, mode2, mode3, mode4, mode5);
+  signal	present_mode, next_mode : mode;
+
+  -- =============================
+  -- Components
+  -- =============================
 
 
-end Behavioral;
+BEGIN
+
+  -- =============================
+  -- Port Mappings
+  -- =============================
+
+
+  -- =============================
+  -- Main Code
+  -- =============================
+  main: process (present_mode) --, inputs)
+  begin
+    case present_mode is
+			when mode1 =>
+        -- code
+      when mode2 =>
+        -- code
+      when mode3 =>
+        -- code
+      when mode4 =>
+        -- code
+      when mode5 =>
+        -- code
+    end case;
+  end process;
+
+
+END Behavioral;
