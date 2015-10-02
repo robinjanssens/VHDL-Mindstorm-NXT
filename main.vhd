@@ -12,12 +12,13 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity main is
-    Port ( clk : in  STD_LOGIC;
-           clr : in  STD_LOGIC;
-           en : in  STD_LOGIC;
-           sda : inout  STD_LOGIC;
-           scl : inout  STD_LOGIC;
-           analog : in  STD_LOGIC_VECTOR (15 downto 0));
+    Port ( clk    : in     STD_LOGIC;
+           clr    : in     STD_LOGIC;
+           en     : in     STD_LOGIC;
+           analog : in     STD_LOGIC_VECTOR (15 downto 0);
+           sda    : inout  STD_LOGIC;
+           scl    : inout  STD_LOGIC;
+           Led    : out    STD_LOGIC_VECTOR (7 downto 0));
 end main;
 
 architecture Behavioral of main is
@@ -26,4 +27,3 @@ begin
 
 
 end Behavioral;
-
