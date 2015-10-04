@@ -57,8 +57,8 @@ BEGIN
         -- code
       when state5 =>
         -- code
-      when other =>
-        next_state <= state1; 
+      when others =>
+        next_state <= state1;
     end case;
   end process;
 
