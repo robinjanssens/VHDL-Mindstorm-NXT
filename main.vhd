@@ -57,6 +57,9 @@ BEGIN
         -- code
       when mode5 =>
         -- code
+      when other =>
+        present_state <= mode1;
+        next_state <= mode1;
     end case;
   end process;
 
