@@ -1,0 +1,2 @@
+xst -intstyle ise -ifn "C:/Users/Robin/Documents/Mindstorm/VHDL-Mindstorm-NXT/main.xst" -ofn "C:/Users/Robin/Documents/Mindstorm/VHDL-Mindstorm-NXT/main.syr" 
+xst -intstyle ise -ifn "C:/Users/Robin/Documents/Mindstorm/VHDL-Mindstorm-NXT/main.xst" -ofn "C:/Users/Robin/Documents/Mindstorm/VHDL-Mindstorm-NXT/main.syr" 
