@@ -26,8 +26,8 @@ ARCHITECTURE Behavioral of main is
   -- =============================
   -- Signals
   -- =============================
-  type    mode is (mode1, mode2, mode3, mode4, mode5);
-  signal  present_mode, next_mode : mode;
+  type    state is (state1, state2, state3, state4, state5);
+  signal  present_state, next_state : state;
 
   -- =============================
   -- Components
@@ -44,33 +44,33 @@ BEGIN
   -- =============================
   -- Main Code
   -- =============================
-  main: process (present_mode) --, inputs)
+  main: process (present_state) --, inputs)
   begin
-    case present_mode is
-      when mode1 =>
+    case present_state is
+      when state1 =>
         -- code
-      when mode2 =>
+      when state2 =>
         -- code
-      when mode3 =>
+      when state3 =>
         -- code
-      when mode4 =>
+      when state4 =>
         -- code
-      when mode5 =>
+      when state5 =>
         -- code
       when other =>
-        present_state <= mode1;
-        next_state <= mode1;
+        present_state <= state1;
+        next_state <= state1;
     end case;
   end process;
 
   -- =============================
-  -- Mode Change
+  -- state Change
   -- =============================
-  mode_change: process (clk)
+  state_change: process (clk)
   begin
     if rising_edge(clk) then
       if clr = '1' then
-        present_state <= mode1;
+        present_state <= state1;
       else
         present_state <= next_state;
       end if;
