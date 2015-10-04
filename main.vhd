@@ -28,6 +28,12 @@ ARCHITECTURE Behavioral of main is
   -- =============================
   type    state is (state1, state2, state3, state4, state5);
   signal  present_state, next_state : state;
+  -- ultrasonic_sensor
+  signal  ultrasonic_sensor_rw       : STD_LOGIC;
+  signal  ultrasonic_sensor_data_in  : STD_LOGIC_VECTOR (7 DOWNTO 0);
+  signal  ultrasonic_sensor_data_out : STD_LOGIC_VECTOR (7 DOWNTO 0);
+  signal  ultrasonic_sensor_busy     : STD_LOGIC;
+  signal  ultrasonic_sensor_error    : STD_LOGIC;
 
   -- =============================
   -- Components
@@ -55,7 +61,19 @@ BEGIN
   -- =============================
   -- Port Mappings
   -- =============================
-  
+  ultrasonic_sensor : i2c_master
+    PORT MAP(
+      clk       => clk,
+      reset_n   => clr,
+      ena       => en,
+      addr      => "0000001",   -- addr = 1
+      rw        => ultrasonic_sensor_rw,
+      data_wr   => ultrasonic_sensor_data_out,
+      busy      => ultrasonic_sensor_busy,
+      data_rd   => ultrasonic_sensor_data_in,
+      ack_error => ultrasonic_sensor_error,
+      sda       => sda,
+      scl       => scl);
 
   -- =============================
   -- Main Code
