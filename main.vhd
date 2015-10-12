@@ -1,10 +1,10 @@
 ----------------------------------------------------------------------------------
--- Written by: Robin Janssens & Jens Donckers
+-- Written by: Robin Janssens, Jens Donckers & Rudi Conings
 -- Commissioned by: University of Antwerp
 ----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
---use IEEE.NUMERIC_STD.ALL;
+use IEEE.NUMERIC_STD.ALL;
 
 -- Uncomment the following library declaration if instantiating
 -- any Xilinx primitives in this code.
@@ -34,6 +34,9 @@ ARCHITECTURE Behavioral of main is
   signal  ultrasonic_sensor_data_out : STD_LOGIC_VECTOR (7 DOWNTO 0);
   signal  ultrasonic_sensor_busy     : STD_LOGIC;
   signal  ultrasonic_sensor_error    : STD_LOGIC;
+  -- Blink
+  signal  counter : integer range 0 to 25_000_000;
+  signal  sec     : STD_LOGIC;
 
   -- =============================
   -- Components
@@ -97,7 +100,7 @@ BEGIN
   end process;
 
   -- =============================
-  -- state Change
+  -- State Change
   -- =============================
   state_change: process (clk)
   begin
@@ -109,5 +112,34 @@ BEGIN
       end if;
     end if;
   end process;
+
+  -- =============================
+  -- Blink
+  -- =============================
+  secondsclk: process (clk)
+  begin
+    if rising_edge(clk) then
+      if clr = '1' then
+				sec <= '0';
+			elsif en = '1' then
+        if counter < 25_000_000 then
+          counter <= counter + 1;
+        else
+          counter <= 0;
+          sec <= not(sec);
+        end if;
+      end if;
+    end if;
+  end process;
+  Led(0) <= '1';
+  Led(1) <= '1';
+  Led(2) <= '1';
+  Led(3) <= '1';
+  Led(4) <= '1';
+  Led(5) <= '1';
+  Led(6) <= '1';
+  Led(7) <= sec;
+
+
 
 END Behavioral;

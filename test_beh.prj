@@ -1,0 +1,3 @@
+vhdl work "i2c_master.vhd"
+vhdl work "main.vhd"
+vhdl work "test.vhd"

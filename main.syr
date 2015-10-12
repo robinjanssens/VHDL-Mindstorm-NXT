@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.15 secs
+Total CPU time to Xst completion: 0.10 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.15 secs
+Total CPU time to Xst completion: 0.10 secs
  
 --> Reading design: main.prj
 
@@ -195,13 +195,19 @@ Unit <i2c_master> synthesized.
 Synthesizing Unit <main>.
     Related source file is "C:/Users/Robin/Documents/Mindstorm/VHDL-Mindstorm-NXT/main.vhd".
 WARNING:Xst:647 - Input <analog> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:1306 - Output <Led> is never assigned.
 WARNING:Xst:653 - Signal <ultrasonic_sensor_rw> is used but never assigned. This sourceless signal will be automatically connected to value 0.
 WARNING:Xst:646 - Signal <ultrasonic_sensor_error> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:653 - Signal <ultrasonic_sensor_data_out> is used but never assigned. This sourceless signal will be automatically connected to value 00000000.
 WARNING:Xst:646 - Signal <ultrasonic_sensor_data_in> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:646 - Signal <ultrasonic_sensor_busy> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:646 - Signal <present_state> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Found 25-bit up counter for signal <counter>.
+    Found 1-bit register for signal <sec>.
+    Found 25-bit comparator less for signal <sec$cmp_lt0000> created at line 125.
+    Summary:
+	inferred   1 Counter(s).
+	inferred   1 D-type flip-flop(s).
+	inferred   1 Comparator(s).
 Unit <main> synthesized.
 
 INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
@@ -216,12 +222,15 @@ Macro Statistics
 # Adders/Subtractors                                   : 2
  3-bit subtractor                                      : 1
  7-bit adder                                           : 1
-# Registers                                            : 21
- 1-bit register                                        : 16
+# Counters                                             : 1
+ 25-bit up counter                                     : 1
+# Registers                                            : 22
+ 1-bit register                                        : 17
  3-bit register                                        : 1
  7-bit register                                        : 1
  8-bit register                                        : 3
-# Comparators                                          : 1
+# Comparators                                          : 2
+ 25-bit comparator less                                : 1
  8-bit comparator equal                                : 1
 # Tristates                                            : 2
  1-bit tristate buffer                                 : 2
@@ -263,9 +272,12 @@ Macro Statistics
 # Adders/Subtractors                                   : 2
  3-bit subtractor                                      : 1
  7-bit adder                                           : 1
-# Registers                                            : 50
- Flip-Flops                                            : 50
-# Comparators                                          : 1
+# Counters                                             : 1
+ 25-bit up counter                                     : 1
+# Registers                                            : 51
+ Flip-Flops                                            : 51
+# Comparators                                          : 2
+ 25-bit comparator less                                : 1
  8-bit comparator equal                                : 1
 
 =========================================================================
@@ -364,8 +376,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 26
- Flip-Flops                                            : 26
+# Registers                                            : 52
+ Flip-Flops                                            : 52
 
 =========================================================================
 
@@ -394,27 +406,33 @@ Design Statistics
 # IOs                              : 29
 
 Cell Usage :
-# BELS                             : 73
+# BELS                             : 172
 #      GND                         : 1
-#      INV                         : 2
-#      LUT2                        : 8
-#      LUT3                        : 17
+#      INV                         : 7
+#      LUT1                        : 28
+#      LUT2                        : 10
+#      LUT3                        : 18
 #      LUT3_D                      : 2
 #      LUT3_L                      : 2
-#      LUT4                        : 33
+#      LUT4                        : 36
 #      LUT4_D                      : 2
 #      LUT4_L                      : 3
+#      MUXCY                       : 34
 #      MUXF5                       : 3
-# FlipFlops/Latches                : 26
+#      VCC                         : 1
+#      XORCY                       : 25
+# FlipFlops/Latches                : 52
 #      FDC                         : 7
 #      FDCE                        : 10
 #      FDE                         : 4
 #      FDPE                        : 5
+#      FDRE                        : 26
 # Clock Buffers                    : 1
 #      BUFGP                       : 1
-# IO Buffers                       : 4
+# IO Buffers                       : 12
 #      IBUF                        : 2
 #      IOBUF                       : 1
+#      OBUF                        : 8
 #      OBUFT                       : 1
 =========================================================================
 
@@ -423,11 +441,11 @@ Device utilization summary:
 
 Selected Device : 3s1200eft256-5 
 
- Number of Slices:                       35  out of   8672     0%  
- Number of Slice Flip Flops:             26  out of  17344     0%  
- Number of 4 input LUTs:                 69  out of  17344     0%  
+ Number of Slices:                       55  out of   8672     0%  
+ Number of Slice Flip Flops:             52  out of  17344     0%  
+ Number of 4 input LUTs:                108  out of  17344     0%  
  Number of IOs:                          29
- Number of bonded IOBs:                   5  out of    190     2%  
+ Number of bonded IOBs:                  13  out of    190     6%  
  Number of GCLKs:                         1  out of     24     4%  
 
 ---------------------------
@@ -451,7 +469,7 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-clk                                | BUFGP                  | 26    |
+clk                                | BUFGP                  | 52    |
 -----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
@@ -467,7 +485,7 @@ Timing Summary:
 Speed Grade: -5
 
    Minimum period: 6.496ns (Maximum Frequency: 153.933MHz)
-   Minimum input arrival time before clock: 3.780ns
+   Minimum input arrival time before clock: 4.446ns
    Maximum output required time after clock: 5.373ns
    Maximum combinational path delay: No path found
 
@@ -478,7 +496,7 @@ All values displayed in nanoseconds (ns)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
   Clock period: 6.496ns (frequency: 153.933MHz)
-  Total number of paths / destination ports: 588 / 41
+  Total number of paths / destination ports: 1408 / 93
 -------------------------------------------------------------------------
 Delay:               6.496ns (Levels of Logic = 6)
   Source:            ultrasonic_sensor/count_5 (FF)
@@ -504,28 +522,27 @@ Delay:               6.496ns (Levels of Logic = 6)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
-  Total number of paths / destination ports: 13 / 12
+  Total number of paths / destination ports: 115 / 64
 -------------------------------------------------------------------------
-Offset:              3.780ns (Levels of Logic = 3)
+Offset:              4.446ns (Levels of Logic = 2)
   Source:            en (PAD)
-  Destination:       ultrasonic_sensor/state_FSM_FFd5 (FF)
+  Destination:       counter_0 (FF)
   Destination Clock: clk rising
 
-  Data Path: en to ultrasonic_sensor/state_FSM_FFd5
+  Data Path: en to counter_0
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             8   1.106   0.673  en_IBUF (en_IBUF)
-     LUT3:I2->O            1   0.612   0.509  ultrasonic_sensor/state_FSM_FFd5-In_SW0 (N4)
-     LUT4:I0->O            1   0.612   0.000  ultrasonic_sensor/state_FSM_FFd5-In (ultrasonic_sensor/state_FSM_FFd5-In)
-     FDCE:D                    0.268          ultrasonic_sensor/state_FSM_FFd5
+     IBUF:I->O            11   1.106   0.862  en_IBUF (en_IBUF)
+     LUT3:I1->O           25   0.612   1.071  counter_and00001 (counter_and0000)
+     FDRE:R                    0.795          counter_0
     ----------------------------------------
-    Total                      3.780ns (2.598ns logic, 1.182ns route)
-                                       (68.7% logic, 31.3% route)
+    Total                      4.446ns (2.513ns logic, 1.933ns route)
+                                       (56.5% logic, 43.5% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
-  Total number of paths / destination ports: 6 / 2
+  Total number of paths / destination ports: 7 / 3
 -------------------------------------------------------------------------
 Offset:              5.373ns (Levels of Logic = 2)
   Source:            ultrasonic_sensor/state_FSM_FFd8 (FF)
@@ -547,13 +564,13 @@ Offset:              5.373ns (Levels of Logic = 2)
 
 
 Total REAL time to Xst completion: 6.00 secs
-Total CPU time to Xst completion: 6.55 secs
+Total CPU time to Xst completion: 5.94 secs
  
 --> 
 
-Total memory usage is 302348 kilobytes
+Total memory usage is 302356 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   89 (   0 filtered)
+Number of warnings :   88 (   0 filtered)
 Number of infos    :    5 (   0 filtered)
 
