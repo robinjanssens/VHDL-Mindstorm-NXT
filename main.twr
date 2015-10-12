@@ -37,45 +37,18 @@ INFO:Timing:3389 - This architecture does not support 'Discrete Jitter' and
 
 Data Sheet report:
 -----------------
-All values displayed in nanoseconds (ns)
+No constraints were found to generate data for the Data Sheet Report section.
+Use the Advanced Analysis (-a) option or generate global constraints for each
+clock, its pad to setup and clock to pad paths, and a pad to pad constraint.
 
-Setup/Hold to clock clk
-------------+------------+------------+------------------+--------+
-            |Max Setup to|Max Hold to |                  | Clock  |
-Source      | clk (edge) | clk (edge) |Internal Clock(s) | Phase  |
-------------+------------+------------+------------------+--------+
-clr         |    4.370(R)|    1.500(R)|clk_BUFGP         |   0.000|
-en          |    3.205(R)|    1.236(R)|clk_BUFGP         |   0.000|
-scl         |    0.111(R)|    1.083(R)|clk_BUFGP         |   0.000|
-------------+------------+------------+------------------+--------+
-
-Clock clk to Pad
-------------+------------+------------------+--------+
-            | clk (edge) |                  | Clock  |
-Destination |   to PAD   |Internal Clock(s) | Phase  |
-------------+------------+------------------+--------+
-Led<7>      |    9.731(R)|clk_BUFGP         |   0.000|
-scl         |    9.083(R)|clk_BUFGP         |   0.000|
-sda         |    9.233(R)|clk_BUFGP         |   0.000|
-------------+------------+------------------+--------+
-
-Clock to Setup on destination clock clk
----------------+---------+---------+---------+---------+
-               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
-Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
----------------+---------+---------+---------+---------+
-clk            |    5.659|         |         |         |
----------------+---------+---------+---------+---------+
-
-
-Analysis completed Mon Oct 12 10:43:53 2015 
+Analysis completed Mon Oct 12 15:37:08 2015 
 --------------------------------------------------------------------------------
 
 Trace Settings:
 -------------------------
 Trace Settings 
 
-Peak Memory Usage: 195 MB
+Peak Memory Usage: 179 MB
 
 
 

@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2015-10-05T23:00:07</DateModified>
+  <DateModified>2015-10-12T15:27:44</DateModified>
   <ModuleName>main</ModuleName>
-  <SummaryTimeStamp>2015-10-05T22:48:21</SummaryTimeStamp>
-  <SavedFilePath>C:/Users/Robin/Documents/Mindstorm/VHDL-Mindstorm-NXT/iseconfig/main.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>C:/Users/Robin/Documents/Mindstorm/VHDL-Mindstorm-NXT\</ImplementationReportsDirectory>
+  <SummaryTimeStamp>2015-10-12T15:12:18</SummaryTimeStamp>
+  <SavedFilePath>C:/Users/Robin/Documents/Mindstorm/test/iseconfig/main.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>C:/Users/Robin/Documents/Mindstorm/test\</ImplementationReportsDirectory>
   <DateInitialized>2015-09-29T16:05:04</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>

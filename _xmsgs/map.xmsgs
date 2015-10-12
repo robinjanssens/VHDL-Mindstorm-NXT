@@ -5,18 +5,6 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="info" file="LIT" num="243" delta="old" >Logical network <arg fmt="%s" index="1">analog&lt;15&gt;</arg> has no load.
-</msg>
-
-<msg type="info" file="LIT" num="395" delta="old" >The above <arg fmt="%s" index="1">info</arg> message is repeated <arg fmt="%d" index="2">15</arg> more times for the following (max. 5 shown):
-<arg fmt="%s" index="3">analog&lt;14&gt;,
-analog&lt;13&gt;,
-analog&lt;12&gt;,
-analog&lt;11&gt;,
-analog&lt;10&gt;</arg>
-To see the details of these <arg fmt="%s" index="4">info</arg> messages, please use the -detail switch.
-</msg>
-
 <msg type="info" file="MapLib" num="564" delta="old" >The following environment variables are currently set:
 </msg>
 
@@ -26,13 +14,13 @@ To see the details of these <arg fmt="%s" index="4">info</arg> messages, please 
 <msg type="warning" file="MapLib" num="680" delta="old" ><arg fmt="%s" index="1">LOC</arg> constraint <arg fmt="%s" index="2">J15</arg> on <arg fmt="%s" index="3">Led&lt;1&gt;</arg> is invalid: <arg fmt="%z" index="4">No such site on the device.</arg> Ignoring...
 </msg>
 
-<msg type="warning" file="MapLib" num="680" delta="old" ><arg fmt="%s" index="1">LOC</arg> constraint <arg fmt="%s" index="2">E17</arg> on <arg fmt="%s" index="3">Led&lt;4&gt;</arg> is invalid: <arg fmt="%z" index="4">No such site on the device.</arg> Ignoring...
+<msg type="warning" file="MapLib" num="680" delta="old" ><arg fmt="%s" index="1">LOC</arg> constraint <arg fmt="%s" index="2">F17</arg> on <arg fmt="%s" index="3">an&lt;0&gt;</arg> is invalid: <arg fmt="%z" index="4">No such site on the device.</arg> Ignoring...
 </msg>
 
-<msg type="warning" file="MapLib" num="680" delta="old" ><arg fmt="%s" index="1">LOC</arg> constraint <arg fmt="%s" index="2">H18</arg> on <arg fmt="%s" index="3">clr</arg> is invalid: <arg fmt="%z" index="4">No such site on the device.</arg> Ignoring...
+<msg type="warning" file="MapLib" num="680" delta="old" ><arg fmt="%s" index="1">LOC</arg> constraint <arg fmt="%s" index="2">H17</arg> on <arg fmt="%s" index="3">an&lt;1&gt;</arg> is invalid: <arg fmt="%z" index="4">No such site on the device.</arg> Ignoring...
 </msg>
 
-<msg type="warning" file="MapLib" num="680" delta="old" ><arg fmt="%s" index="1">LOC</arg> constraint <arg fmt="%s" index="2">G18</arg> on <arg fmt="%s" index="3">en</arg> is invalid: <arg fmt="%z" index="4">No such site on the device.</arg> Ignoring...
+<msg type="warning" file="MapLib" num="680" delta="old" ><arg fmt="%s" index="1">LOC</arg> constraint <arg fmt="%s" index="2">C18</arg> on <arg fmt="%s" index="3">an&lt;2&gt;</arg> is invalid: <arg fmt="%z" index="4">No such site on the device.</arg> Ignoring...
 </msg>
 
 <msg type="info" file="LIT" num="244" delta="old" >All of the single ended outputs in this design are using slew rate limited output drivers. The delay on speed critical single ended outputs can be dramatically reduced by designating them as fast outputs.
