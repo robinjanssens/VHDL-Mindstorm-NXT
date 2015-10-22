@@ -5,6 +5,7 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
+<<<<<<< HEAD
 <msg type="warning" file="HDLParsers" num="817" delta="old" >&quot;<arg fmt="%s" index="1">C:/Users/Robin/Documents/Mindstorm/VHDL-Mindstorm-NXT/i2c_master.vhd</arg>&quot; Line <arg fmt="%d" index="2">86</arg>. Choice <arg fmt="%s" index="3">.TO.</arg> is not a locally static expression.
 </msg>
 
@@ -405,5 +406,7 @@
 <msg type="info" file="Xst" num="2169" delta="old" >HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
 </msg>
 
+=======
+>>>>>>> 7223f883d832eee8074a72502249c2102a9c4de5
 </messages>
 

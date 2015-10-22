@@ -3,14 +3,24 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 --> Parameter TMPDIR set to xst/projnav.tmp
 
 
+<<<<<<< HEAD
 Total REAL time to Xst completion: 1.00 secs
 Total CPU time to Xst completion: 0.33 secs
+=======
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.11 secs
+>>>>>>> 7223f883d832eee8074a72502249c2102a9c4de5
  
 --> Parameter xsthdpdir set to xst
 
 
+<<<<<<< HEAD
 Total REAL time to Xst completion: 1.00 secs
 Total CPU time to Xst completion: 0.33 secs
+=======
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.11 secs
+>>>>>>> 7223f883d832eee8074a72502249c2102a9c4de5
  
 --> Reading design: main.prj
 
@@ -104,12 +114,7 @@ Slice Utilization Ratio Delta      : 5
 =========================================================================
 *                          HDL Compilation                              *
 =========================================================================
-Compiling vhdl file "C:/Users/Robin/Documents/Mindstorm/VHDL-Mindstorm-NXT/i2c_master.vhd" in Library work.
-WARNING:HDLParsers:817 - "C:/Users/Robin/Documents/Mindstorm/VHDL-Mindstorm-NXT/i2c_master.vhd" Line 86. Choice .TO. is not a locally static expression.
-WARNING:HDLParsers:817 - "C:/Users/Robin/Documents/Mindstorm/VHDL-Mindstorm-NXT/i2c_master.vhd" Line 89. Choice .TO. is not a locally static expression.
-WARNING:HDLParsers:817 - "C:/Users/Robin/Documents/Mindstorm/VHDL-Mindstorm-NXT/i2c_master.vhd" Line 92. Choice .TO. is not a locally static expression.
-Architecture logic of Entity i2c_master is up to date.
-Compiling vhdl file "C:/Users/Robin/Documents/Mindstorm/VHDL-Mindstorm-NXT/main.vhd" in Library work.
+Compiling vhdl file "C:/Users/Robin/Documents/Mindstorm/test/main.vhd" in Library work.
 Entity <main> compiled.
 Entity <main> (Architecture <behavioral>) compiled.
 
@@ -118,15 +123,19 @@ Entity <main> (Architecture <behavioral>) compiled.
 =========================================================================
 Analyzing hierarchy for entity <main> in library <work> (architecture <behavioral>).
 
+<<<<<<< HEAD
 Analyzing hierarchy for entity <i2c_master> in library <work> (architecture <logic>) with generics.
 	bus_clk = 9600
 	input_clk = 50000000
 
+=======
+>>>>>>> 7223f883d832eee8074a72502249c2102a9c4de5
 
 =========================================================================
 *                            HDL Analysis                               *
 =========================================================================
 Analyzing Entity <main> in library <work> (Architecture <behavioral>).
+<<<<<<< HEAD
 INFO:Xst:1739 - HDL ADVISOR - "C:/Users/Robin/Documents/Mindstorm/VHDL-Mindstorm-NXT/main.vhd" line 49: declaration of a buffer port will make it difficult for you to validate this design by simulation. It is preferable to declare it as output.
 WARNING:Xst:819 - "C:/Users/Robin/Documents/Mindstorm/VHDL-Mindstorm-NXT/main.vhd" line 92: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
    <i2c_busy>, <slave_addr>, <data_to_write>, <new_data_to_write>, <i2c_data_rd>
@@ -137,12 +146,17 @@ Analyzing generic Entity <i2c_master> in library <work> (Architecture <logic>).
 	input_clk = 50000000
 Entity <i2c_master> analyzed. Unit <i2c_master> generated.
 
+=======
+Entity <main> analyzed. Unit <main> generated.
+
+>>>>>>> 7223f883d832eee8074a72502249c2102a9c4de5
 
 =========================================================================
 *                           HDL Synthesis                               *
 =========================================================================
 
 Performing bidirectional port resolution...
+<<<<<<< HEAD
 
 Synthesizing Unit <i2c_master>.
     Related source file is "C:/Users/Robin/Documents/Mindstorm/VHDL-Mindstorm-NXT/i2c_master.vhd".
@@ -225,13 +239,18 @@ INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and 
 	inferred   7 D-type flip-flop(s).
 	inferred   1 Adder/Subtractor(s).
 	inferred   1 Comparator(s).
+=======
+
+Synthesizing Unit <main>.
+    Related source file is "C:/Users/Robin/Documents/Mindstorm/test/main.vhd".
+>>>>>>> 7223f883d832eee8074a72502249c2102a9c4de5
 Unit <main> synthesized.
 
-INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
 
 =========================================================================
 HDL Synthesis Report
 
+<<<<<<< HEAD
 Macro Statistics
 # Adders/Subtractors                                   : 3
  13-bit adder                                          : 1
@@ -259,12 +278,16 @@ Macro Statistics
 # Tristates                                            : 2
  1-bit tristate buffer                                 : 2
 
+=======
+Found no macro
+>>>>>>> 7223f883d832eee8074a72502249c2102a9c4de5
 =========================================================================
 
 =========================================================================
 *                       Advanced HDL Synthesis                          *
 =========================================================================
 
+<<<<<<< HEAD
 Analyzing FSM <FSM_0> for best encoding.
 Optimizing FSM <ultrasonic_sensor/state/FSM> on signal <state[1:9]> with one-hot encoding.
 -----------------------
@@ -297,10 +320,13 @@ WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <present_state_3> ha
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <present_state_4> has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <present_state_5> has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:2677 - Node <present_state_0> of sequential type is unconnected in block <main>.
+=======
+>>>>>>> 7223f883d832eee8074a72502249c2102a9c4de5
 
 =========================================================================
 Advanced HDL Synthesis Report
 
+<<<<<<< HEAD
 Macro Statistics
 # FSMs                                                 : 1
 # Adders/Subtractors                                   : 3
@@ -323,11 +349,15 @@ Macro Statistics
  25-bit comparator less                                : 1
  8-bit comparator equal                                : 1
 
+=======
+Found no macro
+>>>>>>> 7223f883d832eee8074a72502249c2102a9c4de5
 =========================================================================
 
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
+<<<<<<< HEAD
 INFO:Xst:2261 - The FF/Latch <next_state_1> in Unit <main> is equivalent to the following 4 FFs/Latches, which will be removed : <next_state_2> <next_state_3> <next_state_4> <next_state_5> 
 INFO:Xst:2261 - The FF/Latch <i2c_addr_0> in Unit <main> is equivalent to the following 6 FFs/Latches, which will be removed : <i2c_addr_1> <i2c_addr_2> <i2c_addr_3> <i2c_addr_4> <i2c_addr_5> <i2c_addr_6> 
 WARNING:Xst:1293 - FF/Latch <next_state_1> has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
@@ -423,6 +453,10 @@ WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ultrasonic_sensor/a
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ultrasonic_sensor/addr_rw_3> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ultrasonic_sensor/addr_rw_2> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ultrasonic_sensor/addr_rw_1> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
+=======
+
+Optimizing unit <main> ...
+>>>>>>> 7223f883d832eee8074a72502249c2102a9c4de5
 
 Mapping all equations...
 Building and optimizing final netlist ...
@@ -433,10 +467,14 @@ Final Macro Processing ...
 =========================================================================
 Final Register Report
 
+<<<<<<< HEAD
 Macro Statistics
 # Registers                                            : 60
  Flip-Flops                                            : 60
 
+=======
+Found no macro
+>>>>>>> 7223f883d832eee8074a72502249c2102a9c4de5
 =========================================================================
 
 =========================================================================
@@ -461,9 +499,10 @@ Optimization Goal                  : Speed
 Keep Hierarchy                     : No
 
 Design Statistics
-# IOs                              : 29
+# IOs                              : 12
 
 Cell Usage :
+<<<<<<< HEAD
 # BELS                             : 292
 #      GND                         : 1
 #      INV                         : 8
@@ -487,11 +526,13 @@ Cell Usage :
 #      LD                          : 6
 # Clock Buffers                    : 1
 #      BUFGP                       : 1
+=======
+# BELS                             : 2
+#      GND                         : 1
+#      VCC                         : 1
+>>>>>>> 7223f883d832eee8074a72502249c2102a9c4de5
 # IO Buffers                       : 12
-#      IBUF                        : 2
-#      IOBUF                       : 1
-#      OBUF                        : 8
-#      OBUFT                       : 1
+#      OBUF                        : 12
 =========================================================================
 
 Device utilization summary:
@@ -499,12 +540,18 @@ Device utilization summary:
 
 Selected Device : 3s1200efg320-5 
 
+<<<<<<< HEAD
  Number of Slices:                       85  out of   8672     0%  
  Number of Slice Flip Flops:             66  out of  17344     0%  
  Number of 4 input LUTs:                163  out of  17344     0%  
  Number of IOs:                          29
  Number of bonded IOBs:                  13  out of    250     5%  
  Number of GCLKs:                         1  out of     24     4%  
+=======
+ Number of Slices:                        0  out of   8672     0%  
+ Number of IOs:                          12
+ Number of bonded IOBs:                  12  out of    190     6%  
+>>>>>>> 7223f883d832eee8074a72502249c2102a9c4de5
 
 ---------------------------
 Partition Resource Summary:
@@ -524,6 +571,7 @@ NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
 
 Clock Information:
 ------------------
+<<<<<<< HEAD
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
@@ -539,14 +587,27 @@ Control Signal                                                       | Buffer(FF
 ---------------------------------------------------------------------+----------------------------------+-------+
 ultrasonic_sensor/reset_n_inv(ultrasonic_sensor/reset_n_inv1_INV_0:O)| NONE(ultrasonic_sensor/bit_cnt_0)| 29    |
 ---------------------------------------------------------------------+----------------------------------+-------+
+=======
+No clock signals found in this design
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+>>>>>>> 7223f883d832eee8074a72502249c2102a9c4de5
 
 Timing Summary:
 ---------------
 Speed Grade: -5
 
+<<<<<<< HEAD
    Minimum period: 8.634ns (Maximum Frequency: 115.826MHz)
    Minimum input arrival time before clock: 4.350ns
    Maximum output required time after clock: 5.364ns
+=======
+   Minimum period: No path found
+   Minimum input arrival time before clock: No path found
+   Maximum output required time after clock: No path found
+>>>>>>> 7223f883d832eee8074a72502249c2102a9c4de5
    Maximum combinational path delay: No path found
 
 Timing Detail:
@@ -554,6 +615,7 @@ Timing Detail:
 All values displayed in nanoseconds (ns)
 
 =========================================================================
+<<<<<<< HEAD
 Timing constraint: Default period analysis for Clock 'clk'
   Clock period: 8.634ns (frequency: 115.826MHz)
   Total number of paths / destination ports: 3650 / 101
@@ -662,4 +724,18 @@ Total memory usage is 302324 kilobytes
 Number of errors   :    0 (   0 filtered)
 Number of warnings :  124 (   0 filtered)
 Number of infos    :    8 (   0 filtered)
+=======
+
+
+Total REAL time to Xst completion: 5.00 secs
+Total CPU time to Xst completion: 5.22 secs
+ 
+--> 
+
+Total memory usage is 286160 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    0 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+>>>>>>> 7223f883d832eee8074a72502249c2102a9c4de5
 

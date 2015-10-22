@@ -5,14 +5,9 @@
 ----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx primitives in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
 
 entity main is
+<<<<<<< HEAD
     Port ( clk    : in     STD_LOGIC;
            clr    : in     STD_LOGIC;
            en     : in     STD_LOGIC;
@@ -20,10 +15,16 @@ entity main is
            sda    : inout  STD_LOGIC;   -- i2c to sensors
            scl    : inout  STD_LOGIC;   -- i2c to sensors
            Led    : out    STD_LOGIC_VECTOR (7 downto 0));
+=======
+    Port ( 
+	   an     : out    STD_LOGIC_VECTOR (3 downto 0);
+	   Led    : out    STD_LOGIC_VECTOR (7 downto 0));
+>>>>>>> 7223f883d832eee8074a72502249c2102a9c4de5
 end main;
 
 ARCHITECTURE Behavioral of main is
 
+<<<<<<< HEAD
   -- =============================
   -- Signals
   -- =============================
@@ -189,5 +190,11 @@ BEGIN
   Led(7) <= sec;
 
 
+=======
+BEGIN
+
+Led <= "11111111";
+an  <= "0000";
+>>>>>>> 7223f883d832eee8074a72502249c2102a9c4de5
 
 END Behavioral;

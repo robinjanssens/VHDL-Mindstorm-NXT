@@ -37,8 +37,11 @@ INFO:Timing:3389 - This architecture does not support 'Discrete Jitter' and
 
 Data Sheet report:
 -----------------
-All values displayed in nanoseconds (ns)
+No constraints were found to generate data for the Data Sheet Report section.
+Use the Advanced Analysis (-a) option or generate global constraints for each
+clock, its pad to setup and clock to pad paths, and a pad to pad constraint.
 
+<<<<<<< HEAD
 Setup/Hold to clock clk
 ------------+------------+------------+------------------+--------+
             |Max Setup to|Max Hold to |                  | Clock  |
@@ -69,13 +72,16 @@ clk            |    8.001|         |         |         |
 
 
 Analysis completed Thu Oct 22 20:26:44 2015 
+=======
+Analysis completed Mon Oct 12 15:37:08 2015 
+>>>>>>> 7223f883d832eee8074a72502249c2102a9c4de5
 --------------------------------------------------------------------------------
 
 Trace Settings:
 -------------------------
 Trace Settings 
 
-Peak Memory Usage: 195 MB
+Peak Memory Usage: 179 MB
 
 
 

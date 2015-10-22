@@ -1,8 +1,13 @@
 INTSTYLE=ise
-INFILE=C:\Users\Robin\Documents\Mindstorm\VHDL-Mindstorm-NXT\main.ncd
-OUTFILE=C:\Users\Robin\Documents\Mindstorm\VHDL-Mindstorm-NXT\main.bit
+INFILE=C:\Users\Robin\Documents\Mindstorm\test\main.ncd
+OUTFILE=C:\Users\Robin\Documents\Mindstorm\test\main.bit
 FAMILY=Spartan3E
+<<<<<<< HEAD
 PART=xc3s1200e-5fg320
 WORKINGDIR=C:\Users\Robin\Documents\Mindstorm\VHDL-Mindstorm-NXT
+=======
+PART=xc3s1200e-5ft256
+WORKINGDIR=C:\Users\Robin\Documents\Mindstorm\test
+>>>>>>> 7223f883d832eee8074a72502249c2102a9c4de5
 LICENSE=WebPack
 USER_INFO=210858241_0_0_033

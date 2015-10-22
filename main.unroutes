@@ -1,7 +1,11 @@
 Release 14.7 - par P.20131013 (nt64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
+<<<<<<< HEAD
 Thu Oct 22 20:26:41 2015
+=======
+Mon Oct 12 15:37:05 2015
+>>>>>>> 7223f883d832eee8074a72502249c2102a9c4de5
 
 All signals are completely routed.
 

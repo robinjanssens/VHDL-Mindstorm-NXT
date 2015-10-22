@@ -3,11 +3,19 @@
 <!--The data in this file is primarily intended for consumption by Xilinx tools.
 The structure and the elements are likely to change over the next few releases.
 This means code written to parse this file will need to be revisited each subsequent release.-->
+<<<<<<< HEAD
 <application name="pn" timeStamp="Thu Oct 22 20:26:23 2015">
 <section name="Project Information" visible="false">
 <property name="ProjectID" value="5309DDBCF0E7497180B2CB4479C5FF16" type="project"/>
 <property name="ProjectIteration" value="19" type="project"/>
 <property name="ProjectFile" value="C:/Users/Robin/Documents/Mindstorm/VHDL-Mindstorm-NXT/VHDL-Mindstorm-NXT.xise" type="project"/>
+=======
+<application name="pn" timeStamp="Mon Oct 12 15:36:54 2015">
+<section name="Project Information" visible="false">
+<property name="ProjectID" value="5309DDBCF0E7497180B2CB4479C5FF16" type="project"/>
+<property name="ProjectIteration" value="24" type="project"/>
+<property name="ProjectFile" value="C:/Users/Robin/Documents/Mindstorm/test/VHDL-Mindstorm-NXT.xise" type="project"/>
+>>>>>>> 7223f883d832eee8074a72502249c2102a9c4de5
 <property name="ProjectCreationTimestamp" value="2015-09-29T15:38:18" type="project"/>
 </section>
 <section name="Project Statistics" visible="true">
@@ -26,7 +34,11 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="PROP_UserConstraintEditorPreference" value="Text Editor" type="process"/>
 <property name="PROP_intProjectCreationTimestamp" value="2015-09-29T15:38:18" type="design"/>
 <property name="PROP_intWbtProjectID" value="5309DDBCF0E7497180B2CB4479C5FF16" type="design"/>
+<<<<<<< HEAD
 <property name="PROP_intWbtProjectIteration" value="19" type="process"/>
+=======
+<property name="PROP_intWbtProjectIteration" value="24" type="process"/>
+>>>>>>> 7223f883d832eee8074a72502249c2102a9c4de5
 <property name="PROP_intWorkingDirLocWRTProjDir" value="Same" type="design"/>
 <property name="PROP_intWorkingDirUsed" value="No" type="design"/>
 <property name="PROP_selectedSimRootSourceNode_behav" value="work.test" type="process"/>
@@ -41,7 +53,7 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="PROP_DevSpeed" value="-5" type="design"/>
 <property name="PROP_PreferredLanguage" value="VHDL" type="design"/>
 <property name="FILE_UCF" value="1" type="source"/>
-<property name="FILE_VHDL" value="3" type="source"/>
+<property name="FILE_VHDL" value="2" type="source"/>
 </section>
 </application>
 </document>
