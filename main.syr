@@ -3,14 +3,14 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 --> Parameter TMPDIR set to xst/projnav.tmp
 
 
-Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.10 secs
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.33 secs
  
 --> Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.10 secs
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.33 secs
  
 --> Reading design: main.prj
 
@@ -42,7 +42,7 @@ Ignore Synthesis Constraint File   : NO
 ---- Target Parameters
 Output File Name                   : "main"
 Output Format                      : NGC
-Target Device                      : xc3s1200e-5-ft256
+Target Device                      : xc3s1200e-5-fg320
 
 ---- Source Options
 Top Module Name                    : main
@@ -119,7 +119,7 @@ Entity <main> (Architecture <behavioral>) compiled.
 Analyzing hierarchy for entity <main> in library <work> (architecture <behavioral>).
 
 Analyzing hierarchy for entity <i2c_master> in library <work> (architecture <logic>) with generics.
-	bus_clk = 400000
+	bus_clk = 9600
 	input_clk = 50000000
 
 
@@ -128,11 +128,12 @@ Analyzing hierarchy for entity <i2c_master> in library <work> (architecture <log
 =========================================================================
 Analyzing Entity <main> in library <work> (Architecture <behavioral>).
 INFO:Xst:1739 - HDL ADVISOR - "C:/Users/Robin/Documents/Mindstorm/VHDL-Mindstorm-NXT/main.vhd" line 49: declaration of a buffer port will make it difficult for you to validate this design by simulation. It is preferable to declare it as output.
-INFO:Xst:2679 - Register <next_state> in unit <main> has a constant value of 000 during circuit operation. The register is replaced by logic.
+WARNING:Xst:819 - "C:/Users/Robin/Documents/Mindstorm/VHDL-Mindstorm-NXT/main.vhd" line 92: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
+   <i2c_busy>, <slave_addr>, <data_to_write>, <new_data_to_write>, <i2c_data_rd>
 Entity <main> analyzed. Unit <main> generated.
 
 Analyzing generic Entity <i2c_master> in library <work> (Architecture <logic>).
-	bus_clk = 400000
+	bus_clk = 9600
 	input_clk = 50000000
 Entity <i2c_master> analyzed. Unit <i2c_master> generated.
 
@@ -142,7 +143,6 @@ Entity <i2c_master> analyzed. Unit <i2c_master> generated.
 =========================================================================
 
 Performing bidirectional port resolution...
-INFO:Xst:2679 - Register <present_state> in unit <main> has a constant value of 000 during circuit operation. The register is replaced by logic.
 
 Synthesizing Unit <i2c_master>.
     Related source file is "C:/Users/Robin/Documents/Mindstorm/VHDL-Mindstorm-NXT/i2c_master.vhd".
@@ -161,8 +161,6 @@ Synthesizing Unit <i2c_master>.
     | Encoding           | automatic                                      |
     | Implementation     | LUT                                            |
     -----------------------------------------------------------------------
-    Found 128x1-bit ROM for signal <data_clk$mux0001> created at line 85.
-    Found 64x1-bit ROM for signal <scl_clk$mux0002>.
     Found 1-bit register for signal <busy>.
     Found 1-bit register for signal <ack_error>.
     Found 8-bit register for signal <data_rd>.
@@ -171,23 +169,27 @@ Synthesizing Unit <i2c_master>.
     Found 8-bit register for signal <addr_rw>.
     Found 3-bit register for signal <bit_cnt>.
     Found 3-bit subtractor for signal <bit_cnt$addsub0000>.
-    Found 7-bit register for signal <count>.
-    Found 7-bit adder for signal <count$addsub0000> created at line 83.
+    Found 13-bit register for signal <count>.
+    Found 13-bit adder for signal <count$addsub0000> created at line 83.
     Found 1-bit register for signal <data_clk>.
+    Found 13-bit comparator greatequal for signal <data_clk$cmp_ge0000>.
+    Found 13-bit comparator lessequal for signal <data_clk$cmp_le0000>.
     Found 1-bit register for signal <data_clk_prev>.
     Found 8-bit register for signal <data_rx>.
     Found 8-bit register for signal <data_tx>.
     Found 1-bit register for signal <scl_clk>.
+    Found 13-bit comparator lessequal for signal <scl_clk$cmp_le0000>.
     Found 1-bit register for signal <scl_ena>.
     Found 1-bit register for signal <sda_int>.
     Found 8-bit comparator equal for signal <state$cmp_eq0001> created at line 184.
     Found 1-bit register for signal <stretch>.
+    Found 13-bit comparator greatequal for signal <stretch$cmp_ge0000>.
+    Found 13-bit comparator lessequal for signal <stretch$cmp_le0000>.
     Summary:
 	inferred   1 Finite State Machine(s).
-	inferred   2 ROM(s).
-	inferred  50 D-type flip-flop(s).
+	inferred  56 D-type flip-flop(s).
 	inferred   2 Adder/Subtractor(s).
-	inferred   1 Comparator(s).
+	inferred   6 Comparator(s).
 	inferred   2 Tristate(s).
 Unit <i2c_master> synthesized.
 
@@ -195,18 +197,33 @@ Unit <i2c_master> synthesized.
 Synthesizing Unit <main>.
     Related source file is "C:/Users/Robin/Documents/Mindstorm/VHDL-Mindstorm-NXT/main.vhd".
 WARNING:Xst:647 - Input <analog> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:653 - Signal <ultrasonic_sensor_rw> is used but never assigned. This sourceless signal will be automatically connected to value 0.
-WARNING:Xst:646 - Signal <ultrasonic_sensor_error> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:653 - Signal <ultrasonic_sensor_data_out> is used but never assigned. This sourceless signal will be automatically connected to value 00000000.
-WARNING:Xst:646 - Signal <ultrasonic_sensor_data_in> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:646 - Signal <ultrasonic_sensor_busy> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:646 - Signal <present_state> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:653 - Signal <slave_addr> is used but never assigned. This sourceless signal will be automatically connected to value 0000000.
+WARNING:Xst:653 - Signal <new_data_to_write> is used but never assigned. This sourceless signal will be automatically connected to value 00000000.
+WARNING:Xst:646 - Signal <i2c_ack_error> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:653 - Signal <data_to_write> is used but never assigned. This sourceless signal will be automatically connected to value 00000000.
+WARNING:Xst:646 - Signal <data> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:737 - Found 1-bit latch for signal <i2c_rw>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 8-bit latch for signal <i2c_data_wr>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 3-bit latch for signal <busy_cnt>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 7-bit latch for signal <i2c_addr>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <i2c_ena>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <busy_prev>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2117 - HDL ADVISOR - Mux Selector <present_state> of Case statement line 97 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
+   	- add an 'INIT' attribute on signal <present_state> (optimization is then done without any risk)
+   	- use the attribute 'signal_encoding user' to avoid onehot optimization
+   	- use the attribute 'safe_implementation yes' to force XST to perform a safe (but less efficient) optimization
+    Using one-hot encoding for signal <present_state>.
+WARNING:Xst:737 - Found 6-bit latch for signal <next_state>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+    Found 3-bit adder for signal <busy_cnt$addsub0000> created at line 109.
     Found 25-bit up counter for signal <counter>.
+    Found 6-bit register for signal <present_state>.
     Found 1-bit register for signal <sec>.
-    Found 25-bit comparator less for signal <sec$cmp_lt0000> created at line 125.
+    Found 25-bit comparator less for signal <sec$cmp_lt0000> created at line 173.
     Summary:
 	inferred   1 Counter(s).
-	inferred   1 D-type flip-flop(s).
+	inferred   7 D-type flip-flop(s).
+	inferred   1 Adder/Subtractor(s).
 	inferred   1 Comparator(s).
 Unit <main> synthesized.
 
@@ -216,20 +233,27 @@ INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmet
 HDL Synthesis Report
 
 Macro Statistics
-# ROMs                                                 : 2
- 128x1-bit ROM                                         : 1
- 64x1-bit ROM                                          : 1
-# Adders/Subtractors                                   : 2
+# Adders/Subtractors                                   : 3
+ 13-bit adder                                          : 1
+ 3-bit adder                                           : 1
  3-bit subtractor                                      : 1
- 7-bit adder                                           : 1
 # Counters                                             : 1
  25-bit up counter                                     : 1
-# Registers                                            : 22
+# Registers                                            : 23
  1-bit register                                        : 17
+ 13-bit register                                       : 1
  3-bit register                                        : 1
- 7-bit register                                        : 1
+ 6-bit register                                        : 1
  8-bit register                                        : 3
-# Comparators                                          : 2
+# Latches                                              : 7
+ 1-bit latch                                           : 3
+ 3-bit latch                                           : 1
+ 6-bit latch                                           : 1
+ 7-bit latch                                           : 1
+ 8-bit latch                                           : 1
+# Comparators                                          : 7
+ 13-bit comparator greatequal                          : 2
+ 13-bit comparator lessequal                           : 3
  25-bit comparator less                                : 1
  8-bit comparator equal                                : 1
 # Tristates                                            : 2
@@ -256,27 +280,46 @@ Optimizing FSM <ultrasonic_sensor/state/FSM> on signal <state[1:9]> with one-hot
  mstr_ack | 010000000
  stop     | 100000000
 -----------------------
-
-Synthesizing (advanced) Unit <i2c_master>.
-INFO:Xst:3034 - In order to maximize performance and save block RAM resources, the small ROM <Mrom_data_clk_mux0001> will be implemented on LUT. If you want to force its implementation on block, use option/constraint rom_style.
-Unit <i2c_master> synthesized (advanced).
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <1>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <3>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <4>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <5>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <6>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <0> has a constant value of 0 in block <1>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <0> has a constant value of 0 in block <2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <0> has a constant value of 0 in block <3>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <0> has a constant value of 0 in block <4>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <0> has a constant value of 0 in block <5>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <present_state_2> has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <present_state_3> has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <present_state_4> has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <present_state_5> has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <present_state_0> of sequential type is unconnected in block <main>.
 
 =========================================================================
 Advanced HDL Synthesis Report
 
 Macro Statistics
 # FSMs                                                 : 1
-# ROMs                                                 : 2
- 128x1-bit ROM                                         : 1
- 64x1-bit ROM                                          : 1
-# Adders/Subtractors                                   : 2
+# Adders/Subtractors                                   : 3
+ 13-bit adder                                          : 1
+ 3-bit adder                                           : 1
  3-bit subtractor                                      : 1
- 7-bit adder                                           : 1
 # Counters                                             : 1
  25-bit up counter                                     : 1
-# Registers                                            : 51
- Flip-Flops                                            : 51
-# Comparators                                          : 2
+# Registers                                            : 63
+ Flip-Flops                                            : 63
+# Latches                                              : 7
+ 1-bit latch                                           : 3
+ 3-bit latch                                           : 1
+ 6-bit latch                                           : 1
+ 7-bit latch                                           : 1
+ 8-bit latch                                           : 1
+# Comparators                                          : 7
+ 13-bit comparator greatequal                          : 2
+ 13-bit comparator lessequal                           : 3
  25-bit comparator less                                : 1
  8-bit comparator equal                                : 1
 
@@ -285,6 +328,22 @@ Macro Statistics
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
+INFO:Xst:2261 - The FF/Latch <next_state_1> in Unit <main> is equivalent to the following 4 FFs/Latches, which will be removed : <next_state_2> <next_state_3> <next_state_4> <next_state_5> 
+INFO:Xst:2261 - The FF/Latch <i2c_addr_0> in Unit <main> is equivalent to the following 6 FFs/Latches, which will be removed : <i2c_addr_1> <i2c_addr_2> <i2c_addr_3> <i2c_addr_4> <i2c_addr_5> <i2c_addr_6> 
+WARNING:Xst:1293 - FF/Latch <next_state_1> has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <i2c_addr_0> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
+INFO:Xst:2261 - The FF/Latch <present_state_2> in Unit <main> is equivalent to the following 3 FFs/Latches, which will be removed : <present_state_3> <present_state_4> <present_state_5> 
+WARNING:Xst:2677 - Node <present_state_0> of sequential type is unconnected in block <main>.
+WARNING:Xst:2677 - Node <present_state_2> of sequential type is unconnected in block <main>.
+WARNING:Xst:2677 - Node <next_state_0> of sequential type is unconnected in block <main>.
+WARNING:Xst:1710 - FF/Latch <i2c_data_wr_0> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <i2c_data_wr_1> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <i2c_data_wr_2> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <i2c_data_wr_3> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <i2c_data_wr_4> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <i2c_data_wr_5> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <i2c_data_wr_6> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <i2c_data_wr_7> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:2677 - Node <ultrasonic_sensor/data_rd_7> of sequential type is unconnected in block <main>.
 WARNING:Xst:2677 - Node <ultrasonic_sensor/data_rd_6> of sequential type is unconnected in block <main>.
 WARNING:Xst:2677 - Node <ultrasonic_sensor/data_rd_5> of sequential type is unconnected in block <main>.
@@ -296,13 +355,12 @@ WARNING:Xst:2677 - Node <ultrasonic_sensor/data_rd_0> of sequential type is unco
 WARNING:Xst:2677 - Node <ultrasonic_sensor/data_rx_7> of sequential type is unconnected in block <main>.
 WARNING:Xst:2677 - Node <ultrasonic_sensor/data_rx_6> of sequential type is unconnected in block <main>.
 WARNING:Xst:2677 - Node <ultrasonic_sensor/data_rx_5> of sequential type is unconnected in block <main>.
+WARNING:Xst:2677 - Node <ultrasonic_sensor/data_rx_4> of sequential type is unconnected in block <main>.
 WARNING:Xst:2677 - Node <ultrasonic_sensor/data_rx_3> of sequential type is unconnected in block <main>.
 WARNING:Xst:2677 - Node <ultrasonic_sensor/data_rx_2> of sequential type is unconnected in block <main>.
-WARNING:Xst:2677 - Node <ultrasonic_sensor/data_rx_4> of sequential type is unconnected in block <main>.
 WARNING:Xst:2677 - Node <ultrasonic_sensor/data_rx_1> of sequential type is unconnected in block <main>.
 WARNING:Xst:2677 - Node <ultrasonic_sensor/data_rx_0> of sequential type is unconnected in block <main>.
 WARNING:Xst:2677 - Node <ultrasonic_sensor/ack_error> of sequential type is unconnected in block <main>.
-WARNING:Xst:2677 - Node <ultrasonic_sensor/busy> of sequential type is unconnected in block <main>.
 
 Optimizing unit <main> ...
 WARNING:Xst:1710 - FF/Latch <ultrasonic_sensor/data_tx_7> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
@@ -319,7 +377,7 @@ WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ultrasonic_sensor/a
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ultrasonic_sensor/addr_rw_4> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ultrasonic_sensor/addr_rw_3> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ultrasonic_sensor/addr_rw_2> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ultrasonic_sensor/addr_rw_0> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ultrasonic_sensor/addr_rw_1> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <ultrasonic_sensor/data_tx_7> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ultrasonic_sensor/data_tx_6> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ultrasonic_sensor/data_tx_5> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
@@ -334,7 +392,7 @@ WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ultrasonic_sensor/a
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ultrasonic_sensor/addr_rw_4> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ultrasonic_sensor/addr_rw_3> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ultrasonic_sensor/addr_rw_2> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ultrasonic_sensor/addr_rw_0> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ultrasonic_sensor/addr_rw_1> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <ultrasonic_sensor/data_tx_7> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ultrasonic_sensor/data_tx_6> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ultrasonic_sensor/data_tx_5> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
@@ -349,7 +407,7 @@ WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ultrasonic_sensor/a
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ultrasonic_sensor/addr_rw_4> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ultrasonic_sensor/addr_rw_3> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ultrasonic_sensor/addr_rw_2> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ultrasonic_sensor/addr_rw_0> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ultrasonic_sensor/addr_rw_1> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <ultrasonic_sensor/data_tx_7> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ultrasonic_sensor/data_tx_6> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ultrasonic_sensor/data_tx_5> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
@@ -364,11 +422,11 @@ WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ultrasonic_sensor/a
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ultrasonic_sensor/addr_rw_4> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ultrasonic_sensor/addr_rw_3> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ultrasonic_sensor/addr_rw_2> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ultrasonic_sensor/addr_rw_0> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ultrasonic_sensor/addr_rw_1> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block main, actual ratio is 0.
+Found area constraint ratio of 100 (+ 5) on block main, actual ratio is 1.
 
 Final Macro Processing ...
 
@@ -376,8 +434,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 52
- Flip-Flops                                            : 52
+# Registers                                            : 60
+ Flip-Flops                                            : 60
 
 =========================================================================
 
@@ -406,27 +464,27 @@ Design Statistics
 # IOs                              : 29
 
 Cell Usage :
-# BELS                             : 172
+# BELS                             : 292
 #      GND                         : 1
-#      INV                         : 7
-#      LUT1                        : 28
-#      LUT2                        : 10
-#      LUT3                        : 18
-#      LUT3_D                      : 2
-#      LUT3_L                      : 2
-#      LUT4                        : 36
-#      LUT4_D                      : 2
-#      LUT4_L                      : 3
-#      MUXCY                       : 34
+#      INV                         : 8
+#      LUT1                        : 40
+#      LUT2                        : 13
+#      LUT3                        : 20
+#      LUT4                        : 79
+#      LUT4_D                      : 1
+#      LUT4_L                      : 2
+#      MUXCY                       : 86
 #      MUXF5                       : 3
 #      VCC                         : 1
-#      XORCY                       : 25
-# FlipFlops/Latches                : 52
-#      FDC                         : 7
+#      XORCY                       : 38
+# FlipFlops/Latches                : 66
+#      FD                          : 1
+#      FDC                         : 13
 #      FDCE                        : 10
 #      FDE                         : 4
-#      FDPE                        : 5
+#      FDPE                        : 6
 #      FDRE                        : 26
+#      LD                          : 6
 # Clock Buffers                    : 1
 #      BUFGP                       : 1
 # IO Buffers                       : 12
@@ -439,13 +497,13 @@ Cell Usage :
 Device utilization summary:
 ---------------------------
 
-Selected Device : 3s1200eft256-5 
+Selected Device : 3s1200efg320-5 
 
- Number of Slices:                       55  out of   8672     0%  
- Number of Slice Flip Flops:             52  out of  17344     0%  
- Number of 4 input LUTs:                108  out of  17344     0%  
+ Number of Slices:                       85  out of   8672     0%  
+ Number of Slice Flip Flops:             66  out of  17344     0%  
+ Number of 4 input LUTs:                163  out of  17344     0%  
  Number of IOs:                          29
- Number of bonded IOBs:                  13  out of    190     6%  
+ Number of bonded IOBs:                  13  out of    250     5%  
  Number of GCLKs:                         1  out of     24     4%  
 
 ---------------------------
@@ -469,24 +527,26 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-clk                                | BUFGP                  | 52    |
+clk                                | BUFGP                  | 60    |
+present_state_1                    | NONE(busy_prev)        | 6     |
 -----------------------------------+------------------------+-------+
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
 
 Asynchronous Control Signals Information:
 ----------------------------------------
 ---------------------------------------------------------------------+----------------------------------+-------+
 Control Signal                                                       | Buffer(FF name)                  | Load  |
 ---------------------------------------------------------------------+----------------------------------+-------+
-ultrasonic_sensor/reset_n_inv(ultrasonic_sensor/reset_n_inv1_INV_0:O)| NONE(ultrasonic_sensor/bit_cnt_0)| 22    |
+ultrasonic_sensor/reset_n_inv(ultrasonic_sensor/reset_n_inv1_INV_0:O)| NONE(ultrasonic_sensor/bit_cnt_0)| 29    |
 ---------------------------------------------------------------------+----------------------------------+-------+
 
 Timing Summary:
 ---------------
 Speed Grade: -5
 
-   Minimum period: 6.496ns (Maximum Frequency: 153.933MHz)
-   Minimum input arrival time before clock: 4.446ns
-   Maximum output required time after clock: 5.373ns
+   Minimum period: 8.634ns (Maximum Frequency: 115.826MHz)
+   Minimum input arrival time before clock: 4.350ns
+   Maximum output required time after clock: 5.364ns
    Maximum combinational path delay: No path found
 
 Timing Detail:
@@ -495,10 +555,10 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
-  Clock period: 6.496ns (frequency: 153.933MHz)
-  Total number of paths / destination ports: 1408 / 93
+  Clock period: 8.634ns (frequency: 115.826MHz)
+  Total number of paths / destination ports: 3650 / 101
 -------------------------------------------------------------------------
-Delay:               6.496ns (Levels of Logic = 6)
+Delay:               8.634ns (Levels of Logic = 11)
   Source:            ultrasonic_sensor/count_5 (FF)
   Destination:       ultrasonic_sensor/stretch (FF)
   Source Clock:      clk rising
@@ -508,43 +568,72 @@ Delay:               6.496ns (Levels of Logic = 6)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDC:C->Q              6   0.514   0.721  ultrasonic_sensor/count_5 (ultrasonic_sensor/count_5)
-     LUT4:I0->O            1   0.612   0.000  ultrasonic_sensor/count_cmp_eq0000_SW4_F (N40)
-     MUXF5:I0->O           1   0.278   0.360  ultrasonic_sensor/count_cmp_eq0000_SW4 (N28)
-     LUT4:I3->O            3   0.612   0.454  ultrasonic_sensor/count_mux0000<1>1 (ultrasonic_sensor/count_mux0000<1>)
-     LUT4:I3->O            3   0.612   0.603  ultrasonic_sensor/stretch_or000022 (ultrasonic_sensor/Mrom_scl_clk_mux00021)
-     LUT3:I0->O            1   0.612   0.000  ultrasonic_sensor/stretch_or000089_F (N52)
-     MUXF5:I0->O           1   0.278   0.357  ultrasonic_sensor/stretch_or000089 (ultrasonic_sensor/stretch_or0000)
+     FDC:C->Q              5   0.514   0.607  ultrasonic_sensor/count_5 (ultrasonic_sensor/count_5)
+     LUT4:I1->O            1   0.612   0.426  ultrasonic_sensor/count_cmp_eq000018 (ultrasonic_sensor/count_cmp_eq000018)
+     LUT4_D:I1->O         37   0.612   1.077  ultrasonic_sensor/count_cmp_eq000046 (ultrasonic_sensor/count_cmp_eq0000)
+     LUT4:I3->O            4   0.612   0.568  ultrasonic_sensor/count_mux0000<2>1 (ultrasonic_sensor/count_mux0000<2>)
+     LUT4:I1->O            1   0.612   0.000  ultrasonic_sensor/Mcompar_stretch_cmp_le0000_lut<0> (ultrasonic_sensor/Mcompar_stretch_cmp_le0000_lut<0>)
+     MUXCY:S->O            1   0.404   0.000  ultrasonic_sensor/Mcompar_stretch_cmp_le0000_cy<0> (ultrasonic_sensor/Mcompar_stretch_cmp_le0000_cy<0>)
+     MUXCY:CI->O           1   0.052   0.000  ultrasonic_sensor/Mcompar_stretch_cmp_le0000_cy<1> (ultrasonic_sensor/Mcompar_stretch_cmp_le0000_cy<1>)
+     MUXCY:CI->O           1   0.052   0.000  ultrasonic_sensor/Mcompar_stretch_cmp_le0000_cy<2> (ultrasonic_sensor/Mcompar_stretch_cmp_le0000_cy<2>)
+     MUXCY:CI->O           1   0.052   0.000  ultrasonic_sensor/Mcompar_stretch_cmp_le0000_cy<3> (ultrasonic_sensor/Mcompar_stretch_cmp_le0000_cy<3>)
+     MUXCY:CI->O           1   0.052   0.000  ultrasonic_sensor/Mcompar_stretch_cmp_le0000_cy<4> (ultrasonic_sensor/Mcompar_stretch_cmp_le0000_cy<4>)
+     MUXCY:CI->O           2   0.400   0.532  ultrasonic_sensor/Mcompar_stretch_cmp_le0000_cy<5> (ultrasonic_sensor/stretch_cmp_le0000)
+     LUT2:I0->O            1   0.612   0.357  ultrasonic_sensor/stretch_and00001 (ultrasonic_sensor/stretch_and0000)
      FDCE:CE                   0.483          ultrasonic_sensor/stretch
     ----------------------------------------
-    Total                      6.496ns (4.001ns logic, 2.495ns route)
-                                       (61.6% logic, 38.4% route)
+    Total                      8.634ns (5.066ns logic, 3.567ns route)
+                                       (58.7% logic, 41.3% route)
 
 =========================================================================
-Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
-  Total number of paths / destination ports: 115 / 64
+Timing constraint: Default period analysis for Clock 'present_state_1'
+  Clock period: 4.431ns (frequency: 225.701MHz)
+  Total number of paths / destination ports: 28 / 5
 -------------------------------------------------------------------------
-Offset:              4.446ns (Levels of Logic = 2)
-  Source:            en (PAD)
-  Destination:       counter_0 (FF)
-  Destination Clock: clk rising
+Delay:               4.431ns (Levels of Logic = 3)
+  Source:            busy_prev (LATCH)
+  Destination:       i2c_rw (LATCH)
+  Source Clock:      present_state_1 falling
+  Destination Clock: present_state_1 falling
 
-  Data Path: en to counter_0
+  Data Path: busy_prev to i2c_rw
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            11   1.106   0.862  en_IBUF (en_IBUF)
+     LD:G->Q               3   0.588   0.603  busy_prev (busy_prev)
+     LUT2:I0->O            2   0.612   0.532  busy_cnt_and00001 (busy_cnt_and0000)
+     LUT4:I0->O            3   0.612   0.603  busy_cnt_mux0000<2>1 (busy_cnt_mux0000<2>)
+     LUT4:I0->O            1   0.612   0.000  i2c_rw_mux00001 (i2c_rw_mux0000)
+     LD:D                      0.268          i2c_rw
+    ----------------------------------------
+    Total                      4.431ns (2.692ns logic, 1.739ns route)
+                                       (60.8% logic, 39.2% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 108 / 58
+-------------------------------------------------------------------------
+Offset:              4.350ns (Levels of Logic = 2)
+  Source:            clr (PAD)
+  Destination:       counter_0 (FF)
+  Destination Clock: clk rising
+
+  Data Path: clr to counter_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             9   1.106   0.766  clr_IBUF (clr_IBUF)
      LUT3:I1->O           25   0.612   1.071  counter_and00001 (counter_and0000)
      FDRE:R                    0.795          counter_0
     ----------------------------------------
-    Total                      4.446ns (2.513ns logic, 1.933ns route)
-                                       (56.5% logic, 43.5% route)
+    Total                      4.350ns (2.513ns logic, 1.837ns route)
+                                       (57.8% logic, 42.2% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
   Total number of paths / destination ports: 7 / 3
 -------------------------------------------------------------------------
-Offset:              5.373ns (Levels of Logic = 2)
+Offset:              5.364ns (Levels of Logic = 2)
   Source:            ultrasonic_sensor/state_FSM_FFd8 (FF)
   Destination:       sda (PAD)
   Source Clock:      clk rising
@@ -553,24 +642,24 @@ Offset:              5.373ns (Levels of Logic = 2)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDCE:C->Q             6   0.514   0.721  ultrasonic_sensor/state_FSM_FFd8 (ultrasonic_sensor/state_FSM_FFd8)
-     LUT4:I0->O            1   0.612   0.357  ultrasonic_sensor/sda_ena_n1 (ultrasonic_sensor/sda_ena_n)
+     FDCE:C->Q             8   0.514   0.712  ultrasonic_sensor/state_FSM_FFd8 (ultrasonic_sensor/state_FSM_FFd8)
+     LUT4:I1->O            1   0.612   0.357  ultrasonic_sensor/sda_ena_n1 (ultrasonic_sensor/sda_ena_n)
      OBUFT:T->O                3.169          sda_OBUFT (sda)
     ----------------------------------------
-    Total                      5.373ns (4.295ns logic, 1.078ns route)
-                                       (79.9% logic, 20.1% route)
+    Total                      5.364ns (4.295ns logic, 1.069ns route)
+                                       (80.1% logic, 19.9% route)
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 6.00 secs
-Total CPU time to Xst completion: 5.94 secs
+Total REAL time to Xst completion: 9.00 secs
+Total CPU time to Xst completion: 8.77 secs
  
 --> 
 
-Total memory usage is 302356 kilobytes
+Total memory usage is 302324 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   88 (   0 filtered)
-Number of infos    :    5 (   0 filtered)
+Number of warnings :  124 (   0 filtered)
+Number of infos    :    8 (   0 filtered)
 

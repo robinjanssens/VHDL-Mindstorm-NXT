@@ -5,7 +5,7 @@ run
 -ifmt mixed
 -ofn main
 -ofmt NGC
--p xc3s1200e-5-ft256
+-p xc3s1200e-5-fg320
 -top main
 -opt_mode Speed
 -opt_level 1

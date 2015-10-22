@@ -3,41 +3,43 @@ Xilinx Mapping Report File for Design 'main'
 
 Design Information
 ------------------
-Command Line   : map -intstyle ise -p xc3s1200e-ft256-5 -cm area -ir off -pr off
+Command Line   : map -intstyle ise -p xc3s1200e-fg320-5 -cm area -ir off -pr off
 -c 100 -o main_map.ncd main.ngd main.pcf 
 Target Device  : xc3s1200e
-Target Package : ft256
+Target Package : fg320
 Target Speed   : -5
 Mapper Version : spartan3e -- $Revision: 1.55 $
-Mapped Date    : Mon Oct 12 10:43:31 2015
+Mapped Date    : Thu Oct 22 20:26:18 2015
 
 Design Summary
 --------------
 Number of errors:      0
-Number of warnings:    4
+Number of warnings:    0
 Logic Utilization:
-  Number of Slice Flip Flops:            52 out of  17,344    1%
-  Number of 4 input LUTs:                77 out of  17,344    1%
+  Total Number Slice Registers:          66 out of  17,344    1%
+    Number used as Flip Flops:           60
+    Number used as Latches:               6
+  Number of 4 input LUTs:               120 out of  17,344    1%
 Logic Distribution:
-  Number of occupied Slices:             58 out of   8,672    1%
-    Number of Slices containing only related logic:      58 out of      58 100%
-    Number of Slices containing unrelated logic:          0 out of      58   0%
+  Number of occupied Slices:             90 out of   8,672    1%
+    Number of Slices containing only related logic:      90 out of      90 100%
+    Number of Slices containing unrelated logic:          0 out of      90   0%
       *See NOTES below for an explanation of the effects of unrelated logic.
-  Total Number of 4 input LUTs:         105 out of  17,344    1%
-    Number used as logic:                77
-    Number used as a route-thru:         28
+  Total Number of 4 input LUTs:         160 out of  17,344    1%
+    Number used as logic:               120
+    Number used as a route-thru:         40
 
   The Slice Logic Distribution report is not meaningful if the design is
   over-mapped for a non-slice resource or if Placement fails.
 
-  Number of bonded IOBs:                 13 out of     190    6%
+  Number of bonded IOBs:                 13 out of     250    5%
   Number of BUFGMUXs:                     1 out of      24    4%
 
-Average Fanout of Non-Clock Nets:                3.25
+Average Fanout of Non-Clock Nets:                3.38
 
-Peak Memory Usage:  357 MB
-Total REAL time to MAP completion:  1 secs 
-Total CPU time to MAP completion:   1 secs 
+Peak Memory Usage:  356 MB
+Total REAL time to MAP completion:  2 secs 
+Total CPU time to MAP completion:   2 secs 
 
 NOTES:
 
@@ -78,14 +80,6 @@ Section 1 - Errors
 
 Section 2 - Warnings
 --------------------
-WARNING:MapLib:680 - LOC constraint J15 on Led<1> is invalid: No such site on
-   the device. Ignoring...
-WARNING:MapLib:680 - LOC constraint E17 on Led<4> is invalid: No such site on
-   the device. Ignoring...
-WARNING:MapLib:680 - LOC constraint H18 on clr is invalid: No such site on the
-   device. Ignoring...
-WARNING:MapLib:680 - LOC constraint G18 on en is invalid: No such site on the
-   device. Ignoring...
 
 Section 3 - Informational
 -------------------------

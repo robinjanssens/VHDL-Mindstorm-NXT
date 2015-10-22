@@ -23,18 +23,6 @@ To see the details of these <arg fmt="%s" index="4">info</arg> messages, please 
 <msg type="info" file="MapLib" num="591" delta="old" ><arg fmt="%s" index="1">XIL_MAP_LOCWARN</arg> 	Value: <arg fmt="%s" index="2">1</arg>
 </msg>
 
-<msg type="warning" file="MapLib" num="680" delta="old" ><arg fmt="%s" index="1">LOC</arg> constraint <arg fmt="%s" index="2">J15</arg> on <arg fmt="%s" index="3">Led&lt;1&gt;</arg> is invalid: <arg fmt="%z" index="4">No such site on the device.</arg> Ignoring...
-</msg>
-
-<msg type="warning" file="MapLib" num="680" delta="old" ><arg fmt="%s" index="1">LOC</arg> constraint <arg fmt="%s" index="2">E17</arg> on <arg fmt="%s" index="3">Led&lt;4&gt;</arg> is invalid: <arg fmt="%z" index="4">No such site on the device.</arg> Ignoring...
-</msg>
-
-<msg type="warning" file="MapLib" num="680" delta="old" ><arg fmt="%s" index="1">LOC</arg> constraint <arg fmt="%s" index="2">H18</arg> on <arg fmt="%s" index="3">clr</arg> is invalid: <arg fmt="%z" index="4">No such site on the device.</arg> Ignoring...
-</msg>
-
-<msg type="warning" file="MapLib" num="680" delta="old" ><arg fmt="%s" index="1">LOC</arg> constraint <arg fmt="%s" index="2">G18</arg> on <arg fmt="%s" index="3">en</arg> is invalid: <arg fmt="%z" index="4">No such site on the device.</arg> Ignoring...
-</msg>
-
 <msg type="info" file="LIT" num="244" delta="old" >All of the single ended outputs in this design are using slew rate limited output drivers. The delay on speed critical single ended outputs can be dramatically reduced by designating them as fast outputs.
 </msg>
 

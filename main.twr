@@ -7,7 +7,7 @@ C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\trce.exe -intstyle ise -v 3 -s 5
 
 Design file:              main.ncd
 Physical constraint file: main.pcf
-Device,package,speed:     xc3s1200e,ft256,-5 (PRODUCTION 1.27 2013-10-13)
+Device,package,speed:     xc3s1200e,fg320,-5 (PRODUCTION 1.27 2013-10-13)
 Report level:             verbose report
 
 Environment Variable      Effect 
@@ -44,9 +44,9 @@ Setup/Hold to clock clk
             |Max Setup to|Max Hold to |                  | Clock  |
 Source      | clk (edge) | clk (edge) |Internal Clock(s) | Phase  |
 ------------+------------+------------+------------------+--------+
-clr         |    4.370(R)|    1.500(R)|clk_BUFGP         |   0.000|
-en          |    3.205(R)|    1.236(R)|clk_BUFGP         |   0.000|
-scl         |    0.111(R)|    1.083(R)|clk_BUFGP         |   0.000|
+clr         |    4.478(R)|    0.159(R)|clk_BUFGP         |   0.000|
+en          |    4.420(R)|   -0.523(R)|clk_BUFGP         |   0.000|
+scl         |   -0.265(R)|    1.392(R)|clk_BUFGP         |   0.000|
 ------------+------------+------------+------------------+--------+
 
 Clock clk to Pad
@@ -54,9 +54,9 @@ Clock clk to Pad
             | clk (edge) |                  | Clock  |
 Destination |   to PAD   |Internal Clock(s) | Phase  |
 ------------+------------+------------------+--------+
-Led<7>      |    9.731(R)|clk_BUFGP         |   0.000|
-scl         |    9.083(R)|clk_BUFGP         |   0.000|
-sda         |    9.233(R)|clk_BUFGP         |   0.000|
+Led<7>      |    9.960(R)|clk_BUFGP         |   0.000|
+scl         |    8.807(R)|clk_BUFGP         |   0.000|
+sda         |    8.974(R)|clk_BUFGP         |   0.000|
 ------------+------------+------------------+--------+
 
 Clock to Setup on destination clock clk
@@ -64,11 +64,11 @@ Clock to Setup on destination clock clk
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk            |    5.659|         |         |         |
+clk            |    8.001|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 
-Analysis completed Mon Oct 12 10:43:53 2015 
+Analysis completed Thu Oct 22 20:26:44 2015 
 --------------------------------------------------------------------------------
 
 Trace Settings:
