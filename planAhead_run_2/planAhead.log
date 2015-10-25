@@ -1,0 +1,27 @@
+#-----------------------------------------------------------
+# PlanAhead v14.7 (64-bit)
+# Build 321239 by xbuild on Fri Sep 27 19:29:51 MDT 2013
+# Start of session at: Sun Oct 25 16:57:14 2015
+# Process ID: 10532
+# Log file: C:/Users/Robin/Documents/Mindstorm/VHDL-Mindstorm-NXT/planAhead_run_2/planAhead.log
+# Journal file: C:/Users/Robin/Documents/Mindstorm/VHDL-Mindstorm-NXT/planAhead_run_2/planAhead.jou
+#-----------------------------------------------------------
+INFO: [Common 17-78] Attempting to get a license: PlanAhead
+INFO: [Common 17-290] Got license for PlanAhead
+INFO: [Common 17-86] Your PlanAhead license expires in -239 day(s)
+INFO: [Device 21-36] Loading parts and site information from C:/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/arch.xml
+Parsing RTL primitives file [C:/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+Finished parsing RTL primitives file [C:/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+start_gui
+source C:/Users/Robin/Documents/Mindstorm/VHDL-Mindstorm-NXT/pa.fromNetlist.tcl
+# create_project -name VHDL-Mindstorm-NXT -dir "C:/Users/Robin/Documents/Mindstorm/VHDL-Mindstorm-NXT/planAhead_run_2" -part xc3s1200efg320-5
+ERROR: [Common 17-53] User Exception: Project already exists on disk, please use '-force' option to overwrite: 
+     C:/Users/Robin/Documents/Mindstorm/VHDL-Mindstorm-NXT/planAhead_run_2/VHDL-Mindstorm-NXT.ppr
+     C:/Users/Robin/Documents/Mindstorm/VHDL-Mindstorm-NXT/planAhead_run_2/VHDL-Mindstorm-NXT.data
+
+    while executing
+"create_project -name VHDL-Mindstorm-NXT -dir "C:/Users/Robin/Documents/Mindstorm/VHDL-Mindstorm-NXT/planAhead_run_2" -part xc3s1200efg320-5"
+    (file "C:/Users/Robin/Documents/Mindstorm/VHDL-Mindstorm-NXT/pa.fromNetlist.tcl" line 4)
+exit
+INFO: [Common 17-206] Exiting PlanAhead at Sun Oct 25 16:57:44 2015...
+INFO: [Common 17-83] Releasing license: PlanAhead

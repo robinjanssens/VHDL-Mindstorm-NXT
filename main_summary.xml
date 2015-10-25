@@ -4,11 +4,7 @@
      changes made to this file may result in unpredictable
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
-<<<<<<< HEAD
-<DesignSummary rev="39">
-=======
-<DesignSummary rev="49">
->>>>>>> 7223f883d832eee8074a72502249c2102a9c4de5
+<DesignSummary rev="51">
 <CmdHistory>
 </CmdHistory>
 </DesignSummary>

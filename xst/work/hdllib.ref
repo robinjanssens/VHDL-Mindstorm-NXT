@@ -1,11 +1,4 @@
-<<<<<<< HEAD
-AR main behavioral C:/Users/Robin/Documents/Mindstorm/VHDL-Mindstorm-NXT/main.vhd sub00/vhpl01 1445538365
-EN i2c_master NULL C:/Users/Robin/Documents/Mindstorm/VHDL-Mindstorm-NXT/i2c_master.vhd sub00/vhpl02 1445538362
-EN main NULL C:/Users/Robin/Documents/Mindstorm/VHDL-Mindstorm-NXT/main.vhd sub00/vhpl00 1445538364
-AR i2c_master logic C:/Users/Robin/Documents/Mindstorm/VHDL-Mindstorm-NXT/i2c_master.vhd sub00/vhpl03 1445538363
-=======
-AR main behavioral C:/Users/Robin/Documents/Mindstorm/test/main.vhd sub00/vhpl01 1444656999
-EN i2c_master NULL C:/Users/Robin/Documents/Mindstorm/VHDL-Mindstorm-NXT/i2c_master.vhd sub00/vhpl02 1444653443
-EN main NULL C:/Users/Robin/Documents/Mindstorm/test/main.vhd sub00/vhpl00 1444656998
-AR i2c_master logic C:/Users/Robin/Documents/Mindstorm/VHDL-Mindstorm-NXT/i2c_master.vhd sub00/vhpl03 1444653444
->>>>>>> 7223f883d832eee8074a72502249c2102a9c4de5
+AR main behavioral C:/Users/Robin/Documents/Mindstorm/VHDL-Mindstorm-NXT/main.vhd sub00/vhpl01 1445789415
+EN i2c_master NULL C:/Users/Robin/Documents/Mindstorm/VHDL-Mindstorm-NXT/i2c_master.vhd sub00/vhpl02 1445789412
+EN main NULL C:/Users/Robin/Documents/Mindstorm/VHDL-Mindstorm-NXT/main.vhd sub00/vhpl00 1445789414
+AR i2c_master logic C:/Users/Robin/Documents/Mindstorm/VHDL-Mindstorm-NXT/i2c_master.vhd sub00/vhpl03 1445789413

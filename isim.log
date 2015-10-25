@@ -11,5 +11,5 @@ Time resolution is 1 ps
 # run 1000 ns
 Simulator is doing circuit initialization process.
 Finished circuit initialization process.
-# run 10s
-Stopped at time : 3921605560 ns : File "C:/Users/Robin/Documents/Mindstorm/VHDL-Mindstorm-NXT/test.vhd" Line 87
+# run 3.00s
+Stopped at time : 534381390 ns : File "C:/Users/Robin/Documents/Mindstorm/VHDL-Mindstorm-NXT/i2c_master.vhd" Line 113
