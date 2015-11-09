@@ -9,65 +9,138 @@ Target Device  : xc3s1200e
 Target Package : fg320
 Target Speed   : -5
 Mapper Version : spartan3e -- $Revision: 1.55 $
-Mapped Date    : Sun Oct 25 17:18:01 2015
+Mapped Date    : Mon Nov 09 12:42:51 2015
 
 Mapping design into LUTs...
-WARNING:MapLib:701 - Signal sda connected to top level port sda has been
-   removed.
-WARNING:MapLib:701 - Signal scl connected to top level port scl has been
-   removed.
-Running directed packing...
-Running delay-based LUT packing...
-Running related packing...
-Updating timing models...
+ERROR:MapLib:979 - LUT4 symbol "busy_cnt<2>1" (output signal=busy_cnt<2>) has
+   input signal "busy_cnt<1>" which will be trimmed. See Section 5 of the Map
+   Report File for details about why the input signal will become undriven.
+ERROR:MapLib:979 - LUT4 symbol "busy_cnt<2>1" (output signal=busy_cnt<2>) has
+   input signal "busy_cnt<0>" which will be trimmed. See Section 5 of the Map
+   Report File for details about why the input signal will become undriven.
+ERROR:MapLib:979 - LUT3 symbol "i2c_data_wr_mux0000<0>1" (output
+   signal=i2c_data_wr_mux0000<0>) has input signal "busy_cnt<1>" which will be
+   trimmed. See Section 5 of the Map Report File for details about why the input
+   signal will become undriven.
+ERROR:MapLib:979 - LUT3 symbol "i2c_data_wr_mux0000<0>1" (output
+   signal=i2c_data_wr_mux0000<0>) has input signal "busy_cnt<0>" which will be
+   trimmed. See Section 5 of the Map Report File for details about why the input
+   signal will become undriven.
+ERROR:MapLib:979 - LUT2 symbol "i2c_data_wr_mux0000<0>11" (output
+   signal=i2c_data_wr_not0001) has input signal "busy_cnt<0>" which will be
+   trimmed. See Section 5 of the Map Report File for details about why the input
+   signal will become undriven.
+ERROR:MapLib:979 - LUT4 symbol "i2c_master_bus/addr_rw_mux0002<0>118" (output
+   signal=i2c_master_bus/addr_rw_mux0002<0>118) has input signal "i2c_ena" which
+   will be trimmed. See Section 5 of the Map Report File for details about why
+   the input signal will become undriven.
+ERROR:MapLib:979 - LUT4 symbol "i2c_master_bus/addr_rw_mux0002<0>21" (output
+   signal=N35) has input signal "i2c_ena" which will be trimmed. See Section 5
+   of the Map Report File for details about why the input signal will become
+   undriven.
+ERROR:MapLib:979 - LUT4 symbol "i2c_master_bus/busy_mux000117" (output
+   signal=i2c_master_bus/busy_mux000117) has input signal "i2c_ena" which will
+   be trimmed. See Section 5 of the Map Report File for details about why the
+   input signal will become undriven.
+ERROR:MapLib:979 - LUT4 symbol "i2c_master_bus/busy_mux000161" (output
+   signal=i2c_master_bus/busy_mux000161) has input signal "i2c_ena" which will
+   be trimmed. See Section 5 of the Map Report File for details about why the
+   input signal will become undriven.
+ERROR:MapLib:979 - LUT4_D symbol "i2c_master_bus/sda_int_mux000191" (output
+   signal=N18) has input signal "i2c_ena" which will be trimmed. See Section 5
+   of the Map Report File for details about why the input signal will become
+   undriven.
+ERROR:MapLib:979 - LUT3 symbol "i2c_master_bus/state_FSM_FFd1-In1" (output
+   signal=i2c_master_bus/state_FSM_FFd1-In) has input signal "i2c_ena" which
+   will be trimmed. See Section 5 of the Map Report File for details about why
+   the input signal will become undriven.
+ERROR:MapLib:979 - LUT4 symbol "i2c_master_bus/state_FSM_FFd8-In40" (output
+   signal=i2c_master_bus/state_FSM_FFd8-In) has input signal "i2c_ena" which
+   will be trimmed. See Section 5 of the Map Report File for details about why
+   the input signal will become undriven.
+ERROR:MapLib:979 - LUT3 symbol "i2c_master_bus/state_FSM_FFd9-In1" (output
+   signal=i2c_master_bus/state_FSM_FFd9-In) has input signal "i2c_ena" which
+   will be trimmed. See Section 5 of the Map Report File for details about why
+   the input signal will become undriven.
+ERROR:MapLib:979 - LUT2 symbol "i2c_rw_mux00001" (output signal=i2c_rw_mux0000)
+   has input signal "busy_cnt<0>" which will be trimmed. See Section 5 of the
+   Map Report File for details about why the input signal will become undriven.
+ERROR:MapLib:978 - LUT4 symbol "busy_cnt<2>1" (output signal=busy_cnt<2>) has an
+   equation that uses input pin I2, which no longer has a connected signal.
+   Please ensure that all the pins used in the equation for this LUT have
+   signals that are not trimmed (see Section 5 of the Map Report File for
+   details on which signals were trimmed).
+ERROR:MapLib:978 - LUT4 symbol "busy_cnt<2>1" (output signal=busy_cnt<2>) has an
+   equation that uses input pin I3, which no longer has a connected signal.
+   Please ensure that all the pins used in the equation for this LUT have
+   signals that are not trimmed (see Section 5 of the Map Report File for
+   details on which signals were trimmed).
+ERROR:MapLib:978 - LUT3 symbol "i2c_data_wr_mux0000<0>1" (output
+   signal=i2c_data_wr_mux0000<0>) has an equation that uses input pin I1, which
+   no longer has a connected signal. Please ensure that all the pins used in the
+   equation for this LUT have signals that are not trimmed (see Section 5 of the
+   Map Report File for details on which signals were trimmed).
+ERROR:MapLib:978 - LUT3 symbol "i2c_data_wr_mux0000<0>1" (output
+   signal=i2c_data_wr_mux0000<0>) has an equation that uses input pin I2, which
+   no longer has a connected signal. Please ensure that all the pins used in the
+   equation for this LUT have signals that are not trimmed (see Section 5 of the
+   Map Report File for details on which signals were trimmed).
+ERROR:MapLib:978 - LUT2 symbol "i2c_data_wr_mux0000<0>11" (output
+   signal=i2c_data_wr_not0001) has an equation that uses input pin I1, which no
+   longer has a connected signal. Please ensure that all the pins used in the
+   equation for this LUT have signals that are not trimmed (see Section 5 of the
+   Map Report File for details on which signals were trimmed).
+ERROR:MapLib:978 - LUT4 symbol "i2c_master_bus/addr_rw_mux0002<0>118" (output
+   signal=i2c_master_bus/addr_rw_mux0002<0>118) has an equation that uses input
+   pin I1, which no longer has a connected signal. Please ensure that all the
+   pins used in the equation for this LUT have signals that are not trimmed (see
+   Section 5 of the Map Report File for details on which signals were trimmed).
+ERROR:MapLib:978 - LUT4 symbol "i2c_master_bus/addr_rw_mux0002<0>21" (output
+   signal=N35) has an equation that uses input pin I0, which no longer has a
+   connected signal. Please ensure that all the pins used in the equation for
+   this LUT have signals that are not trimmed (see Section 5 of the Map Report
+   File for details on which signals were trimmed).
+ERROR:MapLib:978 - LUT4 symbol "i2c_master_bus/busy_mux000117" (output
+   signal=i2c_master_bus/busy_mux000117) has an equation that uses input pin I2,
+   which no longer has a connected signal. Please ensure that all the pins used
+   in the equation for this LUT have signals that are not trimmed (see Section 5
+   of the Map Report File for details on which signals were trimmed).
+ERROR:MapLib:978 - LUT4 symbol "i2c_master_bus/busy_mux000161" (output
+   signal=i2c_master_bus/busy_mux000161) has an equation that uses input pin I3,
+   which no longer has a connected signal. Please ensure that all the pins used
+   in the equation for this LUT have signals that are not trimmed (see Section 5
+   of the Map Report File for details on which signals were trimmed).
+ERROR:MapLib:978 - LUT4_D symbol "i2c_master_bus/sda_int_mux000191" (output
+   signal=N18) has an equation that uses input pin I3, which no longer has a
+   connected signal. Please ensure that all the pins used in the equation for
+   this LUT have signals that are not trimmed (see Section 5 of the Map Report
+   File for details on which signals were trimmed).
+ERROR:MapLib:978 - LUT3 symbol "i2c_master_bus/state_FSM_FFd1-In1" (output
+   signal=i2c_master_bus/state_FSM_FFd1-In) has an equation that uses input pin
+   I0, which no longer has a connected signal. Please ensure that all the pins
+   used in the equation for this LUT have signals that are not trimmed (see
+   Section 5 of the Map Report File for details on which signals were trimmed).
+ERROR:MapLib:978 - LUT4 symbol "i2c_master_bus/state_FSM_FFd8-In40" (output
+   signal=i2c_master_bus/state_FSM_FFd8-In) has an equation that uses input pin
+   I0, which no longer has a connected signal. Please ensure that all the pins
+   used in the equation for this LUT have signals that are not trimmed (see
+   Section 5 of the Map Report File for details on which signals were trimmed).
+ERROR:MapLib:978 - LUT3 symbol "i2c_master_bus/state_FSM_FFd9-In1" (output
+   signal=i2c_master_bus/state_FSM_FFd9-In) has an equation that uses input pin
+   I0, which no longer has a connected signal. Please ensure that all the pins
+   used in the equation for this LUT have signals that are not trimmed (see
+   Section 5 of the Map Report File for details on which signals were trimmed).
+ERROR:MapLib:978 - LUT2 symbol "i2c_rw_mux00001" (output signal=i2c_rw_mux0000)
+   has an equation that uses input pin I1, which no longer has a connected
+   signal. Please ensure that all the pins used in the equation for this LUT
+   have signals that are not trimmed (see Section 5 of the Map Report File for
+   details on which signals were trimmed).
+
+Error found in mapping process, exiting...
+Errors found during the mapping phase.  Please see map report file for more
+details.  Output files will not be written.
 
 Design Summary
 --------------
-
-Design Summary:
-Number of errors:      0
-Number of warnings:    2
-Logic Utilization:
-  Number of Slice Flip Flops:            26 out of  17,344    1%
-  Number of 4 input LUTs:                10 out of  17,344    1%
-Logic Distribution:
-  Number of occupied Slices:             21 out of   8,672    1%
-    Number of Slices containing only related logic:      21 out of      21 100%
-    Number of Slices containing unrelated logic:          0 out of      21   0%
-      *See NOTES below for an explanation of the effects of unrelated logic.
-  Total Number of 4 input LUTs:          38 out of  17,344    1%
-    Number used as logic:                10
-    Number used as a route-thru:         28
-
-  The Slice Logic Distribution report is not meaningful if the design is
-  over-mapped for a non-slice resource or if Placement fails.
-
-  Number of bonded IOBs:                 19 out of     250    7%
-  Number of BUFGMUXs:                     1 out of      24    4%
-
-Average Fanout of Non-Clock Nets:                2.69
-
-Peak Memory Usage:  366 MB
-Total REAL time to MAP completion:  1 secs 
-Total CPU time to MAP completion:   1 secs 
-
-NOTES:
-
-   Related logic is defined as being logic that shares connectivity - e.g. two
-   LUTs are "related" if they share common inputs.  When assembling slices,
-   Map gives priority to combine logic that is related.  Doing so results in
-   the best timing performance.
-
-   Unrelated logic shares no connectivity.  Map will only begin packing
-   unrelated logic into a slice once 99% of the slices are occupied through
-   related logic packing.
-
-   Note that once logic distribution reaches the 99% level through related
-   logic packing, this does not mean the device is completely utilized.
-   Unrelated logic packing will then begin, continuing until all usable LUTs
-   and FFs are occupied.  Depending on your timing budget, increased levels of
-   unrelated logic packing may adversely affect the overall timing performance
-   of your design.
-
-Mapping completed.
-See MAP report file "main_map.mrp" for details.
+Number of errors   :  28
+Number of warnings :   0

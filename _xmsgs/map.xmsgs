@@ -5,15 +5,15 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="info" file="LIT" num="243" delta="old" >Logical network <arg fmt="%s" index="1">analog&lt;15&gt;</arg> has no load.
+<msg type="info" file="LIT" num="243" delta="old" >Logical network <arg fmt="%s" index="1">E&lt;0&gt;_IBUF</arg> has no load.
 </msg>
 
-<msg type="info" file="LIT" num="395" delta="old" >The above <arg fmt="%s" index="1">info</arg> message is repeated <arg fmt="%d" index="2">15</arg> more times for the following (max. 5 shown):
-<arg fmt="%s" index="3">analog&lt;14&gt;,
-analog&lt;13&gt;,
-analog&lt;12&gt;,
-analog&lt;11&gt;,
-analog&lt;10&gt;</arg>
+<msg type="info" file="LIT" num="395" delta="old" >The above <arg fmt="%s" index="1">info</arg> message is repeated <arg fmt="%d" index="2">20</arg> more times for the following (max. 5 shown):
+<arg fmt="%s" index="3">E&lt;1&gt;_IBUF,
+E&lt;2&gt;_IBUF,
+E&lt;3&gt;_IBUF,
+B&lt;3&gt;_IBUF,
+D&lt;0&gt;_IBUF</arg>
 To see the details of these <arg fmt="%s" index="4">info</arg> messages, please use the -detail switch.
 </msg>
 
@@ -23,13 +23,88 @@ To see the details of these <arg fmt="%s" index="4">info</arg> messages, please 
 <msg type="info" file="MapLib" num="591" delta="old" ><arg fmt="%s" index="1">XIL_MAP_LOCWARN</arg> 	Value: <arg fmt="%s" index="2">1</arg>
 </msg>
 
-<msg type="warning" file="MapLib" num="701" delta="old" >Signal <arg fmt="%s" index="1">sda</arg> connected to top level port <arg fmt="%s" index="2">sda</arg> has been removed.
+<msg type="error" file="MapLib" num="979" delta="new" ><arg fmt="%s" index="1">LUT4 symbol &quot;busy_cnt&lt;2&gt;1&quot; (output signal=busy_cnt&lt;2&gt;)</arg> has input signal &quot;<arg fmt="%s" index="2">busy_cnt&lt;1&gt;</arg>&quot; which will be trimmed. See Section 5 of the Map Report File for details about why the input signal will become undriven.
 </msg>
 
-<msg type="warning" file="MapLib" num="701" delta="old" >Signal <arg fmt="%s" index="1">scl</arg> connected to top level port <arg fmt="%s" index="2">scl</arg> has been removed.
+<msg type="error" file="MapLib" num="979" delta="new" ><arg fmt="%s" index="1">LUT4 symbol &quot;busy_cnt&lt;2&gt;1&quot; (output signal=busy_cnt&lt;2&gt;)</arg> has input signal &quot;<arg fmt="%s" index="2">busy_cnt&lt;0&gt;</arg>&quot; which will be trimmed. See Section 5 of the Map Report File for details about why the input signal will become undriven.
 </msg>
 
-<msg type="info" file="LIT" num="244" delta="old" >All of the single ended outputs in this design are using slew rate limited output drivers. The delay on speed critical single ended outputs can be dramatically reduced by designating them as fast outputs.
+<msg type="error" file="MapLib" num="979" delta="new" ><arg fmt="%s" index="1">LUT3 symbol &quot;i2c_data_wr_mux0000&lt;0&gt;1&quot; (output signal=i2c_data_wr_mux0000&lt;0&gt;)</arg> has input signal &quot;<arg fmt="%s" index="2">busy_cnt&lt;1&gt;</arg>&quot; which will be trimmed. See Section 5 of the Map Report File for details about why the input signal will become undriven.
+</msg>
+
+<msg type="error" file="MapLib" num="979" delta="new" ><arg fmt="%s" index="1">LUT3 symbol &quot;i2c_data_wr_mux0000&lt;0&gt;1&quot; (output signal=i2c_data_wr_mux0000&lt;0&gt;)</arg> has input signal &quot;<arg fmt="%s" index="2">busy_cnt&lt;0&gt;</arg>&quot; which will be trimmed. See Section 5 of the Map Report File for details about why the input signal will become undriven.
+</msg>
+
+<msg type="error" file="MapLib" num="979" delta="new" ><arg fmt="%s" index="1">LUT2 symbol &quot;i2c_data_wr_mux0000&lt;0&gt;11&quot; (output signal=i2c_data_wr_not0001)</arg> has input signal &quot;<arg fmt="%s" index="2">busy_cnt&lt;0&gt;</arg>&quot; which will be trimmed. See Section 5 of the Map Report File for details about why the input signal will become undriven.
+</msg>
+
+<msg type="error" file="MapLib" num="979" delta="new" ><arg fmt="%s" index="1">LUT4 symbol &quot;i2c_master_bus/addr_rw_mux0002&lt;0&gt;118&quot; (output signal=i2c_master_bus/addr_rw_mux0002&lt;0&gt;118)</arg> has input signal &quot;<arg fmt="%s" index="2">i2c_ena</arg>&quot; which will be trimmed. See Section 5 of the Map Report File for details about why the input signal will become undriven.
+</msg>
+
+<msg type="error" file="MapLib" num="979" delta="new" ><arg fmt="%s" index="1">LUT4 symbol &quot;i2c_master_bus/addr_rw_mux0002&lt;0&gt;21&quot; (output signal=N35)</arg> has input signal &quot;<arg fmt="%s" index="2">i2c_ena</arg>&quot; which will be trimmed. See Section 5 of the Map Report File for details about why the input signal will become undriven.
+</msg>
+
+<msg type="error" file="MapLib" num="979" delta="new" ><arg fmt="%s" index="1">LUT4 symbol &quot;i2c_master_bus/busy_mux000117&quot; (output signal=i2c_master_bus/busy_mux000117)</arg> has input signal &quot;<arg fmt="%s" index="2">i2c_ena</arg>&quot; which will be trimmed. See Section 5 of the Map Report File for details about why the input signal will become undriven.
+</msg>
+
+<msg type="error" file="MapLib" num="979" delta="new" ><arg fmt="%s" index="1">LUT4 symbol &quot;i2c_master_bus/busy_mux000161&quot; (output signal=i2c_master_bus/busy_mux000161)</arg> has input signal &quot;<arg fmt="%s" index="2">i2c_ena</arg>&quot; which will be trimmed. See Section 5 of the Map Report File for details about why the input signal will become undriven.
+</msg>
+
+<msg type="error" file="MapLib" num="979" delta="new" ><arg fmt="%s" index="1">LUT4_D symbol &quot;i2c_master_bus/sda_int_mux000191&quot; (output signal=N18)</arg> has input signal &quot;<arg fmt="%s" index="2">i2c_ena</arg>&quot; which will be trimmed. See Section 5 of the Map Report File for details about why the input signal will become undriven.
+</msg>
+
+<msg type="error" file="MapLib" num="979" delta="new" ><arg fmt="%s" index="1">LUT3 symbol &quot;i2c_master_bus/state_FSM_FFd1-In1&quot; (output signal=i2c_master_bus/state_FSM_FFd1-In)</arg> has input signal &quot;<arg fmt="%s" index="2">i2c_ena</arg>&quot; which will be trimmed. See Section 5 of the Map Report File for details about why the input signal will become undriven.
+</msg>
+
+<msg type="error" file="MapLib" num="979" delta="new" ><arg fmt="%s" index="1">LUT4 symbol &quot;i2c_master_bus/state_FSM_FFd8-In40&quot; (output signal=i2c_master_bus/state_FSM_FFd8-In)</arg> has input signal &quot;<arg fmt="%s" index="2">i2c_ena</arg>&quot; which will be trimmed. See Section 5 of the Map Report File for details about why the input signal will become undriven.
+</msg>
+
+<msg type="error" file="MapLib" num="979" delta="new" ><arg fmt="%s" index="1">LUT3 symbol &quot;i2c_master_bus/state_FSM_FFd9-In1&quot; (output signal=i2c_master_bus/state_FSM_FFd9-In)</arg> has input signal &quot;<arg fmt="%s" index="2">i2c_ena</arg>&quot; which will be trimmed. See Section 5 of the Map Report File for details about why the input signal will become undriven.
+</msg>
+
+<msg type="error" file="MapLib" num="979" delta="new" ><arg fmt="%s" index="1">LUT2 symbol &quot;i2c_rw_mux00001&quot; (output signal=i2c_rw_mux0000)</arg> has input signal &quot;<arg fmt="%s" index="2">busy_cnt&lt;0&gt;</arg>&quot; which will be trimmed. See Section 5 of the Map Report File for details about why the input signal will become undriven.
+</msg>
+
+<msg type="error" file="MapLib" num="978" delta="new" ><arg fmt="%s" index="1">LUT4 symbol &quot;busy_cnt&lt;2&gt;1&quot; (output signal=busy_cnt&lt;2&gt;)</arg> has an equation that uses input pin <arg fmt="%s" index="2">I2</arg>, which no longer has a connected signal. Please ensure that all the pins used in the equation for this LUT have signals that are not trimmed (see Section 5 of the Map Report File for details on which signals were trimmed).
+</msg>
+
+<msg type="error" file="MapLib" num="978" delta="new" ><arg fmt="%s" index="1">LUT4 symbol &quot;busy_cnt&lt;2&gt;1&quot; (output signal=busy_cnt&lt;2&gt;)</arg> has an equation that uses input pin <arg fmt="%s" index="2">I3</arg>, which no longer has a connected signal. Please ensure that all the pins used in the equation for this LUT have signals that are not trimmed (see Section 5 of the Map Report File for details on which signals were trimmed).
+</msg>
+
+<msg type="error" file="MapLib" num="978" delta="new" ><arg fmt="%s" index="1">LUT3 symbol &quot;i2c_data_wr_mux0000&lt;0&gt;1&quot; (output signal=i2c_data_wr_mux0000&lt;0&gt;)</arg> has an equation that uses input pin <arg fmt="%s" index="2">I1</arg>, which no longer has a connected signal. Please ensure that all the pins used in the equation for this LUT have signals that are not trimmed (see Section 5 of the Map Report File for details on which signals were trimmed).
+</msg>
+
+<msg type="error" file="MapLib" num="978" delta="new" ><arg fmt="%s" index="1">LUT3 symbol &quot;i2c_data_wr_mux0000&lt;0&gt;1&quot; (output signal=i2c_data_wr_mux0000&lt;0&gt;)</arg> has an equation that uses input pin <arg fmt="%s" index="2">I2</arg>, which no longer has a connected signal. Please ensure that all the pins used in the equation for this LUT have signals that are not trimmed (see Section 5 of the Map Report File for details on which signals were trimmed).
+</msg>
+
+<msg type="error" file="MapLib" num="978" delta="new" ><arg fmt="%s" index="1">LUT2 symbol &quot;i2c_data_wr_mux0000&lt;0&gt;11&quot; (output signal=i2c_data_wr_not0001)</arg> has an equation that uses input pin <arg fmt="%s" index="2">I1</arg>, which no longer has a connected signal. Please ensure that all the pins used in the equation for this LUT have signals that are not trimmed (see Section 5 of the Map Report File for details on which signals were trimmed).
+</msg>
+
+<msg type="error" file="MapLib" num="978" delta="new" ><arg fmt="%s" index="1">LUT4 symbol &quot;i2c_master_bus/addr_rw_mux0002&lt;0&gt;118&quot; (output signal=i2c_master_bus/addr_rw_mux0002&lt;0&gt;118)</arg> has an equation that uses input pin <arg fmt="%s" index="2">I1</arg>, which no longer has a connected signal. Please ensure that all the pins used in the equation for this LUT have signals that are not trimmed (see Section 5 of the Map Report File for details on which signals were trimmed).
+</msg>
+
+<msg type="error" file="MapLib" num="978" delta="new" ><arg fmt="%s" index="1">LUT4 symbol &quot;i2c_master_bus/addr_rw_mux0002&lt;0&gt;21&quot; (output signal=N35)</arg> has an equation that uses input pin <arg fmt="%s" index="2">I0</arg>, which no longer has a connected signal. Please ensure that all the pins used in the equation for this LUT have signals that are not trimmed (see Section 5 of the Map Report File for details on which signals were trimmed).
+</msg>
+
+<msg type="error" file="MapLib" num="978" delta="new" ><arg fmt="%s" index="1">LUT4 symbol &quot;i2c_master_bus/busy_mux000117&quot; (output signal=i2c_master_bus/busy_mux000117)</arg> has an equation that uses input pin <arg fmt="%s" index="2">I2</arg>, which no longer has a connected signal. Please ensure that all the pins used in the equation for this LUT have signals that are not trimmed (see Section 5 of the Map Report File for details on which signals were trimmed).
+</msg>
+
+<msg type="error" file="MapLib" num="978" delta="new" ><arg fmt="%s" index="1">LUT4 symbol &quot;i2c_master_bus/busy_mux000161&quot; (output signal=i2c_master_bus/busy_mux000161)</arg> has an equation that uses input pin <arg fmt="%s" index="2">I3</arg>, which no longer has a connected signal. Please ensure that all the pins used in the equation for this LUT have signals that are not trimmed (see Section 5 of the Map Report File for details on which signals were trimmed).
+</msg>
+
+<msg type="error" file="MapLib" num="978" delta="new" ><arg fmt="%s" index="1">LUT4_D symbol &quot;i2c_master_bus/sda_int_mux000191&quot; (output signal=N18)</arg> has an equation that uses input pin <arg fmt="%s" index="2">I3</arg>, which no longer has a connected signal. Please ensure that all the pins used in the equation for this LUT have signals that are not trimmed (see Section 5 of the Map Report File for details on which signals were trimmed).
+</msg>
+
+<msg type="error" file="MapLib" num="978" delta="new" ><arg fmt="%s" index="1">LUT3 symbol &quot;i2c_master_bus/state_FSM_FFd1-In1&quot; (output signal=i2c_master_bus/state_FSM_FFd1-In)</arg> has an equation that uses input pin <arg fmt="%s" index="2">I0</arg>, which no longer has a connected signal. Please ensure that all the pins used in the equation for this LUT have signals that are not trimmed (see Section 5 of the Map Report File for details on which signals were trimmed).
+</msg>
+
+<msg type="error" file="MapLib" num="978" delta="new" ><arg fmt="%s" index="1">LUT4 symbol &quot;i2c_master_bus/state_FSM_FFd8-In40&quot; (output signal=i2c_master_bus/state_FSM_FFd8-In)</arg> has an equation that uses input pin <arg fmt="%s" index="2">I0</arg>, which no longer has a connected signal. Please ensure that all the pins used in the equation for this LUT have signals that are not trimmed (see Section 5 of the Map Report File for details on which signals were trimmed).
+</msg>
+
+<msg type="error" file="MapLib" num="978" delta="new" ><arg fmt="%s" index="1">LUT3 symbol &quot;i2c_master_bus/state_FSM_FFd9-In1&quot; (output signal=i2c_master_bus/state_FSM_FFd9-In)</arg> has an equation that uses input pin <arg fmt="%s" index="2">I0</arg>, which no longer has a connected signal. Please ensure that all the pins used in the equation for this LUT have signals that are not trimmed (see Section 5 of the Map Report File for details on which signals were trimmed).
+</msg>
+
+<msg type="error" file="MapLib" num="978" delta="new" ><arg fmt="%s" index="1">LUT2 symbol &quot;i2c_rw_mux00001&quot; (output signal=i2c_rw_mux0000)</arg> has an equation that uses input pin <arg fmt="%s" index="2">I1</arg>, which no longer has a connected signal. Please ensure that all the pins used in the equation for this LUT have signals that are not trimmed (see Section 5 of the Map Report File for details on which signals were trimmed).
 </msg>
 
 </messages>

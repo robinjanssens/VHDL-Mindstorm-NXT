@@ -10,10 +10,13 @@ entity main is
     Port ( clk    : in     STD_LOGIC;
            clr    : in     STD_LOGIC;
            en     : in     STD_LOGIC;
-           analog : in     STD_LOGIC_VECTOR (15 downto 0);
            Led    : out    STD_LOGIC_VECTOR (7 downto 0);
            A      : inout  STD_LOGIC_VECTOR (3 downto 0);  -- to touch sensor
-           B      : inout  STD_LOGIC_VECTOR (3 downto 0)); -- to ultra sonic sensor
+           B      : inout  STD_LOGIC_VECTOR (3 downto 0);  -- to ultra sonic sensor
+			  C      : inout  STD_LOGIC_VECTOR (3 downto 0); 
+			  D      : inout  STD_LOGIC_VECTOR (3 downto 0); 
+			  E      : inout  STD_LOGIC_VECTOR (3 downto 0); 
+			  F      : inout  STD_LOGIC_VECTOR (3 downto 0));
 end main;
 
 ARCHITECTURE Behavioral of main is
@@ -21,9 +24,12 @@ ARCHITECTURE Behavioral of main is
   -- =============================
   -- Signals
   -- =============================
-  type    state is (idle, state1, state2, state3, state4, state5);
+  type    state is (idle, state1, touch_sensor_check, state3, state4, state5);
   signal  present_state, next_state : state;
-  -- i2c
+  -- RAM
+  type ram is array(31 downto 0) of std_logic_vector(7 downto 0);	
+  signal memory : ram;	
+  -- I2C
   signal  i2c_ena             : STD_LOGIC;
   signal  i2c_addr            : STD_LOGIC_VECTOR (6 DOWNTO 0);
   signal  i2c_rw              : STD_LOGIC;
@@ -35,10 +41,12 @@ ARCHITECTURE Behavioral of main is
   signal  slave_addr          : STD_LOGIC_VECTOR (6 DOWNTO 0);
   signal  data_to_write       : STD_LOGIC_VECTOR (7 DOWNTO 0);
   signal  new_data_to_write   : STD_LOGIC_VECTOR (7 DOWNTO 0);
-  signal  data                : STD_LOGIC_VECTOR (15 DOWNTO 0);
   -- Blink
   signal  counter  : integer range 0 to 25_000_000;
   signal  sec      : STD_LOGIC;
+
+  -- Touch sensor
+  signal  touch    : STD_LOGIC;
 
   -- =============================
   -- Components
@@ -61,15 +69,25 @@ ARCHITECTURE Behavioral of main is
       scl       : INOUT  STD_LOGIC);                    --serial clock output of i2c bus
   end component;
 
+  component int_drukknop
+    Port(
+	   d_in     : in  STD_LOGIC;							  -- Hier moet de drukknop aan worden gehangen
+      d_out    : out STD_LOGIC;							  -- Dit is de algemene uitgang van de interface
+      press    : out STD_LOGIC;							  -- 1 Puls hoog bij het induwen van de knop
+      release  : out STD_LOGIC;						     -- 1 Puls hoog bij het loslaten van de knop
+      clk      : in  STD_LOGIC;							  -- De clock ingang
+		waitTime : in  STD_LOGIC_VECTOR (7 downto 0)); -- De sensibilisering tijd tussen ingang en uitgang
+  end component;
+
 BEGIN
 
   -- =============================
   -- Port Mappings
   -- =============================
-  ultrasonic_sensor : i2c_master
+  i2c_master_bus : i2c_master
     PORT MAP(
       clk       => clk,
-      reset_n   => clr,
+      reset_n   => not(clr),
       ena       => i2c_ena,
       addr      => i2c_addr,
       rw        => i2c_rw,
@@ -77,87 +95,71 @@ BEGIN
       busy      => i2c_busy,
       data_rd   => i2c_data_rd,
       ack_error => i2c_ack_error,
-      sda       => sda,
-      scl       => scl);
+      sda       => B(1),
+      scl       => B(2));
+
+	touch_sensor : int_drukknop
+	  PORT MAP(
+	    d_in     => B(0),
+		 d_out    => touch,
+		 clk      => clk,
+		 waitTime => "00000100");
 
   -- =============================
-  -- Main Code
+  -- Code
   -- =============================
-  main: process (present_state) --, inputs)
-
-    variable  busy_cnt            : integer range 0 to 4;
-
+  
+  -- Touch Sensor
+  memory(0) <= "0000000" & touch;
+  
+  -- I2C Master
+  i2c_read: process (i2c_busy)
+    variable busy_cnt            : integer range 0 to 4;
   begin
-    case present_state is
-      when idle =>
-        -- code
-
-
-      when state1 =>
-
-        slave_addr <= "0000010";       -- ultrasonic sensor adress = 2
-        data_to_write <= "00000000";   -- get version info (returns 8 bit)
-        data_to_write <= "00000011";   -- ??
-
-        -- =============================
-        -- Read Sensor I2C
-        -- =============================
-        busy_prev <= i2c_busy;                       -- capture previous i2c busy signal
-        if(busy_prev = '0' and i2c_busy = '1') then  -- i2c busy just went high
-          busy_cnt := busy_cnt + 1;                  -- counts the times busy has gone from low to high during transaction
+    slave_addr <= "0000010";       -- ultrasonic sensor adress = 2
+    data_to_write <= "00000000";   -- get version info (returns 8 bit)
+    new_data_to_write <= "00000011";   -- ??
+ 
+    -- =============================
+    -- Read Sensor I2C
+    -- =============================
+    busy_prev <= i2c_busy;                       -- capture previous i2c busy signal
+    if(busy_prev = '0' and i2c_busy = '1') then  -- i2c busy just went high
+      busy_cnt := busy_cnt + 1;                  -- counts the times busy has gone from low to high during transaction
+    end if;
+    case busy_cnt is                             -- busy_cnt keeps track of which command we are on
+      when 0 =>                                  -- no command latched in yet
+        i2c_ena <= '1';                          -- initiate the transaction
+        i2c_addr <= slave_addr;                  -- set the address of the slave
+        i2c_rw <= '0';                           -- command 1 is a write
+        i2c_data_wr <= data_to_write;            -- data to be written
+      when 1 =>                                  -- 1st busy high: command 1 latched, okay to issue command 2
+        i2c_rw <= '1';                           -- command 2 is a read (addr stays the same)
+      when 2 =>                                  -- 2nd busy high: command 2 latched, okay to issue command 3
+        i2c_rw <= '0';                           -- command 3 is a write
+        i2c_data_wr <= new_data_to_write;        -- data to be written
+        if(i2c_busy = '0') then                  -- indicates data read in command 2 is ready
+          memory(1) <= i2c_data_rd;              -- retrieve data from command 2
         end if;
-        case busy_cnt is                             -- busy_cnt keeps track of which command we are on
-          when 0 =>                                  -- no command latched in yet
-            i2c_ena <= '1';                          -- initiate the transaction
-            i2c_addr <= slave_addr;                  -- set the address of the slave
-            i2c_rw <= '0';                           -- command 1 is a write
-            i2c_data_wr <= data_to_write;            -- data to be written
-          when 1 =>                                  -- 1st busy high: command 1 latched, okay to issue command 2
-            i2c_rw <= '1';                           -- command 2 is a read (addr stays the same)
-          when 2 =>                                  -- 2nd busy high: command 2 latched, okay to issue command 3
-            i2c_rw <= '0';                           -- command 3 is a write
-            i2c_data_wr <= new_data_to_write;        -- data to be written
-            if(i2c_busy = '0') then                  -- indicates data read in command 2 is ready
-              data(15 downto 8) <= i2c_data_rd;      -- retrieve data from command 2
-            end if;
-          when 3 =>                                  -- 3rd busy high: command 3 latched, okay to issue command 4
-            i2c_rw <= '1';                           -- command 4 is read (addr stays the same)
-          when 4 =>                                  -- 4th busy high: command 4 latched, ready to stop
-            i2c_ena <= '0';                          -- deassert enable to stop transaction after command 4
-            if(i2c_busy = '0') then                  -- indicates data read in command 4 is ready
-              data(7 downto 0) <= i2c_data_rd;       -- retrieve data from command 4
-              busy_cnt := 0;                         -- reset busy_cnt for next transaction
-              next_state <= idle;                    -- transaction complete, go to next state in design
-            end if;
-          when others => null;
-        end case;
-
-      when state2 =>
-        -- code
-      when state3 =>
-        -- code
-      when state4 =>
-        -- code
-      when state5 =>
-        -- code
-      when others =>
-        next_state <= state1;
+      when 3 =>                                  -- 3rd busy high: command 3 latched, okay to issue command 4
+        i2c_rw <= '1';                           -- command 4 is read (addr stays the same)
+      when 4 =>                                  -- 4th busy high: command 4 latched, ready to stop
+        i2c_ena <= '0';                          -- deassert enable to stop transaction after command 4
+        if(i2c_busy = '0') then                  -- indicates data read in command 4 is ready
+          memory(2) <= i2c_data_rd;              -- retrieve data from command 4
+          busy_cnt := 0;                         -- reset busy_cnt for next transaction
+          --next_state <= idle;                  -- transaction complete, go to next state in design
+        end if;
+      when others => null;
     end case;
   end process;
-
-  -- =============================
-  -- State Change
-  -- =============================
-  state_change: process (clk)
-  begin
-    if rising_edge(clk) then
-      if clr = '1' then
-        present_state <= idle;
-      else
-        present_state <= next_state;
-      end if;
-    end if;
-  end process;
+  
+  
+  
+  
+  
+  
+ 
 
   -- =============================
   -- Blink
@@ -177,16 +179,8 @@ BEGIN
       end if;
     end if;
   end process;
-  Led(0) <= '1';
-  Led(1) <= '1';
-  Led(2) <= '1';
-  Led(3) <= '1';
-  Led(4) <= '1';
-  Led(5) <= '1';
-  Led(6) <= '1';
+  Led(0) <= memory(0)(0);
+  Led(6 downto 1) <= "000000";
   Led(7) <= sec;
-
-  A(3) <= sec; A(2) <= sec; A(1) <= sec; A(0) <= sec;
-  B <= not(A);
 
 END Behavioral;
