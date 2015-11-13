@@ -39,10 +39,16 @@
 <msg type="warning" file="Xst" num="2565" delta="old" >Inout &lt;<arg fmt="%s" index="1">E&lt;2&gt;</arg>&gt; is never assigned.
 </msg>
 
+<msg type="warning" file="Xst" num="2565" delta="new" >Inout &lt;<arg fmt="%s" index="1">B&lt;0&gt;</arg>&gt; is never assigned.
+</msg>
+
 <msg type="warning" file="Xst" num="2565" delta="old" >Inout &lt;<arg fmt="%s" index="1">E&lt;3&gt;</arg>&gt; is never assigned.
 </msg>
 
-<msg type="warning" file="Xst" num="2565" delta="old" >Inout &lt;<arg fmt="%s" index="1">B&lt;3&gt;</arg>&gt; is never assigned.
+<msg type="warning" file="Xst" num="2565" delta="old" >Inout &lt;<arg fmt="%s" index="1">B&lt;1&gt;</arg>&gt; is never assigned.
+</msg>
+
+<msg type="warning" file="Xst" num="2565" delta="old" >Inout &lt;<arg fmt="%s" index="1">B&lt;2&gt;</arg>&gt; is never assigned.
 </msg>
 
 <msg type="warning" file="Xst" num="2565" delta="old" >Inout &lt;<arg fmt="%s" index="1">D&lt;0&gt;</arg>&gt; is never assigned.
@@ -51,19 +57,19 @@
 <msg type="warning" file="Xst" num="2565" delta="old" >Inout &lt;<arg fmt="%s" index="1">D&lt;1&gt;</arg>&gt; is never assigned.
 </msg>
 
+<msg type="warning" file="Xst" num="2565" delta="old" >Inout &lt;<arg fmt="%s" index="1">Led&lt;1&gt;</arg>&gt; is never assigned.
+</msg>
+
 <msg type="warning" file="Xst" num="2565" delta="old" >Inout &lt;<arg fmt="%s" index="1">D&lt;2&gt;</arg>&gt; is never assigned.
 </msg>
 
 <msg type="warning" file="Xst" num="2565" delta="old" >Inout &lt;<arg fmt="%s" index="1">A&lt;0&gt;</arg>&gt; is never assigned.
 </msg>
 
+<msg type="warning" file="Xst" num="2565" delta="old" >Inout &lt;<arg fmt="%s" index="1">Led&lt;2&gt;</arg>&gt; is never assigned.
+</msg>
+
 <msg type="warning" file="Xst" num="2565" delta="old" >Inout &lt;<arg fmt="%s" index="1">D&lt;3&gt;</arg>&gt; is never assigned.
-</msg>
-
-<msg type="warning" file="Xst" num="2565" delta="old" >Inout &lt;<arg fmt="%s" index="1">A&lt;1&gt;</arg>&gt; is never assigned.
-</msg>
-
-<msg type="warning" file="Xst" num="2565" delta="old" >Inout &lt;<arg fmt="%s" index="1">A&lt;2&gt;</arg>&gt; is never assigned.
 </msg>
 
 <msg type="warning" file="Xst" num="2565" delta="old" >Inout &lt;<arg fmt="%s" index="1">A&lt;3&gt;</arg>&gt; is never assigned.
@@ -150,13 +156,13 @@
 <msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">0</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">7</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">1</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">LPM_LATCH_2</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;0&gt; </arg>
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">1</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">LPM_LATCH_2</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;0&gt; </arg>
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">7</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">LPM_LATCH_2</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">5 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;6&gt; &lt;5&gt; &lt;4&gt; &lt;3&gt; &lt;2&gt; </arg>
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">7</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">LPM_LATCH_2</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">5 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;6&gt; &lt;5&gt; &lt;4&gt; &lt;3&gt; &lt;2&gt; </arg>
 </msg>
 
-<msg type="warning" file="Xst" num="1710" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">7</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">LPM_LATCH_2</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">7</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">LPM_LATCH_2</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
 <msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">i2c_master_bus/data_rd_7</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">main</arg>&gt;.
@@ -210,13 +216,14 @@
 <msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">i2c_master_bus/ack_error</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">main</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="2170" delta="new" >Unit <arg fmt="%s" index="1">main</arg> : the following signal(s) form a combinatorial loop: </msg>
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">i2c_master_bus/busy</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">main</arg>&gt;.
+</msg>
 
-<msg type="warning" file="Xst" num="2170" delta="new" >Unit <arg fmt="%s" index="1">main</arg> : the following signal(s) form a combinatorial loop: </msg>
+<msg type="warning" file="Xst" num="2170" delta="old" >Unit <arg fmt="%s" index="1">main</arg> : the following signal(s) form a combinatorial loop: </msg>
 
-<msg type="warning" file="Xst" num="2170" delta="new" >Unit <arg fmt="%s" index="1">main</arg> : the following signal(s) form a combinatorial loop: </msg>
+<msg type="warning" file="Xst" num="2170" delta="old" >Unit <arg fmt="%s" index="1">main</arg> : the following signal(s) form a combinatorial loop: </msg>
 
-<msg type="warning" file="Xst" num="2170" delta="new" >Unit <arg fmt="%s" index="1">main</arg> : the following signal(s) form a combinatorial loop: </msg>
+<msg type="warning" file="Xst" num="2170" delta="old" >Unit <arg fmt="%s" index="1">main</arg> : the following signal(s) form a combinatorial loop: </msg>
 
 <msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">i2c_master_bus/data_tx_7</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">main</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>

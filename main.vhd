@@ -10,9 +10,9 @@ entity main is
     Port ( clk    : in     STD_LOGIC;
            clr    : in     STD_LOGIC;
            en     : in     STD_LOGIC;
-           Led    : out    STD_LOGIC_VECTOR (7 downto 0);
-           A      : inout  STD_LOGIC_VECTOR (3 downto 0);  -- to touch sensor
-           B      : inout  STD_LOGIC_VECTOR (3 downto 0);  -- to ultra sonic sensor
+           Led    : inout    STD_LOGIC_VECTOR (7 downto 0);
+           A      : inout  STD_LOGIC_VECTOR (3 downto 0);  -- to I2C master bus
+           B      : inout  STD_LOGIC_VECTOR (3 downto 0);  -- to touch sensor
 			  C      : inout  STD_LOGIC_VECTOR (3 downto 0); 
 			  D      : inout  STD_LOGIC_VECTOR (3 downto 0); 
 			  E      : inout  STD_LOGIC_VECTOR (3 downto 0); 
@@ -95,12 +95,12 @@ BEGIN
       busy      => i2c_busy,
       data_rd   => i2c_data_rd,
       ack_error => i2c_ack_error,
-      sda       => B(1),
-      scl       => B(2));
+      sda       => A(1),
+      scl       => A(2));
 
 	touch_sensor : int_drukknop
 	  PORT MAP(
-	    d_in     => B(0),
+	    d_in     => B(3),
 		 d_out    => touch,
 		 clk      => clk,
 		 waitTime => "00000100");
@@ -113,8 +113,8 @@ BEGIN
   memory(0) <= "0000000" & touch;
   
   -- I2C Master
-  i2c_read: process (i2c_busy)
-    variable busy_cnt            : integer range 0 to 4;
+  i2c_read: process (i2c_busy, clr)
+    variable busy_cnt            : integer range 0 to 4 := 0;
   begin
     slave_addr <= "0000010";       -- ultrasonic sensor adress = 2
     data_to_write <= "00000000";   -- get version info (returns 8 bit)
@@ -124,9 +124,11 @@ BEGIN
     -- Read Sensor I2C
     -- =============================
     busy_prev <= i2c_busy;                       -- capture previous i2c busy signal
-    if(busy_prev = '0' and i2c_busy = '1') then  -- i2c busy just went high
+	 if (clr = '1') then
+	   busy_cnt := 0;
+    elsif (busy_prev = '0' and i2c_busy = '1') then  -- i2c busy just went high
       busy_cnt := busy_cnt + 1;                  -- counts the times busy has gone from low to high during transaction
-    end if;
+	 end if;
     case busy_cnt is                             -- busy_cnt keeps track of which command we are on
       when 0 =>                                  -- no command latched in yet
         i2c_ena <= '1';                          -- initiate the transaction
@@ -147,19 +149,13 @@ BEGIN
         i2c_ena <= '0';                          -- deassert enable to stop transaction after command 4
         if(i2c_busy = '0') then                  -- indicates data read in command 4 is ready
           memory(2) <= i2c_data_rd;              -- retrieve data from command 4
-          busy_cnt := 0;                         -- reset busy_cnt for next transaction
-          --next_state <= idle;                  -- transaction complete, go to next state in design
+          --busy_cnt := 0;                         -- reset busy_cnt for next transaction
         end if;
       when others => null;
     end case;
-  end process;
+  end process;	
   
-  
-  
-  
-  
-  
- 
+
 
   -- =============================
   -- Blink
@@ -180,7 +176,7 @@ BEGIN
     end if;
   end process;
   Led(0) <= memory(0)(0);
-  Led(6 downto 1) <= "000000";
+  Led(6 downto 3) <= "0000";
   Led(7) <= sec;
 
 END Behavioral;

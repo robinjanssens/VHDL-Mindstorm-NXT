@@ -19,15 +19,17 @@ Checking expanded design ...
 WARNING:NgdBuild:470 - bidirect pad net 'E<0>' has no legal driver
 WARNING:NgdBuild:470 - bidirect pad net 'E<1>' has no legal driver
 WARNING:NgdBuild:470 - bidirect pad net 'E<2>' has no legal driver
+WARNING:NgdBuild:470 - bidirect pad net 'B<0>' has no legal driver
 WARNING:NgdBuild:470 - bidirect pad net 'E<3>' has no legal driver
-WARNING:NgdBuild:470 - bidirect pad net 'B<3>' has no legal driver
+WARNING:NgdBuild:470 - bidirect pad net 'B<1>' has no legal driver
+WARNING:NgdBuild:470 - bidirect pad net 'B<2>' has no legal driver
 WARNING:NgdBuild:470 - bidirect pad net 'D<0>' has no legal driver
 WARNING:NgdBuild:470 - bidirect pad net 'D<1>' has no legal driver
+WARNING:NgdBuild:470 - bidirect pad net 'Led<1>' has no legal driver
 WARNING:NgdBuild:470 - bidirect pad net 'D<2>' has no legal driver
 WARNING:NgdBuild:470 - bidirect pad net 'A<0>' has no legal driver
+WARNING:NgdBuild:470 - bidirect pad net 'Led<2>' has no legal driver
 WARNING:NgdBuild:470 - bidirect pad net 'D<3>' has no legal driver
-WARNING:NgdBuild:470 - bidirect pad net 'A<1>' has no legal driver
-WARNING:NgdBuild:470 - bidirect pad net 'A<2>' has no legal driver
 WARNING:NgdBuild:470 - bidirect pad net 'A<3>' has no legal driver
 WARNING:NgdBuild:470 - bidirect pad net 'F<0>' has no legal driver
 WARNING:NgdBuild:470 - bidirect pad net 'F<1>' has no legal driver
@@ -47,9 +49,9 @@ Partition Implementation Status
 
 NGDBUILD Design Results Summary:
   Number of errors:     0
-  Number of warnings:  21
+  Number of warnings:  23
 
-Total memory usage is 185860 kilobytes
+Total memory usage is 185896 kilobytes
 
 Writing NGD file "main.ngd" ...
 Total REAL time to NGDBUILD completion:  3 sec

@@ -14,10 +14,16 @@
 <msg type="warning" file="NgdBuild" num="470" delta="old" ><arg fmt="%s" index="1">bidirect</arg> pad net &apos;<arg fmt="%s" index="2">E&lt;2&gt;</arg>&apos; has no legal driver
 </msg>
 
+<msg type="warning" file="NgdBuild" num="470" delta="new" ><arg fmt="%s" index="1">bidirect</arg> pad net &apos;<arg fmt="%s" index="2">B&lt;0&gt;</arg>&apos; has no legal driver
+</msg>
+
 <msg type="warning" file="NgdBuild" num="470" delta="old" ><arg fmt="%s" index="1">bidirect</arg> pad net &apos;<arg fmt="%s" index="2">E&lt;3&gt;</arg>&apos; has no legal driver
 </msg>
 
-<msg type="warning" file="NgdBuild" num="470" delta="old" ><arg fmt="%s" index="1">bidirect</arg> pad net &apos;<arg fmt="%s" index="2">B&lt;3&gt;</arg>&apos; has no legal driver
+<msg type="warning" file="NgdBuild" num="470" delta="old" ><arg fmt="%s" index="1">bidirect</arg> pad net &apos;<arg fmt="%s" index="2">B&lt;1&gt;</arg>&apos; has no legal driver
+</msg>
+
+<msg type="warning" file="NgdBuild" num="470" delta="old" ><arg fmt="%s" index="1">bidirect</arg> pad net &apos;<arg fmt="%s" index="2">B&lt;2&gt;</arg>&apos; has no legal driver
 </msg>
 
 <msg type="warning" file="NgdBuild" num="470" delta="old" ><arg fmt="%s" index="1">bidirect</arg> pad net &apos;<arg fmt="%s" index="2">D&lt;0&gt;</arg>&apos; has no legal driver
@@ -26,19 +32,19 @@
 <msg type="warning" file="NgdBuild" num="470" delta="old" ><arg fmt="%s" index="1">bidirect</arg> pad net &apos;<arg fmt="%s" index="2">D&lt;1&gt;</arg>&apos; has no legal driver
 </msg>
 
+<msg type="warning" file="NgdBuild" num="470" delta="old" ><arg fmt="%s" index="1">bidirect</arg> pad net &apos;<arg fmt="%s" index="2">Led&lt;1&gt;</arg>&apos; has no legal driver
+</msg>
+
 <msg type="warning" file="NgdBuild" num="470" delta="old" ><arg fmt="%s" index="1">bidirect</arg> pad net &apos;<arg fmt="%s" index="2">D&lt;2&gt;</arg>&apos; has no legal driver
 </msg>
 
 <msg type="warning" file="NgdBuild" num="470" delta="old" ><arg fmt="%s" index="1">bidirect</arg> pad net &apos;<arg fmt="%s" index="2">A&lt;0&gt;</arg>&apos; has no legal driver
 </msg>
 
+<msg type="warning" file="NgdBuild" num="470" delta="old" ><arg fmt="%s" index="1">bidirect</arg> pad net &apos;<arg fmt="%s" index="2">Led&lt;2&gt;</arg>&apos; has no legal driver
+</msg>
+
 <msg type="warning" file="NgdBuild" num="470" delta="old" ><arg fmt="%s" index="1">bidirect</arg> pad net &apos;<arg fmt="%s" index="2">D&lt;3&gt;</arg>&apos; has no legal driver
-</msg>
-
-<msg type="warning" file="NgdBuild" num="470" delta="old" ><arg fmt="%s" index="1">bidirect</arg> pad net &apos;<arg fmt="%s" index="2">A&lt;1&gt;</arg>&apos; has no legal driver
-</msg>
-
-<msg type="warning" file="NgdBuild" num="470" delta="old" ><arg fmt="%s" index="1">bidirect</arg> pad net &apos;<arg fmt="%s" index="2">A&lt;2&gt;</arg>&apos; has no legal driver
 </msg>
 
 <msg type="warning" file="NgdBuild" num="470" delta="old" ><arg fmt="%s" index="1">bidirect</arg> pad net &apos;<arg fmt="%s" index="2">A&lt;3&gt;</arg>&apos; has no legal driver

@@ -9,180 +9,156 @@ Target Device  : xc3s1200e
 Target Package : fg320
 Target Speed   : -5
 Mapper Version : spartan3e -- $Revision: 1.55 $
-Mapped Date    : Mon Nov 09 12:42:51 2015
+Mapped Date    : Fri Nov 13 22:05:30 2015
 
 Design Summary
 --------------
-Number of errors   :  28
-Number of warnings :   0
+Number of errors:      0
+Number of warnings:   26
+Logic Utilization:
+  Total Number Slice Registers:          88 out of  17,344    1%
+    Number used as Flip Flops:           85
+    Number used as Latches:               3
+  Number of 4 input LUTs:               133 out of  17,344    1%
+Logic Distribution:
+  Number of occupied Slices:            108 out of   8,672    1%
+    Number of Slices containing only related logic:     108 out of     108 100%
+    Number of Slices containing unrelated logic:          0 out of     108   0%
+      *See NOTES below for an explanation of the effects of unrelated logic.
+  Total Number of 4 input LUTs:         194 out of  17,344    1%
+    Number used as logic:               133
+    Number used as a route-thru:         61
+
+  The Slice Logic Distribution report is not meaningful if the design is
+  over-mapped for a non-slice resource or if Placement fails.
+
+  Number of bonded IOBs:                 35 out of     250   14%
+  Number of BUFGMUXs:                     1 out of      24    4%
+
+Average Fanout of Non-Clock Nets:                2.91
+
+Peak Memory Usage:  357 MB
+Total REAL time to MAP completion:  2 secs 
+Total CPU time to MAP completion:   1 secs 
+
+NOTES:
+
+   Related logic is defined as being logic that shares connectivity - e.g. two
+   LUTs are "related" if they share common inputs.  When assembling slices,
+   Map gives priority to combine logic that is related.  Doing so results in
+   the best timing performance.
+
+   Unrelated logic shares no connectivity.  Map will only begin packing
+   unrelated logic into a slice once 99% of the slices are occupied through
+   related logic packing.
+
+   Note that once logic distribution reaches the 99% level through related
+   logic packing, this does not mean the device is completely utilized.
+   Unrelated logic packing will then begin, continuing until all usable LUTs
+   and FFs are occupied.  Depending on your timing budget, increased levels of
+   unrelated logic packing may adversely affect the overall timing performance
+   of your design.
+
+Table of Contents
+-----------------
+Section 1 - Errors
+Section 2 - Warnings
+Section 3 - Informational
+Section 4 - Removed Logic Summary
+Section 5 - Removed Logic
+Section 6 - IOB Properties
+Section 7 - RPMs
+Section 8 - Guide Report
+Section 9 - Area Group and Partition Summary
+Section 10 - Timing Report
+Section 11 - Configuration String Information
+Section 12 - Control Set Information
+Section 13 - Utilization by Hierarchy
 
 Section 1 - Errors
 ------------------
-ERROR:MapLib:979 - LUT4 symbol "busy_cnt<2>1" (output signal=busy_cnt<2>) has
-   input signal "busy_cnt<1>" which will be trimmed. See Section 5 of the Map
-   Report File for details about why the input signal will become undriven.
-ERROR:MapLib:979 - LUT4 symbol "busy_cnt<2>1" (output signal=busy_cnt<2>) has
-   input signal "busy_cnt<0>" which will be trimmed. See Section 5 of the Map
-   Report File for details about why the input signal will become undriven.
-ERROR:MapLib:979 - LUT3 symbol "i2c_data_wr_mux0000<0>1" (output
-   signal=i2c_data_wr_mux0000<0>) has input signal "busy_cnt<1>" which will be
-   trimmed. See Section 5 of the Map Report File for details about why the input
-   signal will become undriven.
-ERROR:MapLib:979 - LUT3 symbol "i2c_data_wr_mux0000<0>1" (output
-   signal=i2c_data_wr_mux0000<0>) has input signal "busy_cnt<0>" which will be
-   trimmed. See Section 5 of the Map Report File for details about why the input
-   signal will become undriven.
-ERROR:MapLib:979 - LUT2 symbol "i2c_data_wr_mux0000<0>11" (output
-   signal=i2c_data_wr_not0001) has input signal "busy_cnt<0>" which will be
-   trimmed. See Section 5 of the Map Report File for details about why the input
-   signal will become undriven.
-ERROR:MapLib:979 - LUT4 symbol "i2c_master_bus/addr_rw_mux0002<0>118" (output
-   signal=i2c_master_bus/addr_rw_mux0002<0>118) has input signal "i2c_ena" which
-   will be trimmed. See Section 5 of the Map Report File for details about why
-   the input signal will become undriven.
-ERROR:MapLib:979 - LUT4 symbol "i2c_master_bus/addr_rw_mux0002<0>21" (output
-   signal=N35) has input signal "i2c_ena" which will be trimmed. See Section 5
-   of the Map Report File for details about why the input signal will become
-   undriven.
-ERROR:MapLib:979 - LUT4 symbol "i2c_master_bus/busy_mux000117" (output
-   signal=i2c_master_bus/busy_mux000117) has input signal "i2c_ena" which will
-   be trimmed. See Section 5 of the Map Report File for details about why the
-   input signal will become undriven.
-ERROR:MapLib:979 - LUT4 symbol "i2c_master_bus/busy_mux000161" (output
-   signal=i2c_master_bus/busy_mux000161) has input signal "i2c_ena" which will
-   be trimmed. See Section 5 of the Map Report File for details about why the
-   input signal will become undriven.
-ERROR:MapLib:979 - LUT4_D symbol "i2c_master_bus/sda_int_mux000191" (output
-   signal=N18) has input signal "i2c_ena" which will be trimmed. See Section 5
-   of the Map Report File for details about why the input signal will become
-   undriven.
-ERROR:MapLib:979 - LUT3 symbol "i2c_master_bus/state_FSM_FFd1-In1" (output
-   signal=i2c_master_bus/state_FSM_FFd1-In) has input signal "i2c_ena" which
-   will be trimmed. See Section 5 of the Map Report File for details about why
-   the input signal will become undriven.
-ERROR:MapLib:979 - LUT4 symbol "i2c_master_bus/state_FSM_FFd8-In40" (output
-   signal=i2c_master_bus/state_FSM_FFd8-In) has input signal "i2c_ena" which
-   will be trimmed. See Section 5 of the Map Report File for details about why
-   the input signal will become undriven.
-ERROR:MapLib:979 - LUT3 symbol "i2c_master_bus/state_FSM_FFd9-In1" (output
-   signal=i2c_master_bus/state_FSM_FFd9-In) has input signal "i2c_ena" which
-   will be trimmed. See Section 5 of the Map Report File for details about why
-   the input signal will become undriven.
-ERROR:MapLib:979 - LUT2 symbol "i2c_rw_mux00001" (output signal=i2c_rw_mux0000)
-   has input signal "busy_cnt<0>" which will be trimmed. See Section 5 of the
-   Map Report File for details about why the input signal will become undriven.
-ERROR:MapLib:978 - LUT4 symbol "busy_cnt<2>1" (output signal=busy_cnt<2>) has an
-   equation that uses input pin I2, which no longer has a connected signal.
-   Please ensure that all the pins used in the equation for this LUT have
-   signals that are not trimmed (see Section 5 of the Map Report File for
-   details on which signals were trimmed).
-ERROR:MapLib:978 - LUT4 symbol "busy_cnt<2>1" (output signal=busy_cnt<2>) has an
-   equation that uses input pin I3, which no longer has a connected signal.
-   Please ensure that all the pins used in the equation for this LUT have
-   signals that are not trimmed (see Section 5 of the Map Report File for
-   details on which signals were trimmed).
-ERROR:MapLib:978 - LUT3 symbol "i2c_data_wr_mux0000<0>1" (output
-   signal=i2c_data_wr_mux0000<0>) has an equation that uses input pin I1, which
-   no longer has a connected signal. Please ensure that all the pins used in the
-   equation for this LUT have signals that are not trimmed (see Section 5 of the
-   Map Report File for details on which signals were trimmed).
-ERROR:MapLib:978 - LUT3 symbol "i2c_data_wr_mux0000<0>1" (output
-   signal=i2c_data_wr_mux0000<0>) has an equation that uses input pin I2, which
-   no longer has a connected signal. Please ensure that all the pins used in the
-   equation for this LUT have signals that are not trimmed (see Section 5 of the
-   Map Report File for details on which signals were trimmed).
-ERROR:MapLib:978 - LUT2 symbol "i2c_data_wr_mux0000<0>11" (output
-   signal=i2c_data_wr_not0001) has an equation that uses input pin I1, which no
-   longer has a connected signal. Please ensure that all the pins used in the
-   equation for this LUT have signals that are not trimmed (see Section 5 of the
-   Map Report File for details on which signals were trimmed).
-ERROR:MapLib:978 - LUT4 symbol "i2c_master_bus/addr_rw_mux0002<0>118" (output
-   signal=i2c_master_bus/addr_rw_mux0002<0>118) has an equation that uses input
-   pin I1, which no longer has a connected signal. Please ensure that all the
-   pins used in the equation for this LUT have signals that are not trimmed (see
-   Section 5 of the Map Report File for details on which signals were trimmed).
-ERROR:MapLib:978 - LUT4 symbol "i2c_master_bus/addr_rw_mux0002<0>21" (output
-   signal=N35) has an equation that uses input pin I0, which no longer has a
-   connected signal. Please ensure that all the pins used in the equation for
-   this LUT have signals that are not trimmed (see Section 5 of the Map Report
-   File for details on which signals were trimmed).
-ERROR:MapLib:978 - LUT4 symbol "i2c_master_bus/busy_mux000117" (output
-   signal=i2c_master_bus/busy_mux000117) has an equation that uses input pin I2,
-   which no longer has a connected signal. Please ensure that all the pins used
-   in the equation for this LUT have signals that are not trimmed (see Section 5
-   of the Map Report File for details on which signals were trimmed).
-ERROR:MapLib:978 - LUT4 symbol "i2c_master_bus/busy_mux000161" (output
-   signal=i2c_master_bus/busy_mux000161) has an equation that uses input pin I3,
-   which no longer has a connected signal. Please ensure that all the pins used
-   in the equation for this LUT have signals that are not trimmed (see Section 5
-   of the Map Report File for details on which signals were trimmed).
-ERROR:MapLib:978 - LUT4_D symbol "i2c_master_bus/sda_int_mux000191" (output
-   signal=N18) has an equation that uses input pin I3, which no longer has a
-   connected signal. Please ensure that all the pins used in the equation for
-   this LUT have signals that are not trimmed (see Section 5 of the Map Report
-   File for details on which signals were trimmed).
-ERROR:MapLib:978 - LUT3 symbol "i2c_master_bus/state_FSM_FFd1-In1" (output
-   signal=i2c_master_bus/state_FSM_FFd1-In) has an equation that uses input pin
-   I0, which no longer has a connected signal. Please ensure that all the pins
-   used in the equation for this LUT have signals that are not trimmed (see
-   Section 5 of the Map Report File for details on which signals were trimmed).
-ERROR:MapLib:978 - LUT4 symbol "i2c_master_bus/state_FSM_FFd8-In40" (output
-   signal=i2c_master_bus/state_FSM_FFd8-In) has an equation that uses input pin
-   I0, which no longer has a connected signal. Please ensure that all the pins
-   used in the equation for this LUT have signals that are not trimmed (see
-   Section 5 of the Map Report File for details on which signals were trimmed).
-ERROR:MapLib:978 - LUT3 symbol "i2c_master_bus/state_FSM_FFd9-In1" (output
-   signal=i2c_master_bus/state_FSM_FFd9-In) has an equation that uses input pin
-   I0, which no longer has a connected signal. Please ensure that all the pins
-   used in the equation for this LUT have signals that are not trimmed (see
-   Section 5 of the Map Report File for details on which signals were trimmed).
-ERROR:MapLib:978 - LUT2 symbol "i2c_rw_mux00001" (output signal=i2c_rw_mux0000)
-   has an equation that uses input pin I1, which no longer has a connected
-   signal. Please ensure that all the pins used in the equation for this LUT
-   have signals that are not trimmed (see Section 5 of the Map Report File for
-   details on which signals were trimmed).
 
 Section 2 - Warnings
 --------------------
+WARNING:PhysDesignRules:372 - Gated clock. Clock net busy_cnt<2> is sourced by a
+   combinatorial pin. This is not good design practice. Use the CE pin to
+   control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net i2c_data_wr_not0001 is
+   sourced by a combinatorial pin. This is not good design practice. Use the CE
+   pin to control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net i2c_ena_not0001 is sourced
+   by a combinatorial pin. This is not good design practice. Use the CE pin to
+   control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:367 - The signal <E<1>_IBUF> is incomplete. The signal
+   does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <E<2>_IBUF> is incomplete. The signal
+   does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <E<3>_IBUF> is incomplete. The signal
+   does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <F<0>_IBUF> is incomplete. The signal
+   does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <F<1>_IBUF> is incomplete. The signal
+   does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <F<2>_IBUF> is incomplete. The signal
+   does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <F<3>_IBUF> is incomplete. The signal
+   does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <Led<1>_IBUF> is incomplete. The signal
+   does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <Led<2>_IBUF> is incomplete. The signal
+   does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <A<0>_IBUF> is incomplete. The signal
+   does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <A<3>_IBUF> is incomplete. The signal
+   does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <B<0>_IBUF> is incomplete. The signal
+   does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <B<1>_IBUF> is incomplete. The signal
+   does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <B<2>_IBUF> is incomplete. The signal
+   does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <C<0>_IBUF> is incomplete. The signal
+   does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <C<1>_IBUF> is incomplete. The signal
+   does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <C<2>_IBUF> is incomplete. The signal
+   does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <C<3>_IBUF> is incomplete. The signal
+   does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <D<0>_IBUF> is incomplete. The signal
+   does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <D<1>_IBUF> is incomplete. The signal
+   does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <D<2>_IBUF> is incomplete. The signal
+   does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <D<3>_IBUF> is incomplete. The signal
+   does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <E<0>_IBUF> is incomplete. The signal
+   does not drive any load pins in the design.
 
 Section 3 - Informational
 -------------------------
 INFO:LIT:243 - Logical network E<0>_IBUF has no load.
-INFO:LIT:395 - The above info message is repeated 20 more times for the
+INFO:LIT:395 - The above info message is repeated 22 more times for the
    following (max. 5 shown):
    E<1>_IBUF,
    E<2>_IBUF,
+   B<0>_IBUF,
    E<3>_IBUF,
-   B<3>_IBUF,
-   D<0>_IBUF
+   B<1>_IBUF
    To see the details of these info messages, please use the -detail switch.
 INFO:MapLib:564 - The following environment variables are currently set:
 INFO:MapLib:591 - XIL_MAP_LOCWARN 	Value: 1
+INFO:LIT:244 - All of the single ended outputs in this design are using slew
+   rate limited output drivers. The delay on speed critical single ended outputs
+   can be dramatically reduced by designating them as fast outputs.
 
 Section 4 - Removed Logic Summary
 ---------------------------------
-   5 block(s) removed
    2 block(s) optimized away
-   5 signal(s) removed
 
 Section 5 - Removed Logic
 -------------------------
-
-The trimmed logic reported below is either:
-   1. part of a cycle
-   2. part of disabled logic
-   3. a side-effect of other trimmed logic
-
-The signal "busy_cnt<0>" is unused and has been removed.
- Unused block "busy_cnt<0>" (ROM) removed.
-The signal "busy_cnt<1>" is unused and has been removed.
- Unused block "busy_cnt<1>" (ROM) removed.
-The signal "i2c_ena" is unused and has been removed.
- Unused block "i2c_ena" (LATCH) removed.
-  The signal "i2c_ena_mux0000" is unused and has been removed.
-   Unused block "i2c_ena_mux00001" (ROM) removed.
-  The signal "i2c_ena_not0001" is unused and has been removed.
-   Unused block "i2c_ena_not00011" (ROM) removed.
 
 Optimized Block(s):
 TYPE 		BLOCK
@@ -191,3 +167,87 @@ VCC 		XST_VCC
 
 To enable printing of redundant blocks removed and signals merged, set the
 detailed map report option and rerun map.
+
+Section 6 - IOB Properties
+--------------------------
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| IOB Name                           | Type             | Direction | IO Standard          | Diff  | Drive    | Slew | Reg (s)      | Resistor | IOB      |
+|                                    |                  |           |                      | Term  | Strength | Rate |              |          | Delay    |
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| A<0>                               | IBUF             | INPUT     | LVCMOS25             |       |          |      |              |          | 0 / 0    |
+| A<1>                               | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          | 0 / 0    |
+| A<2>                               | IOB              | BIDIR     | LVCMOS25             |       | 12       | SLOW |              |          | 0 / 0    |
+| A<3>                               | IBUF             | INPUT     | LVCMOS25             |       |          |      |              |          | 0 / 0    |
+| B<0>                               | IBUF             | INPUT     | LVCMOS25             |       |          |      |              |          | 0 / 0    |
+| B<1>                               | IBUF             | INPUT     | LVCMOS25             |       |          |      |              |          | 0 / 0    |
+| B<2>                               | IBUF             | INPUT     | LVCMOS25             |       |          |      |              |          | 0 / 0    |
+| B<3>                               | IBUF             | INPUT     | LVCMOS25             |       |          |      |              |          | 0 / 0    |
+| C<0>                               | IBUF             | INPUT     | LVCMOS25             |       |          |      |              |          | 0 / 0    |
+| C<1>                               | IBUF             | INPUT     | LVCMOS25             |       |          |      |              |          | 0 / 0    |
+| C<2>                               | IBUF             | INPUT     | LVCMOS25             |       |          |      |              |          | 0 / 0    |
+| C<3>                               | IBUF             | INPUT     | LVCMOS25             |       |          |      |              |          | 0 / 0    |
+| D<0>                               | IBUF             | INPUT     | LVCMOS25             |       |          |      |              |          | 0 / 0    |
+| D<1>                               | IBUF             | INPUT     | LVCMOS25             |       |          |      |              |          | 0 / 0    |
+| D<2>                               | IBUF             | INPUT     | LVCMOS25             |       |          |      |              |          | 0 / 0    |
+| D<3>                               | IBUF             | INPUT     | LVCMOS25             |       |          |      |              |          | 0 / 0    |
+| E<0>                               | IBUF             | INPUT     | LVCMOS25             |       |          |      |              |          | 0 / 0    |
+| E<1>                               | IBUF             | INPUT     | LVCMOS25             |       |          |      |              |          | 0 / 0    |
+| E<2>                               | IBUF             | INPUT     | LVCMOS25             |       |          |      |              |          | 0 / 0    |
+| E<3>                               | IBUF             | INPUT     | LVCMOS25             |       |          |      |              |          | 0 / 0    |
+| F<0>                               | IBUF             | INPUT     | LVCMOS25             |       |          |      |              |          | 0 / 0    |
+| F<1>                               | IBUF             | INPUT     | LVCMOS25             |       |          |      |              |          | 0 / 0    |
+| F<2>                               | IBUF             | INPUT     | LVCMOS25             |       |          |      |              |          | 0 / 0    |
+| F<3>                               | IBUF             | INPUT     | LVCMOS25             |       |          |      |              |          | 0 / 0    |
+| Led<0>                             | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          | 0 / 0    |
+| Led<1>                             | IBUF             | INPUT     | LVCMOS25             |       |          |      |              |          | 0 / 0    |
+| Led<2>                             | IBUF             | INPUT     | LVCMOS25             |       |          |      |              |          | 0 / 0    |
+| Led<3>                             | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          | 0 / 0    |
+| Led<4>                             | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          | 0 / 0    |
+| Led<5>                             | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          | 0 / 0    |
+| Led<6>                             | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          | 0 / 0    |
+| Led<7>                             | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          | 0 / 0    |
+| clk                                | IBUF             | INPUT     | LVCMOS25             |       |          |      |              |          | 0 / 0    |
+| clr                                | IBUF             | INPUT     | LVCMOS25             |       |          |      |              |          | 0 / 0    |
+| en                                 | IBUF             | INPUT     | LVCMOS25             |       |          |      |              |          | 0 / 0    |
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+Section 7 - RPMs
+----------------
+
+Section 8 - Guide Report
+------------------------
+Guide not run on this design.
+
+Section 9 - Area Group and Partition Summary
+--------------------------------------------
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+Area Group Information
+----------------------
+
+  No area groups were found in this design.
+
+----------------------
+
+Section 10 - Timing Report
+--------------------------
+This design was not run using timing mode.
+
+Section 11 - Configuration String Details
+-----------------------------------------
+Use the "-detail" map option to print out Configuration Strings
+
+Section 12 - Control Set Information
+------------------------------------
+No control set information for this architecture.
+
+Section 13 - Utilization by Hierarchy
+-------------------------------------
+Use the "-detail" map option to print out the Utilization by Hierarchy section.

@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.11 secs
+Total CPU time to Xst completion: 0.22 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.11 secs
+Total CPU time to Xst completion: 0.22 secs
  
 --> Reading design: main.prj
 
@@ -226,15 +226,17 @@ Synthesizing Unit <main>.
 WARNING:Xst:2565 - Inout <E<0>> is never assigned.
 WARNING:Xst:2565 - Inout <E<1>> is never assigned.
 WARNING:Xst:2565 - Inout <E<2>> is never assigned.
+WARNING:Xst:2565 - Inout <B<0>> is never assigned.
 WARNING:Xst:2565 - Inout <E<3>> is never assigned.
-WARNING:Xst:2565 - Inout <B<3>> is never assigned.
+WARNING:Xst:2565 - Inout <B<1>> is never assigned.
+WARNING:Xst:2565 - Inout <B<2>> is never assigned.
 WARNING:Xst:2565 - Inout <D<0>> is never assigned.
 WARNING:Xst:2565 - Inout <D<1>> is never assigned.
+WARNING:Xst:2565 - Inout <Led<1>> is never assigned.
 WARNING:Xst:2565 - Inout <D<2>> is never assigned.
 WARNING:Xst:2565 - Inout <A<0>> is never assigned.
+WARNING:Xst:2565 - Inout <Led<2>> is never assigned.
 WARNING:Xst:2565 - Inout <D<3>> is never assigned.
-WARNING:Xst:2565 - Inout <A<1>> is never assigned.
-WARNING:Xst:2565 - Inout <A<2>> is never assigned.
 WARNING:Xst:2565 - Inout <A<3>> is never assigned.
 WARNING:Xst:2565 - Inout <F<0>> is never assigned.
 WARNING:Xst:2565 - Inout <F<1>> is never assigned.
@@ -256,10 +258,10 @@ WARNING:Xst:737 - Found 8-bit latch for signal <i2c_data_wr>. Latches may be gen
 INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
 WARNING:Xst:737 - Found 1-bit latch for signal <i2c_ena>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
-    Found 3-bit adder for signal <busy_cnt$addsub0000> created at line 128.
+    Found 3-bit adder for signal <busy_cnt$addsub0000> created at line 130.
     Found 25-bit up counter for signal <counter>.
     Found 1-bit register for signal <sec>.
-    Found 25-bit comparator less for signal <sec$cmp_lt0000> created at line 173.
+    Found 25-bit comparator less for signal <sec$cmp_lt0000> created at line 169.
     Summary:
 	inferred   1 Counter(s).
 	inferred   1 D-type flip-flop(s).
@@ -377,7 +379,7 @@ WARNING:Xst:2677 - Node <i2c_master_bus/data_rx_2> of sequential type is unconne
 WARNING:Xst:2677 - Node <i2c_master_bus/data_rx_1> of sequential type is unconnected in block <main>.
 WARNING:Xst:2677 - Node <i2c_master_bus/data_rx_0> of sequential type is unconnected in block <main>.
 WARNING:Xst:2677 - Node <i2c_master_bus/ack_error> of sequential type is unconnected in block <main>.
-WARNING:Xst:2170 - Unit main : the following signal(s) form a combinatorial loop: busy_cnt_cmp_eq0000, i2c_ena_mux0000, busy_cnt<0>, busy_cnt<1>.
+WARNING:Xst:2677 - Node <i2c_master_bus/busy> of sequential type is unconnected in block <main>.
 WARNING:Xst:2170 - Unit main : the following signal(s) form a combinatorial loop: busy_cnt<0>.
 WARNING:Xst:2170 - Unit main : the following signal(s) form a combinatorial loop: busy_cnt<2>.
 WARNING:Xst:2170 - Unit main : the following signal(s) form a combinatorial loop: busy_cnt<1>.
@@ -446,8 +448,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 86
- Flip-Flops                                            : 86
+# Registers                                            : 85
+ Flip-Flops                                            : 85
 
 =========================================================================
 
@@ -476,35 +478,34 @@ Design Statistics
 # IOs                              : 35
 
 Cell Usage :
-# BELS                             : 374
+# BELS                             : 369
 #      GND                         : 1
 #      INV                         : 10
-#      LUT1                        : 63
-#      LUT2                        : 16
+#      LUT1                        : 61
+#      LUT2                        : 19
 #      LUT2_L                      : 2
 #      LUT3                        : 22
-#      LUT3_L                      : 2
-#      LUT4                        : 81
+#      LUT4                        : 78
 #      LUT4_D                      : 3
 #      LUT4_L                      : 3
 #      MUXCY                       : 107
-#      MUXF5                       : 3
+#      MUXF5                       : 2
 #      VCC                         : 1
 #      XORCY                       : 60
-# FlipFlops/Latches                : 89
+# FlipFlops/Latches                : 88
 #      FDC                         : 13
 #      FDCE                        : 10
 #      FDE                         : 9
-#      FDPE                        : 6
+#      FDPE                        : 5
 #      FDRE                        : 48
 #      LD                          : 2
 #      LD_1                        : 1
 # Clock Buffers                    : 1
 #      BUFGP                       : 1
-# IO Buffers                       : 13
+# IO Buffers                       : 11
 #      IBUF                        : 3
 #      IOBUF                       : 1
-#      OBUF                        : 8
+#      OBUF                        : 6
 #      OBUFT                       : 1
 =========================================================================
 
@@ -513,11 +514,11 @@ Device utilization summary:
 
 Selected Device : 3s1200efg320-5 
 
- Number of Slices:                      105  out of   8672     1%  
- Number of Slice Flip Flops:             89  out of  17344     0%  
- Number of 4 input LUTs:                202  out of  17344     1%  
+ Number of Slices:                      103  out of   8672     1%  
+ Number of Slice Flip Flops:             88  out of  17344     0%  
+ Number of 4 input LUTs:                198  out of  17344     1%  
  Number of IOs:                          35
- Number of bonded IOBs:                  14  out of    250     5%  
+ Number of bonded IOBs:                  12  out of    250     4%  
  Number of GCLKs:                         1  out of     24     4%  
 
 ---------------------------
@@ -541,9 +542,9 @@ Clock Information:
 -----------------------------------------------+------------------------+-------+
 Clock Signal                                   | Clock buffer(FF name)  | Load  |
 -----------------------------------------------+------------------------+-------+
-clk                                            | BUFGP                  | 86    |
+clk                                            | BUFGP                  | 85    |
 i2c_ena_not0001(i2c_ena_not00011:O)            | NONE(*)(i2c_ena)       | 1     |
-busy_cnt<2>(busy_cnt<2>1:O)                    | NONE(*)(i2c_rw)        | 1     |
+busy_cnt<2>(busy_cnt_mux0001<2>1:O)            | NONE(*)(i2c_rw)        | 1     |
 i2c_data_wr_not0001(i2c_data_wr_mux0000<0>11:O)| NONE(*)(i2c_data_wr_1) | 1     |
 -----------------------------------------------+------------------------+-------+
 (*) These 3 clock signal(s) are generated by combinatorial logic,
@@ -556,7 +557,7 @@ Asynchronous Control Signals Information:
 -----------------------------------+------------------------+-------+
 Control Signal                     | Buffer(FF name)        | Load  |
 -----------------------------------+------------------------+-------+
-clr                                | IBUF                   | 29    |
+clr                                | IBUF                   | 28    |
 -----------------------------------+------------------------+-------+
 
 Timing Summary:
@@ -564,8 +565,8 @@ Timing Summary:
 Speed Grade: -5
 
    Minimum period: 8.639ns (Maximum Frequency: 115.760MHz)
-   Minimum input arrival time before clock: 4.687ns
-   Maximum output required time after clock: 5.418ns
+   Minimum input arrival time before clock: 4.688ns
+   Maximum output required time after clock: 5.323ns
    Maximum combinational path delay: No path found
 
 Timing Detail:
@@ -575,7 +576,7 @@ All values displayed in nanoseconds (ns)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
   Clock period: 8.639ns (frequency: 115.760MHz)
-  Total number of paths / destination ports: 4197 / 176
+  Total number of paths / destination ports: 4183 / 174
 -------------------------------------------------------------------------
 Delay:               8.639ns (Levels of Logic = 11)
   Source:            i2c_master_bus/count_7 (FF)
@@ -588,7 +589,7 @@ Delay:               8.639ns (Levels of Logic = 11)
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      FDC:C->Q              4   0.514   0.651  i2c_master_bus/count_7 (i2c_master_bus/count_7)
-     LUT4:I0->O            1   0.612   0.387  i2c_master_bus/count_cmp_eq000046_SW0 (N49)
+     LUT4:I0->O            1   0.612   0.387  i2c_master_bus/count_cmp_eq000046_SW0 (N54)
      LUT4_D:I2->O         37   0.612   1.077  i2c_master_bus/count_cmp_eq000046 (i2c_master_bus/count_cmp_eq0000)
      LUT4:I3->O            4   0.612   0.568  i2c_master_bus/count_mux0000<2>1 (i2c_master_bus/count_mux0000<2>)
      LUT4:I1->O            1   0.612   0.000  i2c_master_bus/Mcompar_stretch_cmp_le0000_lut<0> (i2c_master_bus/Mcompar_stretch_cmp_le0000_lut<0>)
@@ -608,7 +609,7 @@ Delay:               8.639ns (Levels of Logic = 11)
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
   Total number of paths / destination ports: 156 / 106
 -------------------------------------------------------------------------
-Offset:              4.687ns (Levels of Logic = 2)
+Offset:              4.688ns (Levels of Logic = 2)
   Source:            clr (PAD)
   Destination:       counter_0 (FF)
   Destination Clock: clk rising
@@ -617,44 +618,107 @@ Offset:              4.687ns (Levels of Logic = 2)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            34   1.106   1.103  clr_IBUF (clr_IBUF)
+     IBUF:I->O            36   1.106   1.104  clr_IBUF (clr_IBUF)
      LUT3:I2->O           25   0.612   1.071  counter_and00001 (counter_and0000)
      FDRE:R                    0.795          counter_0
     ----------------------------------------
-    Total                      4.687ns (2.513ns logic, 2.174ns route)
+    Total                      4.688ns (2.513ns logic, 2.175ns route)
                                        (53.6% logic, 46.4% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'i2c_ena_not0001'
+  Total number of paths / destination ports: 3 / 1
+-------------------------------------------------------------------------
+Offset:              4.475ns (Levels of Logic = 3)
+  Source:            clr (PAD)
+  Destination:       i2c_ena (LATCH)
+  Destination Clock: i2c_ena_not0001 falling
+
+  Data Path: clr to i2c_ena
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            36   1.106   1.226  clr_IBUF (clr_IBUF)
+     LUT2:I0->O            4   0.612   0.651  busy_cnt_mux0001<1>1 (busy_cnt<1>)
+     LUT3:I0->O            1   0.612   0.000  i2c_ena_mux00001 (i2c_ena_mux0000)
+     LD:D                      0.268          i2c_ena
+    ----------------------------------------
+    Total                      4.475ns (2.598ns logic, 1.877ns route)
+                                       (58.1% logic, 41.9% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'busy_cnt<2>'
+  Total number of paths / destination ports: 2 / 1
+-------------------------------------------------------------------------
+Offset:              4.545ns (Levels of Logic = 3)
+  Source:            clr (PAD)
+  Destination:       i2c_rw (LATCH)
+  Destination Clock: busy_cnt<2> rising
+
+  Data Path: clr to i2c_rw
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            36   1.106   1.226  clr_IBUF (clr_IBUF)
+     LUT2:I0->O            6   0.612   0.721  busy_cnt_mux0001<2>1 (busy_cnt<2>)
+     LUT2:I0->O            1   0.612   0.000  i2c_rw_mux00001 (i2c_rw_mux0000)
+     LD_1:D                    0.268          i2c_rw
+    ----------------------------------------
+    Total                      4.545ns (2.598ns logic, 1.947ns route)
+                                       (57.2% logic, 42.8% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'i2c_data_wr_not0001'
+  Total number of paths / destination ports: 3 / 1
+-------------------------------------------------------------------------
+Offset:              4.545ns (Levels of Logic = 3)
+  Source:            clr (PAD)
+  Destination:       i2c_data_wr_1 (LATCH)
+  Destination Clock: i2c_data_wr_not0001 falling
+
+  Data Path: clr to i2c_data_wr_1
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            36   1.106   1.226  clr_IBUF (clr_IBUF)
+     LUT2:I0->O            6   0.612   0.721  busy_cnt_mux0001<2>1 (busy_cnt<2>)
+     LUT3:I0->O            1   0.612   0.000  i2c_data_wr_mux0000<0>1 (i2c_data_wr_mux0000<0>)
+     LD:D                      0.268          i2c_data_wr_1
+    ----------------------------------------
+    Total                      4.545ns (2.598ns logic, 1.947ns route)
+                                       (57.2% logic, 42.8% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
   Total number of paths / destination ports: 8 / 4
 -------------------------------------------------------------------------
-Offset:              5.418ns (Levels of Logic = 2)
+Offset:              5.323ns (Levels of Logic = 2)
   Source:            i2c_master_bus/state_FSM_FFd8 (FF)
-  Destination:       B<1> (PAD)
+  Destination:       A<1> (PAD)
   Source Clock:      clk rising
 
-  Data Path: i2c_master_bus/state_FSM_FFd8 to B<1>
+  Data Path: i2c_master_bus/state_FSM_FFd8 to A<1>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDCE:C->Q             9   0.514   0.766  i2c_master_bus/state_FSM_FFd8 (i2c_master_bus/state_FSM_FFd8)
+     FDCE:C->Q             7   0.514   0.671  i2c_master_bus/state_FSM_FFd8 (i2c_master_bus/state_FSM_FFd8)
      LUT4:I1->O            1   0.612   0.357  i2c_master_bus/sda_ena_n1 (i2c_master_bus/sda_ena_n)
-     OBUFT:T->O                3.169          B_1_OBUFT (B<1>)
+     OBUFT:T->O                3.169          A_1_OBUFT (A<1>)
     ----------------------------------------
-    Total                      5.418ns (4.295ns logic, 1.123ns route)
-                                       (79.3% logic, 20.7% route)
+    Total                      5.323ns (4.295ns logic, 1.028ns route)
+                                       (80.7% logic, 19.3% route)
 
 =========================================================================
 
 
 Total REAL time to Xst completion: 7.00 secs
-Total CPU time to Xst completion: 6.44 secs
+Total CPU time to Xst completion: 6.73 secs
  
 --> 
 
-Total memory usage is 302356 kilobytes
+Total memory usage is 302360 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :  114 (   0 filtered)
+Number of warnings :  116 (   0 filtered)
 Number of infos    :    9 (   0 filtered)
 

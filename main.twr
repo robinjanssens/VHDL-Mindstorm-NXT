@@ -44,10 +44,9 @@ Setup/Hold to clock clk
             |Max Setup to|Max Hold to |                  | Clock  |
 Source      | clk (edge) | clk (edge) |Internal Clock(s) | Phase  |
 ------------+------------+------------+------------------+--------+
-B<0>        |    1.690(R)|    1.101(R)|clk_BUFGP         |   0.000|
-B<2>        |    0.639(R)|    0.633(R)|clk_BUFGP         |   0.000|
-clr         |    3.840(R)|    0.622(R)|clk_BUFGP         |   0.000|
-en          |    2.865(R)|    0.189(R)|clk_BUFGP         |   0.000|
+A<2>        |    0.339(R)|    0.892(R)|clk_BUFGP         |   0.000|
+B<3>        |    2.867(R)|    1.165(R)|clk_BUFGP         |   0.000|
+en          |    2.395(R)|    0.170(R)|clk_BUFGP         |   0.000|
 ------------+------------+------------+------------------+--------+
 
 Clock clk to Pad
@@ -55,10 +54,10 @@ Clock clk to Pad
             | clk (edge) |                  | Clock  |
 Destination |   to PAD   |Internal Clock(s) | Phase  |
 ------------+------------+------------------+--------+
-B<1>        |    9.930(R)|clk_BUFGP         |   0.000|
-B<2>        |    8.656(R)|clk_BUFGP         |   0.000|
-Led<0>      |    7.145(R)|clk_BUFGP         |   0.000|
-Led<7>      |    9.617(R)|clk_BUFGP         |   0.000|
+A<1>        |   12.795(R)|clk_BUFGP         |   0.000|
+A<2>        |   10.137(R)|clk_BUFGP         |   0.000|
+Led<0>      |    7.996(R)|clk_BUFGP         |   0.000|
+Led<7>      |    9.692(R)|clk_BUFGP         |   0.000|
 ------------+------------+------------------+--------+
 
 Clock to Setup on destination clock clk
@@ -66,18 +65,27 @@ Clock to Setup on destination clock clk
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk            |    7.709|         |         |         |
+clk            |    7.559|         |         |         |
+clr            |    7.436|    8.105|         |         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock clr
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clr            |    1.256|    1.256|    1.343|    1.343|
 ---------------+---------+---------+---------+---------+
 
 
-Analysis completed Mon Nov 09 12:39:50 2015 
+Analysis completed Fri Nov 13 22:05:53 2015 
 --------------------------------------------------------------------------------
 
 Trace Settings:
 -------------------------
 Trace Settings 
 
-Peak Memory Usage: 195 MB
+Peak Memory Usage: 196 MB
 
 
 
