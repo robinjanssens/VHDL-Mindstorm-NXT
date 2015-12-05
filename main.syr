@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.22 secs
+Total CPU time to Xst completion: 0.12 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.22 secs
+Total CPU time to Xst completion: 0.12 secs
  
 --> Reading design: main.prj
 
@@ -132,10 +132,8 @@ Analyzing hierarchy for entity <int_drukknop> in library <work> (architecture <b
 =========================================================================
 Analyzing Entity <main> in library <work> (Architecture <behavioral>).
 INFO:Xst:1739 - HDL ADVISOR - "C:/Users/Robin/Documents/Mindstorm/VHDL-Mindstorm-NXT/main.vhd" line 49: declaration of a buffer port will make it difficult for you to validate this design by simulation. It is preferable to declare it as output.
-WARNING:Xst:753 - "C:/Users/Robin/Documents/Mindstorm/VHDL-Mindstorm-NXT/main.vhd" line 101: Unconnected output port 'press' of component 'int_drukknop'.
-WARNING:Xst:753 - "C:/Users/Robin/Documents/Mindstorm/VHDL-Mindstorm-NXT/main.vhd" line 101: Unconnected output port 'release' of component 'int_drukknop'.
-WARNING:Xst:819 - "C:/Users/Robin/Documents/Mindstorm/VHDL-Mindstorm-NXT/main.vhd" line 116: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
-   <i2c_data_rd>
+WARNING:Xst:753 - "C:/Users/Robin/Documents/Mindstorm/VHDL-Mindstorm-NXT/main.vhd" line 104: Unconnected output port 'press' of component 'int_drukknop'.
+WARNING:Xst:753 - "C:/Users/Robin/Documents/Mindstorm/VHDL-Mindstorm-NXT/main.vhd" line 104: Unconnected output port 'release' of component 'int_drukknop'.
 Entity <main> analyzed. Unit <main> generated.
 
 Analyzing generic Entity <i2c_master> in library <work> (Architecture <logic>).
@@ -152,7 +150,8 @@ Entity <int_drukknop> analyzed. Unit <int_drukknop> generated.
 =========================================================================
 
 Performing bidirectional port resolution...
-INFO:Xst:2679 - Register <i2c_addr> in unit <main> has a constant value of 0000010 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <i2c_data_wr> in unit <main> has a constant value of 10000010 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <i2c_addr> in unit <main> has a constant value of 0000001 during circuit operation. The register is replaced by logic.
 
 Synthesizing Unit <i2c_master>.
     Related source file is "C:/Users/Robin/Documents/Mindstorm/VHDL-Mindstorm-NXT/i2c_master.vhd".
@@ -232,12 +231,10 @@ WARNING:Xst:2565 - Inout <B<1>> is never assigned.
 WARNING:Xst:2565 - Inout <B<2>> is never assigned.
 WARNING:Xst:2565 - Inout <D<0>> is never assigned.
 WARNING:Xst:2565 - Inout <D<1>> is never assigned.
-WARNING:Xst:2565 - Inout <Led<1>> is never assigned.
 WARNING:Xst:2565 - Inout <D<2>> is never assigned.
 WARNING:Xst:2565 - Inout <A<0>> is never assigned.
-WARNING:Xst:2565 - Inout <Led<2>> is never assigned.
 WARNING:Xst:2565 - Inout <D<3>> is never assigned.
-WARNING:Xst:2565 - Inout <A<3>> is never assigned.
+WARNING:Xst:2565 - Inout <A<1>> is never assigned.
 WARNING:Xst:2565 - Inout <F<0>> is never assigned.
 WARNING:Xst:2565 - Inout <F<1>> is never assigned.
 WARNING:Xst:2565 - Inout <F<2>> is never assigned.
@@ -248,20 +245,19 @@ WARNING:Xst:2565 - Inout <C<2>> is never assigned.
 WARNING:Xst:2565 - Inout <C<3>> is never assigned.
 WARNING:Xst:1780 - Signal <present_state> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:1780 - Signal <next_state> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <new_data_to_write> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:1780 - Signal <memory<31:3>> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:646 - Signal <memory<2:1>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <memory<2>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:646 - Signal <memory<0><7:1>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:646 - Signal <i2c_ack_error> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:737 - Found 1-bit latch for signal <i2c_rw>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
-WARNING:Xst:737 - Found 8-bit latch for signal <i2c_data_wr>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 3-bit latch for signal <busy_cnt>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 8-bit latch for signal <memory_1>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 WARNING:Xst:737 - Found 1-bit latch for signal <i2c_ena>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
-    Found 3-bit adder for signal <busy_cnt$addsub0000> created at line 130.
+WARNING:Xst:737 - Found 1-bit latch for signal <busy_prev>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+    Found 3-bit adder for signal <busy_cnt$addsub0000> created at line 137.
     Found 25-bit up counter for signal <counter>.
     Found 1-bit register for signal <sec>.
-    Found 25-bit comparator less for signal <sec$cmp_lt0000> created at line 169.
+    Found 25-bit comparator less for signal <sec$cmp_lt0000> created at line 178.
     Summary:
 	inferred   1 Counter(s).
 	inferred   1 D-type flip-flop(s).
@@ -287,8 +283,9 @@ Macro Statistics
  13-bit register                                       : 1
  3-bit register                                        : 1
  8-bit register                                        : 3
-# Latches                                              : 3
- 1-bit latch                                           : 2
+# Latches                                              : 5
+ 1-bit latch                                           : 3
+ 3-bit latch                                           : 1
  8-bit latch                                           : 1
 # Comparators                                          : 8
  13-bit comparator greatequal                          : 2
@@ -322,28 +319,24 @@ Optimizing FSM <i2c_master_bus/state/FSM> on signal <state[1:9]> with one-hot en
  mstr_ack | 010000000
  stop     | 100000000
 -----------------------
-WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <2>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <3>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <4>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <5>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <6>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <7>. This FF/Latch will be trimmed during the optimization process.
 
 =========================================================================
 Advanced HDL Synthesis Report
 
 Macro Statistics
 # FSMs                                                 : 1
-# Adders/Subtractors                                   : 2
+# Adders/Subtractors                                   : 3
  13-bit adder                                          : 1
+ 3-bit adder                                           : 1
  3-bit subtractor                                      : 1
 # Counters                                             : 2
  22-bit up counter                                     : 1
  25-bit up counter                                     : 1
 # Registers                                            : 61
  Flip-Flops                                            : 61
-# Latches                                              : 3
- 1-bit latch                                           : 2
+# Latches                                              : 5
+ 1-bit latch                                           : 3
+ 3-bit latch                                           : 1
  8-bit latch                                           : 1
 # Comparators                                          : 8
  13-bit comparator greatequal                          : 2
@@ -359,80 +352,56 @@ Macro Statistics
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
-INFO:Xst:2261 - The FF/Latch <1> in Unit <LPM_LATCH_2> is equivalent to the following FF/Latch, which will be removed : <0> 
-INFO:Xst:2261 - The FF/Latch <7> in Unit <LPM_LATCH_2> is equivalent to the following 5 FFs/Latches, which will be removed : <6> <5> <4> <3> <2> 
-WARNING:Xst:1710 - FF/Latch <7> (without init value) has a constant value of 0 in block <LPM_LATCH_2>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:2677 - Node <i2c_master_bus/data_rd_7> of sequential type is unconnected in block <main>.
-WARNING:Xst:2677 - Node <i2c_master_bus/data_rd_6> of sequential type is unconnected in block <main>.
-WARNING:Xst:2677 - Node <i2c_master_bus/data_rd_5> of sequential type is unconnected in block <main>.
-WARNING:Xst:2677 - Node <i2c_master_bus/data_rd_4> of sequential type is unconnected in block <main>.
-WARNING:Xst:2677 - Node <i2c_master_bus/data_rd_3> of sequential type is unconnected in block <main>.
-WARNING:Xst:2677 - Node <i2c_master_bus/data_rd_2> of sequential type is unconnected in block <main>.
-WARNING:Xst:2677 - Node <i2c_master_bus/data_rd_1> of sequential type is unconnected in block <main>.
-WARNING:Xst:2677 - Node <i2c_master_bus/data_rd_0> of sequential type is unconnected in block <main>.
-WARNING:Xst:2677 - Node <i2c_master_bus/data_rx_7> of sequential type is unconnected in block <main>.
-WARNING:Xst:2677 - Node <i2c_master_bus/data_rx_6> of sequential type is unconnected in block <main>.
-WARNING:Xst:2677 - Node <i2c_master_bus/data_rx_5> of sequential type is unconnected in block <main>.
-WARNING:Xst:2677 - Node <i2c_master_bus/data_rx_4> of sequential type is unconnected in block <main>.
-WARNING:Xst:2677 - Node <i2c_master_bus/data_rx_3> of sequential type is unconnected in block <main>.
-WARNING:Xst:2677 - Node <i2c_master_bus/data_rx_2> of sequential type is unconnected in block <main>.
-WARNING:Xst:2677 - Node <i2c_master_bus/data_rx_1> of sequential type is unconnected in block <main>.
-WARNING:Xst:2677 - Node <i2c_master_bus/data_rx_0> of sequential type is unconnected in block <main>.
-WARNING:Xst:2677 - Node <i2c_master_bus/ack_error> of sequential type is unconnected in block <main>.
-WARNING:Xst:2677 - Node <i2c_master_bus/busy> of sequential type is unconnected in block <main>.
-WARNING:Xst:2170 - Unit main : the following signal(s) form a combinatorial loop: busy_cnt<0>.
-WARNING:Xst:2170 - Unit main : the following signal(s) form a combinatorial loop: busy_cnt<2>.
-WARNING:Xst:2170 - Unit main : the following signal(s) form a combinatorial loop: busy_cnt<1>.
 
 Optimizing unit <main> ...
-WARNING:Xst:1710 - FF/Latch <i2c_master_bus/data_tx_7> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <i2c_master_bus/data_tx_6> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <i2c_master_bus/data_tx_6> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <i2c_master_bus/data_tx_5> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <i2c_master_bus/data_tx_4> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <i2c_master_bus/data_tx_3> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <i2c_master_bus/data_tx_2> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <i2c_master_bus/data_tx_0> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <i2c_master_bus/addr_rw_7> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <i2c_master_bus/addr_rw_6> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <i2c_master_bus/addr_rw_5> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <i2c_master_bus/addr_rw_4> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <i2c_master_bus/addr_rw_3> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <i2c_master_bus/addr_rw_1> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <i2c_master_bus/data_tx_7> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <i2c_master_bus/data_tx_6> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <i2c_master_bus/addr_rw_2> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <i2c_master_bus/data_tx_6> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <i2c_master_bus/data_tx_5> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <i2c_master_bus/data_tx_4> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <i2c_master_bus/data_tx_3> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <i2c_master_bus/data_tx_2> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <i2c_master_bus/data_tx_0> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <i2c_master_bus/addr_rw_7> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <i2c_master_bus/addr_rw_6> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <i2c_master_bus/addr_rw_5> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <i2c_master_bus/addr_rw_4> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <i2c_master_bus/addr_rw_3> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <i2c_master_bus/addr_rw_1> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <i2c_master_bus/data_tx_7> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <i2c_master_bus/data_tx_6> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <i2c_master_bus/addr_rw_2> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <i2c_master_bus/data_tx_6> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <i2c_master_bus/data_tx_5> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <i2c_master_bus/data_tx_4> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <i2c_master_bus/data_tx_3> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <i2c_master_bus/data_tx_2> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <i2c_master_bus/data_tx_0> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <i2c_master_bus/addr_rw_7> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <i2c_master_bus/addr_rw_6> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <i2c_master_bus/addr_rw_5> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <i2c_master_bus/addr_rw_4> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <i2c_master_bus/addr_rw_3> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <i2c_master_bus/addr_rw_1> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <i2c_master_bus/data_tx_7> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <i2c_master_bus/data_tx_6> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <i2c_master_bus/addr_rw_2> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <i2c_master_bus/data_tx_6> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <i2c_master_bus/data_tx_5> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <i2c_master_bus/data_tx_4> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <i2c_master_bus/data_tx_3> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <i2c_master_bus/data_tx_2> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <i2c_master_bus/data_tx_0> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <i2c_master_bus/addr_rw_7> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <i2c_master_bus/addr_rw_6> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <i2c_master_bus/addr_rw_5> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <i2c_master_bus/addr_rw_4> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <i2c_master_bus/addr_rw_3> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <i2c_master_bus/addr_rw_1> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <i2c_master_bus/addr_rw_2> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
 
 Optimizing unit <int_drukknop> ...
 WARNING:Xst:2677 - Node <touch_sensor/release> of sequential type is unconnected in block <main>.
@@ -448,8 +417,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 85
- Flip-Flops                                            : 85
+# Registers                                            : 103
+ Flip-Flops                                            : 103
 
 =========================================================================
 
@@ -475,38 +444,41 @@ Optimization Goal                  : Speed
 Keep Hierarchy                     : No
 
 Design Statistics
-# IOs                              : 35
+# IOs                              : 47
 
 Cell Usage :
-# BELS                             : 369
+# BELS                             : 401
 #      GND                         : 1
-#      INV                         : 10
+#      INV                         : 18
 #      LUT1                        : 61
-#      LUT2                        : 19
-#      LUT2_L                      : 2
-#      LUT3                        : 22
-#      LUT4                        : 78
-#      LUT4_D                      : 3
-#      LUT4_L                      : 3
+#      LUT2                        : 12
+#      LUT2_L                      : 1
+#      LUT3                        : 32
+#      LUT3_D                      : 1
+#      LUT3_L                      : 3
+#      LUT4                        : 95
+#      LUT4_D                      : 2
+#      LUT4_L                      : 2
 #      MUXCY                       : 107
-#      MUXF5                       : 2
+#      MUXF5                       : 5
 #      VCC                         : 1
 #      XORCY                       : 60
-# FlipFlops/Latches                : 88
+# FlipFlops/Latches                : 117
 #      FDC                         : 13
-#      FDCE                        : 10
-#      FDE                         : 9
-#      FDPE                        : 5
+#      FDCE                        : 19
+#      FDE                         : 17
+#      FDPE                        : 6
 #      FDRE                        : 48
-#      LD                          : 2
-#      LD_1                        : 1
-# Clock Buffers                    : 1
+#      LDC                         : 3
+#      LDE                         : 3
+#      LDE_1                       : 8
+# Clock Buffers                    : 3
+#      BUFG                        : 2
 #      BUFGP                       : 1
-# IO Buffers                       : 11
+# IO Buffers                       : 25
 #      IBUF                        : 3
-#      IOBUF                       : 1
-#      OBUF                        : 6
-#      OBUFT                       : 1
+#      IOBUF                       : 2
+#      OBUF                        : 20
 =========================================================================
 
 Device utilization summary:
@@ -514,12 +486,12 @@ Device utilization summary:
 
 Selected Device : 3s1200efg320-5 
 
- Number of Slices:                      103  out of   8672     1%  
- Number of Slice Flip Flops:             88  out of  17344     0%  
- Number of 4 input LUTs:                198  out of  17344     1%  
- Number of IOs:                          35
- Number of bonded IOBs:                  12  out of    250     4%  
- Number of GCLKs:                         1  out of     24     4%  
+ Number of Slices:                      116  out of   8672     1%  
+ Number of Slice Flip Flops:            117  out of  17344     0%  
+ Number of 4 input LUTs:                227  out of  17344     1%  
+ Number of IOs:                          47
+ Number of bonded IOBs:                  26  out of    250    10%  
+ Number of GCLKs:                         3  out of     24    12%  
 
 ---------------------------
 Partition Resource Summary:
@@ -539,34 +511,29 @@ NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
 
 Clock Information:
 ------------------
------------------------------------------------+------------------------+-------+
-Clock Signal                                   | Clock buffer(FF name)  | Load  |
------------------------------------------------+------------------------+-------+
-clk                                            | BUFGP                  | 85    |
-i2c_ena_not0001(i2c_ena_not00011:O)            | NONE(*)(i2c_ena)       | 1     |
-busy_cnt<2>(busy_cnt_mux0001<2>1:O)            | NONE(*)(i2c_rw)        | 1     |
-i2c_data_wr_not0001(i2c_data_wr_mux0000<0>11:O)| NONE(*)(i2c_data_wr_1) | 1     |
------------------------------------------------+------------------------+-------+
-(*) These 3 clock signal(s) are generated by combinatorial logic,
-and XST is not able to identify which are the primary clock signals.
-Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
-INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | BUFGP                  | 103   |
+en                                 | IBUF+BUFG              | 6     |
+clr                                | IBUF+BUFG              | 8     |
+-----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
 ----------------------------------------
 -----------------------------------+------------------------+-------+
 Control Signal                     | Buffer(FF name)        | Load  |
 -----------------------------------+------------------------+-------+
-clr                                | IBUF                   | 28    |
+clr                                | IBUF                   | 41    |
 -----------------------------------+------------------------+-------+
 
 Timing Summary:
 ---------------
 Speed Grade: -5
 
-   Minimum period: 8.639ns (Maximum Frequency: 115.760MHz)
-   Minimum input arrival time before clock: 4.688ns
-   Maximum output required time after clock: 5.323ns
+   Minimum period: 8.634ns (Maximum Frequency: 115.826MHz)
+   Minimum input arrival time before clock: 4.990ns
+   Maximum output required time after clock: 5.501ns
    Maximum combinational path delay: No path found
 
 Timing Detail:
@@ -575,22 +542,22 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
-  Clock period: 8.639ns (frequency: 115.760MHz)
-  Total number of paths / destination ports: 4183 / 174
+  Clock period: 8.634ns (frequency: 115.826MHz)
+  Total number of paths / destination ports: 4304 / 202
 -------------------------------------------------------------------------
-Delay:               8.639ns (Levels of Logic = 11)
-  Source:            i2c_master_bus/count_7 (FF)
+Delay:               8.634ns (Levels of Logic = 11)
+  Source:            i2c_master_bus/count_5 (FF)
   Destination:       i2c_master_bus/stretch (FF)
   Source Clock:      clk rising
   Destination Clock: clk rising
 
-  Data Path: i2c_master_bus/count_7 to i2c_master_bus/stretch
+  Data Path: i2c_master_bus/count_5 to i2c_master_bus/stretch
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDC:C->Q              4   0.514   0.651  i2c_master_bus/count_7 (i2c_master_bus/count_7)
-     LUT4:I0->O            1   0.612   0.387  i2c_master_bus/count_cmp_eq000046_SW0 (N54)
-     LUT4_D:I2->O         37   0.612   1.077  i2c_master_bus/count_cmp_eq000046 (i2c_master_bus/count_cmp_eq0000)
+     FDC:C->Q              5   0.514   0.607  i2c_master_bus/count_5 (i2c_master_bus/count_5)
+     LUT4:I1->O            1   0.612   0.426  i2c_master_bus/count_cmp_eq000018 (i2c_master_bus/count_cmp_eq000018)
+     LUT4_D:I1->O         37   0.612   1.077  i2c_master_bus/count_cmp_eq000046 (i2c_master_bus/count_cmp_eq0000)
      LUT4:I3->O            4   0.612   0.568  i2c_master_bus/count_mux0000<2>1 (i2c_master_bus/count_mux0000<2>)
      LUT4:I1->O            1   0.612   0.000  i2c_master_bus/Mcompar_stretch_cmp_le0000_lut<0> (i2c_master_bus/Mcompar_stretch_cmp_le0000_lut<0>)
      MUXCY:S->O            1   0.404   0.000  i2c_master_bus/Mcompar_stretch_cmp_le0000_cy<0> (i2c_master_bus/Mcompar_stretch_cmp_le0000_cy<0>)
@@ -602,123 +569,185 @@ Delay:               8.639ns (Levels of Logic = 11)
      LUT2:I0->O            1   0.612   0.357  i2c_master_bus/stretch_and00001 (i2c_master_bus/stretch_and0000)
      FDCE:CE                   0.483          i2c_master_bus/stretch
     ----------------------------------------
-    Total                      8.639ns (5.066ns logic, 3.572ns route)
-                                       (58.6% logic, 41.4% route)
+    Total                      8.634ns (5.066ns logic, 3.567ns route)
+                                       (58.7% logic, 41.3% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'en'
+  Clock period: 4.431ns (frequency: 225.701MHz)
+  Total number of paths / destination ports: 26 / 5
+-------------------------------------------------------------------------
+Delay:               4.431ns (Levels of Logic = 3)
+  Source:            busy_prev (LATCH)
+  Destination:       i2c_rw (LATCH)
+  Source Clock:      en falling
+  Destination Clock: en falling
+
+  Data Path: busy_prev to i2c_rw
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LDE:G->Q              3   0.588   0.603  busy_prev (busy_prev)
+     LUT2:I0->O            2   0.612   0.532  busy_cnt_and00001 (busy_cnt_and0000)
+     LUT4:I0->O            3   0.612   0.603  busy_cnt_mux0000<2>1 (busy_cnt_mux0000<2>)
+     LUT4:I0->O            1   0.612   0.000  i2c_rw_mux00021 (i2c_rw_mux0002)
+     LDE:D                     0.268          i2c_rw
+    ----------------------------------------
+    Total                      4.431ns (2.692ns logic, 1.739ns route)
+                                       (60.8% logic, 39.2% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clr'
+  Clock period: 1.878ns (frequency: 532.496MHz)
+  Total number of paths / destination ports: 8 / 8
+-------------------------------------------------------------------------
+Delay:               1.878ns (Levels of Logic = 1)
+  Source:            memory_1_0 (LATCH)
+  Destination:       memory_1_0 (LATCH)
+  Source Clock:      clr rising
+  Destination Clock: clr rising
+
+  Data Path: memory_1_0 to memory_1_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LDE_1:G->Q            2   0.588   0.410  memory_1_0 (memory_1_0)
+     LUT3:I2->O            1   0.612   0.000  memory_1_mux0002<0>1 (memory_1_mux0002<0>)
+     LDE_1:D                   0.268          memory_1_0
+    ----------------------------------------
+    Total                      1.878ns (1.468ns logic, 0.410ns route)
+                                       (78.2% logic, 21.8% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
-  Total number of paths / destination ports: 156 / 106
+  Total number of paths / destination ports: 173 / 123
 -------------------------------------------------------------------------
-Offset:              4.688ns (Levels of Logic = 2)
+Offset:              4.990ns (Levels of Logic = 3)
   Source:            clr (PAD)
-  Destination:       counter_0 (FF)
+  Destination:       i2c_master_bus/data_rx_6 (FF)
   Destination Clock: clk rising
 
-  Data Path: clr to counter_0
+  Data Path: clr to i2c_master_bus/data_rx_6
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            36   1.106   1.104  clr_IBUF (clr_IBUF)
-     LUT3:I2->O           25   0.612   1.071  counter_and00001 (counter_and0000)
-     FDRE:R                    0.795          counter_0
+     IBUF:I->O            48   1.106   1.107  clr_IBUF (clr_IBUF1)
+     LUT4:I2->O            8   0.612   0.712  i2c_master_bus/data_rx_0_and000011 (N10)
+     LUT4:I1->O            1   0.612   0.357  i2c_master_bus/data_rx_6_and00001 (i2c_master_bus/data_rx_6_and0000)
+     FDE:CE                    0.483          i2c_master_bus/data_rx_6
     ----------------------------------------
-    Total                      4.688ns (2.513ns logic, 2.175ns route)
-                                       (53.6% logic, 46.4% route)
+    Total                      4.990ns (2.813ns logic, 2.177ns route)
+                                       (56.4% logic, 43.6% route)
 
 =========================================================================
-Timing constraint: Default OFFSET IN BEFORE for Clock 'i2c_ena_not0001'
-  Total number of paths / destination ports: 3 / 1
+Timing constraint: Default OFFSET IN BEFORE for Clock 'en'
+  Total number of paths / destination ports: 3 / 3
 -------------------------------------------------------------------------
-Offset:              4.475ns (Levels of Logic = 3)
+Offset:              3.847ns (Levels of Logic = 2)
   Source:            clr (PAD)
-  Destination:       i2c_ena (LATCH)
-  Destination Clock: i2c_ena_not0001 falling
+  Destination:       busy_prev (LATCH)
+  Destination Clock: en falling
 
-  Data Path: clr to i2c_ena
+  Data Path: clr to busy_prev
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            36   1.106   1.226  clr_IBUF (clr_IBUF)
-     LUT2:I0->O            4   0.612   0.651  busy_cnt_mux0001<1>1 (busy_cnt<1>)
-     LUT3:I0->O            1   0.612   0.000  i2c_ena_mux00001 (i2c_ena_mux0000)
-     LD:D                      0.268          i2c_ena
+     IBUF:I->O            48   1.106   1.077  clr_IBUF (clr_IBUF1)
+     INV:I->O              6   0.612   0.569  busy_prev_0_not00001_INV_0 (busy_prev_0_not0000)
+     LDE:GE                    0.483          busy_prev
     ----------------------------------------
-    Total                      4.475ns (2.598ns logic, 1.877ns route)
-                                       (58.1% logic, 41.9% route)
-
-=========================================================================
-Timing constraint: Default OFFSET IN BEFORE for Clock 'busy_cnt<2>'
-  Total number of paths / destination ports: 2 / 1
--------------------------------------------------------------------------
-Offset:              4.545ns (Levels of Logic = 3)
-  Source:            clr (PAD)
-  Destination:       i2c_rw (LATCH)
-  Destination Clock: busy_cnt<2> rising
-
-  Data Path: clr to i2c_rw
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     IBUF:I->O            36   1.106   1.226  clr_IBUF (clr_IBUF)
-     LUT2:I0->O            6   0.612   0.721  busy_cnt_mux0001<2>1 (busy_cnt<2>)
-     LUT2:I0->O            1   0.612   0.000  i2c_rw_mux00001 (i2c_rw_mux0000)
-     LD_1:D                    0.268          i2c_rw
-    ----------------------------------------
-    Total                      4.545ns (2.598ns logic, 1.947ns route)
+    Total                      3.847ns (2.201ns logic, 1.646ns route)
                                        (57.2% logic, 42.8% route)
 
 =========================================================================
-Timing constraint: Default OFFSET IN BEFORE for Clock 'i2c_data_wr_not0001'
-  Total number of paths / destination ports: 3 / 1
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clr'
+  Total number of paths / destination ports: 8 / 8
 -------------------------------------------------------------------------
-Offset:              4.545ns (Levels of Logic = 3)
-  Source:            clr (PAD)
-  Destination:       i2c_data_wr_1 (LATCH)
-  Destination Clock: i2c_data_wr_not0001 falling
+Offset:              2.406ns (Levels of Logic = 1)
+  Source:            en (PAD)
+  Destination:       memory_1_0 (LATCH)
+  Destination Clock: clr rising
 
-  Data Path: clr to i2c_data_wr_1
+  Data Path: en to memory_1_0
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            36   1.106   1.226  clr_IBUF (clr_IBUF)
-     LUT2:I0->O            6   0.612   0.721  busy_cnt_mux0001<2>1 (busy_cnt<2>)
-     LUT3:I0->O            1   0.612   0.000  i2c_data_wr_mux0000<0>1 (i2c_data_wr_mux0000<0>)
-     LD:D                      0.268          i2c_data_wr_1
+     IBUF:I->O            12   1.106   0.817  en_IBUF (en_IBUF1)
+     LDE_1:GE                  0.483          memory_1_7
     ----------------------------------------
-    Total                      4.545ns (2.598ns logic, 1.947ns route)
-                                       (57.2% logic, 42.8% route)
+    Total                      2.406ns (1.589ns logic, 0.817ns route)
+                                       (66.0% logic, 34.0% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
-  Total number of paths / destination ports: 8 / 4
+  Total number of paths / destination ports: 9 / 5
 -------------------------------------------------------------------------
-Offset:              5.323ns (Levels of Logic = 2)
+Offset:              5.501ns (Levels of Logic = 2)
   Source:            i2c_master_bus/state_FSM_FFd8 (FF)
-  Destination:       A<1> (PAD)
+  Destination:       A<2> (PAD)
   Source Clock:      clk rising
 
-  Data Path: i2c_master_bus/state_FSM_FFd8 to A<1>
+  Data Path: i2c_master_bus/state_FSM_FFd8 to A<2>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDCE:C->Q             7   0.514   0.671  i2c_master_bus/state_FSM_FFd8 (i2c_master_bus/state_FSM_FFd8)
-     LUT4:I1->O            1   0.612   0.357  i2c_master_bus/sda_ena_n1 (i2c_master_bus/sda_ena_n)
-     OBUFT:T->O                3.169          A_1_OBUFT (A<1>)
+     FDCE:C->Q             9   0.514   0.849  i2c_master_bus/state_FSM_FFd8 (i2c_master_bus/state_FSM_FFd8)
+     LUT4:I0->O            1   0.612   0.357  i2c_master_bus/sda_ena_n1 (i2c_master_bus/sda_ena_n)
+     IOBUF:T->IO               3.169          A_2_IOBUF (A<2>)
     ----------------------------------------
-    Total                      5.323ns (4.295ns logic, 1.028ns route)
-                                       (80.7% logic, 19.3% route)
+    Total                      5.501ns (4.295ns logic, 1.206ns route)
+                                       (78.1% logic, 21.9% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'en'
+  Total number of paths / destination ports: 3 / 3
+-------------------------------------------------------------------------
+Offset:              4.326ns (Levels of Logic = 1)
+  Source:            busy_cnt_0 (LATCH)
+  Destination:       Led<4> (PAD)
+  Source Clock:      en falling
+
+  Data Path: busy_cnt_0 to Led<4>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LDC:G->Q              6   0.588   0.569  busy_cnt_0 (busy_cnt_0)
+     OBUF:I->O                 3.169          Led_4_OBUF (Led<4>)
+    ----------------------------------------
+    Total                      4.326ns (3.757ns logic, 0.569ns route)
+                                       (86.9% logic, 13.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clr'
+  Total number of paths / destination ports: 8 / 8
+-------------------------------------------------------------------------
+Offset:              5.106ns (Levels of Logic = 2)
+  Source:            memory_1_7 (LATCH)
+  Destination:       seg<7> (PAD)
+  Source Clock:      clr rising
+
+  Data Path: memory_1_7 to seg<7>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LDE_1:G->Q            2   0.588   0.380  memory_1_7 (memory_1_7)
+     INV:I->O              1   0.612   0.357  seg<7>1_INV_0 (seg_7_OBUF)
+     OBUF:I->O                 3.169          seg_7_OBUF (seg<7>)
+    ----------------------------------------
+    Total                      5.106ns (4.369ns logic, 0.737ns route)
+                                       (85.6% logic, 14.4% route)
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 7.00 secs
-Total CPU time to Xst completion: 6.73 secs
+Total REAL time to Xst completion: 8.00 secs
+Total CPU time to Xst completion: 7.72 secs
  
 --> 
 
-Total memory usage is 302360 kilobytes
+Total memory usage is 302288 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :  116 (   0 filtered)
-Number of infos    :    9 (   0 filtered)
+Number of warnings :   87 (   0 filtered)
+Number of infos    :    4 (   0 filtered)
 

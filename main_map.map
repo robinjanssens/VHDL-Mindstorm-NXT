@@ -9,43 +9,16 @@ Target Device  : xc3s1200e
 Target Package : fg320
 Target Speed   : -5
 Mapper Version : spartan3e -- $Revision: 1.55 $
-Mapped Date    : Fri Nov 13 22:05:30 2015
+Mapped Date    : Mon Nov 30 17:36:56 2015
 
 Mapping design into LUTs...
 Running directed packing...
 Running delay-based LUT packing...
 Running related packing...
 Updating timing models...
-WARNING:PhysDesignRules:372 - Gated clock. Clock net busy_cnt<2> is sourced by a
-   combinatorial pin. This is not good design practice. Use the CE pin to
-   control the loading of data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net i2c_data_wr_not0001 is
-   sourced by a combinatorial pin. This is not good design practice. Use the CE
-   pin to control the loading of data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net i2c_ena_not0001 is sourced
-   by a combinatorial pin. This is not good design practice. Use the CE pin to
-   control the loading of data into the flip-flop.
-WARNING:PhysDesignRules:367 - The signal <E<1>_IBUF> is incomplete. The signal
-   does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <E<2>_IBUF> is incomplete. The signal
-   does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <E<3>_IBUF> is incomplete. The signal
-   does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <F<0>_IBUF> is incomplete. The signal
-   does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <F<1>_IBUF> is incomplete. The signal
-   does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <F<2>_IBUF> is incomplete. The signal
-   does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <F<3>_IBUF> is incomplete. The signal
-   does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <Led<1>_IBUF> is incomplete. The signal
-   does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <Led<2>_IBUF> is incomplete. The signal
-   does not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal <A<0>_IBUF> is incomplete. The signal
    does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <A<3>_IBUF> is incomplete. The signal
+WARNING:PhysDesignRules:367 - The signal <A<1>_IBUF> is incomplete. The signal
    does not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal <B<0>_IBUF> is incomplete. The signal
    does not drive any load pins in the design.
@@ -71,34 +44,48 @@ WARNING:PhysDesignRules:367 - The signal <D<3>_IBUF> is incomplete. The signal
    does not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal <E<0>_IBUF> is incomplete. The signal
    does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <E<1>_IBUF> is incomplete. The signal
+   does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <E<2>_IBUF> is incomplete. The signal
+   does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <E<3>_IBUF> is incomplete. The signal
+   does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <F<0>_IBUF> is incomplete. The signal
+   does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <F<1>_IBUF> is incomplete. The signal
+   does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <F<2>_IBUF> is incomplete. The signal
+   does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <F<3>_IBUF> is incomplete. The signal
+   does not drive any load pins in the design.
 
 Design Summary
 --------------
 
 Design Summary:
 Number of errors:      0
-Number of warnings:   26
+Number of warnings:   21
 Logic Utilization:
-  Total Number Slice Registers:          88 out of  17,344    1%
-    Number used as Flip Flops:           85
-    Number used as Latches:               3
-  Number of 4 input LUTs:               133 out of  17,344    1%
+  Total Number Slice Registers:         117 out of  17,344    1%
+    Number used as Flip Flops:          103
+    Number used as Latches:              14
+  Number of 4 input LUTs:               154 out of  17,344    1%
 Logic Distribution:
-  Number of occupied Slices:            108 out of   8,672    1%
-    Number of Slices containing only related logic:     108 out of     108 100%
-    Number of Slices containing unrelated logic:          0 out of     108   0%
+  Number of occupied Slices:            132 out of   8,672    1%
+    Number of Slices containing only related logic:     132 out of     132 100%
+    Number of Slices containing unrelated logic:          0 out of     132   0%
       *See NOTES below for an explanation of the effects of unrelated logic.
-  Total Number of 4 input LUTs:         194 out of  17,344    1%
-    Number used as logic:               133
-    Number used as a route-thru:         61
+  Total Number of 4 input LUTs:         216 out of  17,344    1%
+    Number used as logic:               154
+    Number used as a route-thru:         62
 
   The Slice Logic Distribution report is not meaningful if the design is
   over-mapped for a non-slice resource or if Placement fails.
 
-  Number of bonded IOBs:                 35 out of     250   14%
-  Number of BUFGMUXs:                     1 out of      24    4%
+  Number of bonded IOBs:                 47 out of     250   18%
+  Number of BUFGMUXs:                     3 out of      24   12%
 
-Average Fanout of Non-Clock Nets:                2.91
+Average Fanout of Non-Clock Nets:                2.87
 
 Peak Memory Usage:  357 MB
 Total REAL time to MAP completion:  2 secs 

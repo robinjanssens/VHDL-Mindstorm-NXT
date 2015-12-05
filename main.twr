@@ -44,9 +44,9 @@ Setup/Hold to clock clk
             |Max Setup to|Max Hold to |                  | Clock  |
 Source      | clk (edge) | clk (edge) |Internal Clock(s) | Phase  |
 ------------+------------+------------+------------------+--------+
-A<2>        |    0.339(R)|    0.892(R)|clk_BUFGP         |   0.000|
-B<3>        |    2.867(R)|    1.165(R)|clk_BUFGP         |   0.000|
-en          |    2.395(R)|    0.170(R)|clk_BUFGP         |   0.000|
+A<2>        |    2.303(R)|    0.576(R)|clk_BUFGP         |   0.000|
+A<3>        |    0.535(R)|    0.703(R)|clk_BUFGP         |   0.000|
+B<3>        |    2.597(R)|    0.694(R)|clk_BUFGP         |   0.000|
 ------------+------------+------------+------------------+--------+
 
 Clock clk to Pad
@@ -54,10 +54,36 @@ Clock clk to Pad
             | clk (edge) |                  | Clock  |
 Destination |   to PAD   |Internal Clock(s) | Phase  |
 ------------+------------+------------------+--------+
-A<1>        |   12.795(R)|clk_BUFGP         |   0.000|
-A<2>        |   10.137(R)|clk_BUFGP         |   0.000|
-Led<0>      |    7.996(R)|clk_BUFGP         |   0.000|
-Led<7>      |    9.692(R)|clk_BUFGP         |   0.000|
+A<2>        |   10.162(R)|clk_BUFGP         |   0.000|
+A<3>        |   10.187(R)|clk_BUFGP         |   0.000|
+Led<0>      |    7.556(R)|clk_BUFGP         |   0.000|
+Led<1>      |    7.084(R)|clk_BUFGP         |   0.000|
+Led<7>      |    9.490(R)|clk_BUFGP         |   0.000|
+------------+------------+------------------+--------+
+
+Clock clr to Pad
+------------+------------+------------------+--------+
+            | clk (edge) |                  | Clock  |
+Destination |   to PAD   |Internal Clock(s) | Phase  |
+------------+------------+------------------+--------+
+seg<0>      |   12.169(R)|clr_IBUF          |   0.000|
+seg<1>      |   11.324(R)|clr_IBUF          |   0.000|
+seg<2>      |   11.651(R)|clr_IBUF          |   0.000|
+seg<3>      |   11.569(R)|clr_IBUF          |   0.000|
+seg<4>      |   11.350(R)|clr_IBUF          |   0.000|
+seg<5>      |   12.021(R)|clr_IBUF          |   0.000|
+seg<6>      |   11.767(R)|clr_IBUF          |   0.000|
+seg<7>      |   12.651(R)|clr_IBUF          |   0.000|
+------------+------------+------------------+--------+
+
+Clock en to Pad
+------------+------------+------------------+--------+
+            | clk (edge) |                  | Clock  |
+Destination |   to PAD   |Internal Clock(s) | Phase  |
+------------+------------+------------------+--------+
+Led<4>      |   13.227(F)|en_IBUF           |   0.000|
+Led<5>      |   13.660(F)|en_IBUF           |   0.000|
+Led<6>      |   13.274(F)|en_IBUF           |   0.000|
 ------------+------------+------------------+--------+
 
 Clock to Setup on destination clock clk
@@ -65,8 +91,9 @@ Clock to Setup on destination clock clk
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk            |    7.559|         |         |         |
-clr            |    7.436|    8.105|         |         |
+clk            |    7.548|         |         |         |
+clr            |    3.883|    3.883|         |         |
+en             |    2.766|    9.781|         |         |
 ---------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock clr
@@ -74,18 +101,30 @@ Clock to Setup on destination clock clr
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clr            |    1.256|    1.256|    1.343|    1.343|
+clk            |    4.715|         |         |         |
+clr            |    1.816|         |         |         |
+en             |   -1.827|    4.718|         |         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock en
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |         |         |    3.952|         |
+clr            |         |         |   -1.418|   -1.418|
+en             |         |         |         |    3.430|
 ---------------+---------+---------+---------+---------+
 
 
-Analysis completed Fri Nov 13 22:05:53 2015 
+Analysis completed Mon Nov 30 17:37:22 2015 
 --------------------------------------------------------------------------------
 
 Trace Settings:
 -------------------------
 Trace Settings 
 
-Peak Memory Usage: 196 MB
+Peak Memory Usage: 195 MB
 
 
 

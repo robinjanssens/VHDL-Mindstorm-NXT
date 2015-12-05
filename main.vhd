@@ -5,18 +5,21 @@
 ----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
 
 entity main is
     Port ( clk    : in     STD_LOGIC;
            clr    : in     STD_LOGIC;
            en     : in     STD_LOGIC;
-           Led    : inout    STD_LOGIC_VECTOR (7 downto 0);
+           Led    : inout  STD_LOGIC_VECTOR (7 downto 0);
            A      : inout  STD_LOGIC_VECTOR (3 downto 0);  -- to I2C master bus
            B      : inout  STD_LOGIC_VECTOR (3 downto 0);  -- to touch sensor
 			  C      : inout  STD_LOGIC_VECTOR (3 downto 0); 
 			  D      : inout  STD_LOGIC_VECTOR (3 downto 0); 
 			  E      : inout  STD_LOGIC_VECTOR (3 downto 0); 
-			  F      : inout  STD_LOGIC_VECTOR (3 downto 0));
+			  F      : inout  STD_LOGIC_VECTOR (3 downto 0);
+			  seg    : out    STD_LOGIC_VECTOR (7 downto 0);
+			  an     : out    STD_LOGIC_VECTOR (3 downto 0));
 end main;
 
 ARCHITECTURE Behavioral of main is
@@ -54,7 +57,7 @@ ARCHITECTURE Behavioral of main is
   component i2c_master
     GENERIC(
       input_clk : INTEGER := 50_000_000; --input clock speed from user logic in Hz
-      bus_clk   : INTEGER := 9_600);   --speed the i2c bus (scl) will run at in Hz
+      bus_clk   : INTEGER := 9600);   --speed the i2c bus (scl) will run at in Hz
     PORT(
       clk       : IN     STD_LOGIC;                     --system clock
       reset_n   : IN     STD_LOGIC;                     --active low reset
@@ -95,8 +98,8 @@ BEGIN
       busy      => i2c_busy,
       data_rd   => i2c_data_rd,
       ack_error => i2c_ack_error,
-      sda       => A(1),
-      scl       => A(2));
+      sda       => A(2),
+      scl       => A(3));
 
 	touch_sensor : int_drukknop
 	  PORT MAP(
@@ -113,46 +116,52 @@ BEGIN
   memory(0) <= "0000000" & touch;
   
   -- I2C Master
-  i2c_read: process (i2c_busy, clr)
+  i2c_read: process (i2c_busy, busy_prev, clr, en, i2c_data_rd, slave_addr, data_to_write)
     variable busy_cnt            : integer range 0 to 4 := 0;
   begin
-    slave_addr <= "0000010";       -- ultrasonic sensor adress = 2
-    data_to_write <= "00000000";   -- get version info (returns 8 bit)
-    new_data_to_write <= "00000011";   -- ??
+    slave_addr        <=  "0000001";   -- ultrasonic sensor adress = 1
+    data_to_write     <= "10000010";   -- get measurement
+--    new_data_to_write <= "00000000";   -- ??
  
+    Led(6 downto 4) <= std_logic_vector(to_unsigned(busy_cnt,3));
+	 
     -- =============================
     -- Read Sensor I2C
     -- =============================
-    busy_prev <= i2c_busy;                       -- capture previous i2c busy signal
-	 if (clr = '1') then
+	 if clr = '1' then
 	   busy_cnt := 0;
-    elsif (busy_prev = '0' and i2c_busy = '1') then  -- i2c busy just went high
-      busy_cnt := busy_cnt + 1;                  -- counts the times busy has gone from low to high during transaction
+    elsif en = '1' then
+		 
+		 busy_prev <= i2c_busy;                       -- capture previous i2c busy signal
+		 if (busy_prev = '0' and i2c_busy = '1') then  -- i2c busy just went high
+			busy_cnt := busy_cnt + 1;                  -- counts the times busy has gone from low to high during transaction
+		 end if;
+		 case busy_cnt is                             -- busy_cnt keeps track of which command we are on
+			when 0 =>                                  -- no command latched in yet
+			  i2c_ena <= '1';                          -- initiate the transaction
+			  i2c_addr <= slave_addr;                  -- set the address of the slave
+			  i2c_rw <= '0';                           -- command 1 is a write
+			  i2c_data_wr <= data_to_write;            -- data to be written
+			when 1 =>                                  -- 1st busy high: command 1 latched, okay to issue command 2
+			  i2c_rw <= '1';                           -- command 2 is a read (addr stays the same)
+			when 2 =>                                  -- 2nd busy high: command 2 latched, okay to issue command 3
+			  i2c_rw <= '0';                           -- command 3 is a write
+	--        i2c_data_wr <= new_data_to_write;        -- data to be written
+			  if(i2c_busy = '0') then                  -- indicates data read in command 2 is ready
+				 memory(1) <= i2c_data_rd;              -- retrieve data from command 2
+			  end if;
+			when 3 =>                                  -- 3rd busy high: command 3 latched, okay to issue command 4
+			  i2c_rw <= '1';                           -- command 4 is read (addr stays the same)
+			when 4 =>                                  -- 4th busy high: command 4 latched, ready to stop
+			  i2c_ena <= '0';                          -- deassert enable to stop transaction after command 4
+			  if(i2c_busy = '0') then                  -- indicates data read in command 4 is ready
+				 memory(2) <= i2c_data_rd;              -- retrieve data from command 4
+			 --   busy_cnt := 0;                         -- reset busy_cnt for next transaction
+           end if;
+         when others => null;
+       end case;
+		 	 
 	 end if;
-    case busy_cnt is                             -- busy_cnt keeps track of which command we are on
-      when 0 =>                                  -- no command latched in yet
-        i2c_ena <= '1';                          -- initiate the transaction
-        i2c_addr <= slave_addr;                  -- set the address of the slave
-        i2c_rw <= '0';                           -- command 1 is a write
-        i2c_data_wr <= data_to_write;            -- data to be written
-      when 1 =>                                  -- 1st busy high: command 1 latched, okay to issue command 2
-        i2c_rw <= '1';                           -- command 2 is a read (addr stays the same)
-      when 2 =>                                  -- 2nd busy high: command 2 latched, okay to issue command 3
-        i2c_rw <= '0';                           -- command 3 is a write
-        i2c_data_wr <= new_data_to_write;        -- data to be written
-        if(i2c_busy = '0') then                  -- indicates data read in command 2 is ready
-          memory(1) <= i2c_data_rd;              -- retrieve data from command 2
-        end if;
-      when 3 =>                                  -- 3rd busy high: command 3 latched, okay to issue command 4
-        i2c_rw <= '1';                           -- command 4 is read (addr stays the same)
-      when 4 =>                                  -- 4th busy high: command 4 latched, ready to stop
-        i2c_ena <= '0';                          -- deassert enable to stop transaction after command 4
-        if(i2c_busy = '0') then                  -- indicates data read in command 4 is ready
-          memory(2) <= i2c_data_rd;              -- retrieve data from command 4
-          --busy_cnt := 0;                         -- reset busy_cnt for next transaction
-        end if;
-      when others => null;
-    end case;
   end process;	
   
 
@@ -176,7 +185,14 @@ BEGIN
     end if;
   end process;
   Led(0) <= memory(0)(0);
-  Led(6 downto 3) <= "0000";
+  Led(1) <= i2c_ack_error;
+  Led(3 downto 2) <= "00";
   Led(7) <= sec;
+  
+  -- =============================
+  -- Debugging
+  -- =============================
+  an <= "0111";            -- only show MSB 
+  seg <= not(memory(1));   -- data byte to show
 
 END Behavioral;
